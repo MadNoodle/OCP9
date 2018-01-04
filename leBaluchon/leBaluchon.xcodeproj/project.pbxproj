@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		60C75CF90AD40D5E89DC5975 /* Pods_leBaluchon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAC2FC894DD4FBD8A6A0866 /* Pods_leBaluchon.framework */; };
+		B9ADEBDF1FFEBA4200C50F11 /* CurrencyServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */; };
 		B9D039BC1FFD738B00011D73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D039BB1FFD738B00011D73 /* AppDelegate.swift */; };
 		B9D039BE1FFD738B00011D73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D039BD1FFD738B00011D73 /* ViewController.swift */; };
 		B9D039C11FFD738B00011D73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D039BF1FFD738B00011D73 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		660C9B5FDBCB062D2A5F2855 /* Pods-leBaluchon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leBaluchon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-leBaluchon/Pods-leBaluchon.debug.xcconfig"; sourceTree = "<group>"; };
 		799F030D730601A6623FDC0D /* Pods-leBaluchonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leBaluchonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-leBaluchonTests/Pods-leBaluchonTests.release.xcconfig"; sourceTree = "<group>"; };
 		9300DEAAD8BEA5FE5805F102 /* Pods-leBaluchon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leBaluchon.release.xcconfig"; path = "Pods/Target Support Files/Pods-leBaluchon/Pods-leBaluchon.release.xcconfig"; sourceTree = "<group>"; };
+		B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceHelper.swift; sourceTree = "<group>"; };
 		B9D039B81FFD738B00011D73 /* leBaluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leBaluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D039BB1FFD738B00011D73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9D039BD1FFD738B00011D73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				B9D039FA1FFD9EF900011D73 /* CurrencyRate .swift */,
 				B9D039EF1FFD73DA00011D73 /* CurrencyService.swift */,
+				B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9ADEBDF1FFEBA4200C50F11 /* CurrencyServiceHelper.swift in Sources */,
 				B9D039F01FFD73DA00011D73 /* CurrencyService.swift in Sources */,
 				B9D039C41FFD738B00011D73 /* leBaluchon.xcdatamodeld in Sources */,
 				B9D039BE1FFD738B00011D73 /* ViewController.swift in Sources */,

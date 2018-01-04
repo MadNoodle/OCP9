@@ -16,14 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    // properties
     let currencyService = CurrencyService()
+    var calendar = Calendar.current
+    calendar.timeZone = .current
     let baseUrl = "https://api.fixer.io/latest?base="
     let base = "EUR"
     let final = "USD"
+    // launch fetch
     currencyService.fetchExchangeRate(apiUrl: baseUrl, from: base , to: final, completion: {(rate) in
       print("1 \(final) = \(rate.rate!) \(base)")
     })
+    //store update Date
+    currencyService.storeLastUpdateDate()
     return true
   }
 

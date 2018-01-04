@@ -48,6 +48,48 @@ class CurrencyService {
    
   }
 }
-}
+  /**
+   Stores last update time in User default
+ */
+  func storeLastUpdateDate() {
+    let date = Date()
+    let defaults: UserDefaults = UserDefaults.standard
+    defaults.set(date, forKey: "lastUpdate")
+  }
   
-
+  
+  /**
+  Compare last update date from userDefault and send true if interval is greater than one day or if it is later 4 pm (BCE update time).
+   - parameters:
+      - date: date stored in userDefaults
+      - actualDate: variable is Date() but used to test method
+   - returns: Bool
+   */
+  func verifyIfUpdateNeeded(since date:Date, to actualDate: Date) -> Bool {
+    var checkResult:Bool?
+    
+    let interval = date.interval(ofComponent: .day, fromDate: actualDate)
+    if interval >= 1 || verifyIfBankRatesUpdated(){
+      checkResult = true
+    } else {
+      checkResult =  false
+    }
+    return checkResult!
+  }
+  
+  /**
+   Method that check if it s later than 4 pm GMT (BCE update time)
+ */
+  func verifyIfBankRatesUpdated() -> Bool {
+    var checkResult:Bool?
+    var BCECalendar = Calendar.current
+    BCECalendar.timeZone = .current
+     let centralBankUpdateCheck = BCECalendar.component(.hour, from: Date())
+    if centralBankUpdateCheck >= 16{
+      checkResult = true
+    } else {
+      checkResult =  false
+    }
+    return checkResult!
+  }
+}

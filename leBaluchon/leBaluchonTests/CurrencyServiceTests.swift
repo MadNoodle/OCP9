@@ -7,11 +7,14 @@
 //
 
 import XCTest
+import Alamofire
 @testable import leBaluchon
 
 class CurrencyServiceTests: XCTestCase {
     let currencyService = CurrencyService()
     let baseUrl = "https://api.fixer.io/latest?base="
+    let defaults: UserDefaults = UserDefaults.standard
+    var calendar = Calendar.current
   
   func testCreateCurrencyRate(){
     let testDictionnary = ["USD" : 1.2]
@@ -43,5 +46,23 @@ class CurrencyServiceTests: XCTestCase {
       XCTAssertFalse(type(of: rate) == [String: Any ].self)
     })
   }
+  
+  func testUserDefaultStorage() {
+    currencyService.storeLastUpdateDate()
+    XCTAssert( defaults.object(forKey:"lastUpdate") as? Date != nil)
+  }
+  
+  func testIfOneDayHasPastSinceLast() {
+    let date = Date()
+    defaults.set(date + 86400, forKey:"lastUpdate")
+    let lastCurrencyUpdate = defaults.object(forKey:"lastUpdate") as! Date
+    let checkResult = currencyService.verifyIfUpdateNeeded(since: lastCurrencyUpdate, to: date)
+    XCTAssert(checkResult)
+  }
+  func testIfServerHasBeenUpdatedToday() {
+    calendar.timeZone = .current
+    XCTAssert(currencyService.verifyIfBankRatesUpdated())
+  }
+  
   }
 

@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '11.0'
+
+target 'leBaluchon' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for leBaluchon
+  pod 'Alamofire'
+
+  target 'leBaluchonTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'leBaluchonUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

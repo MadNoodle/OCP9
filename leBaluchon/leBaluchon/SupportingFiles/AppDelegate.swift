@@ -29,6 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     })
     //store update Date
     currencyService.storeLastUpdateDate()
+    let translationService = TranslationService()
+   let request = translationService.createRequestUrl(text: "bonjour tout le monde", from: "fr", to: "en")
+    translationService.fetchTranslation(translationUrl: request, completion: {(result) in
+      print(result?.text as! String)
+    })
+    translationService.detectLanguage(from: "bonjour", completion: {(language) in
+    print(language)}
+    )
+    WeatherService.fetchWeather(for:"London", completion: {(weather) in
+      print("Temperature in \(String(describing: weather.city!)) is \(String(describing: weather.temperature!)) °C")
+    })
     return true
   }
 

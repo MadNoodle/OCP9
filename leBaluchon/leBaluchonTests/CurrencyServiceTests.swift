@@ -61,7 +61,13 @@ class CurrencyServiceTests: XCTestCase {
   }
   func testIfServerHasBeenUpdatedToday() {
     calendar.timeZone = .current
-    XCTAssert(currencyService.verifyIfBankRatesUpdated())
+    let date = Date()
+    if calendar.component(.hour, from: date) >= 16 {
+      XCTAssert(currencyService.verifyIfBankRatesUpdated())
+      
+    } else{
+      XCTAssertFalse(currencyService.verifyIfBankRatesUpdated())
+    }
   }
   
   }

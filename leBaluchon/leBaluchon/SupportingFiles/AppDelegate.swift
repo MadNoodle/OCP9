@@ -17,29 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // properties
-    let currencyService = CurrencyService()
+  //  let currencyService = CurrencyService()
     var calendar = Calendar.current
     calendar.timeZone = .current
-    let baseUrl = "https://api.fixer.io/latest?base="
-    let base = "EUR"
-    let final = "USD"
-    // launch fetch
-    currencyService.fetchExchangeRate(apiUrl: baseUrl, from: base , to: final, completion: {(rate) in
-      print("1 \(final) = \(rate.rate!) \(base)")
-    })
-    //store update Date
-    currencyService.storeLastUpdateDate()
-    let translationService = TranslationService()
-   let request = translationService.createRequestUrl(text: "bonjour tout le monde", from: "fr", to: "en")
-    translationService.fetchTranslation(translationUrl: request, completion: {(result) in
-      print(result?.text as! String)
-    })
-    translationService.detectLanguage(from: "bonjour", completion: {(language) in
-    print(language)}
-    )
-    WeatherService.fetchWeather(for:"London", completion: {(weather) in
-      print("Temperature in \(String(describing: weather.city!)) is \(String(describing: weather.temperature!)) °C")
-    })
+//    let baseUrl = "https://api.fixer.io/latest?base="
+//    let base = "EUR"
+//    let final = "USD"
+//    // launch fetch
+//    currencyService.fetchExchangeRate(apiUrl: baseUrl, from: base , to: final, completion: {(rate) in
+//      print("1 \(final) = \(rate.rate!) \(base)")
+//    })
+//    //store update Date
+//    currencyService.storeLastUpdateDate()
+//    let translationService = TranslationService()
+//   let request = translationService.createRequestUrl(text: "bonjour tout le monde", from: "fr", to: "en")
+//    translationService.fetchTranslation(translationUrl: request, completion: {(result) in
+//      print(result?.text as! String)
+//    })
+//    translationService.detectLanguage(from: "bonjour", completion: {(language) in
+//    print(language)}
+//    )
+//    WeatherService.fetchWeather(for:"London", completion: {(weather) in
+//      print("Temperature in \(String(describing: weather.city!)) is \(String(describing: weather.temperature!)) °C")
+//    })
+
+    
+    UserSettings.saveSettings(newupdateTime: Date(), newHomeLanguage: "fr", newAwayLanguage: "en", newHomeCity: "Paris", newAwayCity: "NewYork")
+    print(UserSettings.loadUserSettings())
     return true
   }
 

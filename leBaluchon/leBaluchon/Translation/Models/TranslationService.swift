@@ -82,7 +82,7 @@ class TranslationService {
                 if let detections = data["detections"] as? [ Any] {
                   if let detection = detections[0] as? [Any]{
                   if let result = detection[0] as? [String:Any]{
-                    language = result["language"] as! String
+                    language = (result["language"] as! String)
                   }
                   }
                   

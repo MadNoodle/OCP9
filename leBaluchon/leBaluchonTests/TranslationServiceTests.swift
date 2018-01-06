@@ -50,4 +50,21 @@ class TranslationServiceTests: XCTestCase {
       }
     }
   }
+  func testDetectLanguage() {
+    let input = "bonjour tout le monde"
+    var result = ""
+    let ex = expectation(description: "language is french")
+    
+    translationService.detectLanguage(from: input, completion: {(language) in
+      result = language
+      XCTAssert(result == "fr")
+      ex.fulfill()
+    })
+    
+    waitForExpectations(timeout: 10) { (error) in
+      if let error = error {
+        XCTFail("error: \(error)")
+      }
+  }
+}
 }

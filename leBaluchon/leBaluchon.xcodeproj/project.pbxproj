@@ -10,13 +10,20 @@
 		60C75CF90AD40D5E89DC5975 /* Pods_leBaluchon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAC2FC894DD4FBD8A6A0866 /* Pods_leBaluchon.framework */; };
 		B952E8901FFFD5C000E0CC98 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B952E88F1FFFD5C000E0CC98 /* WeatherService.swift */; };
 		B952E8921FFFD5EC00E0CC98 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B952E8911FFFD5EC00E0CC98 /* CurrentWeather.swift */; };
+		B97F481120018603009FF140 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F481020018603009FF140 /* CustomTabBarController.swift */; };
+		B97F481420018921009FF140 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F481220018921009FF140 /* CurrencyViewController.swift */; };
+		B97F481520018921009FF140 /* CurrencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F481320018921009FF140 /* CurrencyViewController.xib */; };
+		B97F4818200190BB009FF140 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F4816200190BB009FF140 /* TranslationViewController.swift */; };
+		B97F4819200190BB009FF140 /* TranslationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F4817200190BB009FF140 /* TranslationViewController.xib */; };
+		B97F481C200190D8009FF140 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F481A200190D8009FF140 /* WeatherViewController.swift */; };
+		B97F481D200190D8009FF140 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F481B200190D8009FF140 /* WeatherViewController.xib */; };
+		B97F4820200190EB009FF140 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F481E200190EB009FF140 /* UserSettingsViewController.swift */; };
+		B97F4821200190EB009FF140 /* UserSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F481F200190EB009FF140 /* UserSettingsViewController.xib */; };
 		B9ADEBDF1FFEBA4200C50F11 /* CurrencyServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */; };
 		B9ADEBE21FFEE2ED00C50F11 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBE11FFEE2ED00C50F11 /* TranslationService.swift */; };
 		B9ADEBE41FFEE33D00C50F11 /* TranslationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBE31FFEE33D00C50F11 /* TranslationServiceTests.swift */; };
 		B9ADEBE61FFEEC6800C50F11 /* TranslationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBE51FFEEC6800C50F11 /* TranslationObject.swift */; };
 		B9D039BC1FFD738B00011D73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D039BB1FFD738B00011D73 /* AppDelegate.swift */; };
-		B9D039BE1FFD738B00011D73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D039BD1FFD738B00011D73 /* ViewController.swift */; };
-		B9D039C11FFD738B00011D73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D039BF1FFD738B00011D73 /* Main.storyboard */; };
 		B9D039C41FFD738B00011D73 /* leBaluchon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9D039C21FFD738B00011D73 /* leBaluchon.xcdatamodeld */; };
 		B9D039C61FFD738B00011D73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9D039C51FFD738B00011D73 /* Assets.xcassets */; };
 		B9D039C91FFD738B00011D73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D039C71FFD738B00011D73 /* LaunchScreen.storyboard */; };
@@ -59,14 +66,21 @@
 		9300DEAAD8BEA5FE5805F102 /* Pods-leBaluchon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leBaluchon.release.xcconfig"; path = "Pods/Target Support Files/Pods-leBaluchon/Pods-leBaluchon.release.xcconfig"; sourceTree = "<group>"; };
 		B952E88F1FFFD5C000E0CC98 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		B952E8911FFFD5EC00E0CC98 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		B97F481020018603009FF140 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		B97F481220018921009FF140 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		B97F481320018921009FF140 /* CurrencyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyViewController.xib; sourceTree = "<group>"; };
+		B97F4816200190BB009FF140 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		B97F4817200190BB009FF140 /* TranslationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranslationViewController.xib; sourceTree = "<group>"; };
+		B97F481A200190D8009FF140 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		B97F481B200190D8009FF140 /* WeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
+		B97F481E200190EB009FF140 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
+		B97F481F200190EB009FF140 /* UserSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSettingsViewController.xib; sourceTree = "<group>"; };
 		B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceHelper.swift; sourceTree = "<group>"; };
 		B9ADEBE11FFEE2ED00C50F11 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		B9ADEBE31FFEE33D00C50F11 /* TranslationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationServiceTests.swift; sourceTree = "<group>"; };
 		B9ADEBE51FFEEC6800C50F11 /* TranslationObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationObject.swift; sourceTree = "<group>"; };
 		B9D039B81FFD738B00011D73 /* leBaluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = leBaluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D039BB1FFD738B00011D73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B9D039BD1FFD738B00011D73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B9D039C01FFD738B00011D73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B9D039C31FFD738B00011D73 /* leBaluchon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = leBaluchon.xcdatamodel; sourceTree = "<group>"; };
 		B9D039C51FFD738B00011D73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9D039C81FFD738B00011D73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -151,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				B9F9E6A120003C3B00917C58 /* Models */,
+				B97F481A200190D8009FF140 /* WeatherViewController.swift */,
+				B97F481B200190D8009FF140 /* WeatherViewController.xib */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -159,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				B952E88D1FFFD5A300E0CC98 /* Models */,
+				B97F4816200190BB009FF140 /* TranslationViewController.swift */,
+				B97F4817200190BB009FF140 /* TranslationViewController.xib */,
 			);
 			path = Translation;
 			sourceTree = "<group>";
@@ -193,9 +211,8 @@
 				B9ADEBE01FFEE2D700C50F11 /* Translation */,
 				B9D039F51FFD980200011D73 /* Currency */,
 				B9D039EE1FFD73B400011D73 /* SupportingFiles */,
-				B9D039BD1FFD738B00011D73 /* ViewController.swift */,
-				B9D039BF1FFD738B00011D73 /* Main.storyboard */,
 				B9D039CA1FFD738B00011D73 /* Info.plist */,
+				B97F481020018603009FF140 /* CustomTabBarController.swift */,
 			);
 			path = leBaluchon;
 			sourceTree = "<group>";
@@ -236,6 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				B9D039F71FFD981400011D73 /* Models */,
+				B97F481220018921009FF140 /* CurrencyViewController.swift */,
+				B97F481320018921009FF140 /* CurrencyViewController.xib */,
 			);
 			path = Currency;
 			sourceTree = "<group>";
@@ -264,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				B9F9E6A32000BF8A00917C58 /* UserSettings.swift */,
+				B97F481E200190EB009FF140 /* UserSettingsViewController.swift */,
+				B97F481F200190EB009FF140 /* UserSettingsViewController.xib */,
 			);
 			path = UserSettings;
 			sourceTree = "<group>";
@@ -385,9 +406,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B97F481D200190D8009FF140 /* WeatherViewController.xib in Resources */,
+				B97F4819200190BB009FF140 /* TranslationViewController.xib in Resources */,
+				B97F4821200190EB009FF140 /* UserSettingsViewController.xib in Resources */,
+				B97F481520018921009FF140 /* CurrencyViewController.xib in Resources */,
 				B9D039C91FFD738B00011D73 /* LaunchScreen.storyboard in Resources */,
 				B9D039C61FFD738B00011D73 /* Assets.xcassets in Resources */,
-				B9D039C11FFD738B00011D73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,15 +575,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9ADEBE61FFEEC6800C50F11 /* TranslationObject.swift in Sources */,
+				B97F481C200190D8009FF140 /* WeatherViewController.swift in Sources */,
 				B9F9E6A42000BF8A00917C58 /* UserSettings.swift in Sources */,
 				B952E8901FFFD5C000E0CC98 /* WeatherService.swift in Sources */,
+				B97F4820200190EB009FF140 /* UserSettingsViewController.swift in Sources */,
+				B97F481120018603009FF140 /* CustomTabBarController.swift in Sources */,
 				B9ADEBDF1FFEBA4200C50F11 /* CurrencyServiceHelper.swift in Sources */,
 				B9D039F01FFD73DA00011D73 /* CurrencyService.swift in Sources */,
 				B9D039C41FFD738B00011D73 /* leBaluchon.xcdatamodeld in Sources */,
-				B9D039BE1FFD738B00011D73 /* ViewController.swift in Sources */,
 				B952E8921FFFD5EC00E0CC98 /* CurrentWeather.swift in Sources */,
+				B97F4818200190BB009FF140 /* TranslationViewController.swift in Sources */,
 				B9D039BC1FFD738B00011D73 /* AppDelegate.swift in Sources */,
 				B9ADEBE21FFEE2ED00C50F11 /* TranslationService.swift in Sources */,
+				B97F481420018921009FF140 /* CurrencyViewController.swift in Sources */,
 				B9F9E6A020003C2200917C58 /* CurrentWeather+codes.swift in Sources */,
 				B9D039FB1FFD9EF900011D73 /* CurrencyRate .swift in Sources */,
 			);
@@ -600,14 +628,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B9D039BF1FFD738B00011D73 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B9D039C01FFD738B00011D73 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B9D039C71FFD738B00011D73 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

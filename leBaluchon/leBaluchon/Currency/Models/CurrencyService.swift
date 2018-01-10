@@ -20,7 +20,7 @@ class CurrencyService {
   /**
    this function uses Alamofire framework to make Webrequest. and fetch Data in a CurrenyRate Object
  */
-  func fetchExchangeRate(apiUrl: String,from base: String, to final: String, completion: @escaping (_ currency: CurrencyRate) -> Void) {
+  static func fetchExchangeRate(apiUrl: String,from base: String, to final: String, completion: @escaping (_ currency: CurrencyRate) -> Void) {
     let requestUrl = apiUrl + base
     var rate: CurrencyRate?
     // Make the call async to separate from UI calls
@@ -51,7 +51,7 @@ class CurrencyService {
   /**
    Stores last update time in User default
  */
-  func storeLastUpdateDate() {
+   static func storeLastUpdateDate() {
     let date = Date()
     let defaults: UserDefaults = UserDefaults.standard
     defaults.set(date, forKey: "lastUpdate")
@@ -60,15 +60,14 @@ class CurrencyService {
   
   /**
   Compare last update date from userDefault and send true if interval is greater than one day or if it is later 4 pm (BCE update time).
-   - parameters:
-      - date: date stored in userDefaults
-      - actualDate: variable is Date() but used to test method
    - returns: Bool
    */
-  func verifyIfUpdateNeeded(since date:Date, to actualDate: Date) -> Bool {
+
+   static func verifyIfUpdateNeeded() -> Bool {
     var checkResult:Bool?
-    
-    let interval = date.interval(ofComponent: .day, fromDate: actualDate)
+    let lastUpdate = UserSettings.loadUserSettings()
+    let date = lastUpdate["lastUpdate"]! as! Date
+    let interval = date.interval(ofComponent: .day, fromDate: Date())
     if interval >= 1 || verifyIfBankRatesUpdated(){
       checkResult = true
     } else {
@@ -80,7 +79,7 @@ class CurrencyService {
   /**
    Method that check if it s later than 4 pm GMT (BCE update time)
  */
-  func verifyIfBankRatesUpdated() -> Bool {
+   static func verifyIfBankRatesUpdated() -> Bool {
     var checkResult:Bool?
     var BCECalendar = Calendar.current
     BCECalendar.timeZone = .current

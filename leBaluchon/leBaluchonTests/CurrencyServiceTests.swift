@@ -11,7 +11,6 @@ import Alamofire
 @testable import leBaluchon
 
 class CurrencyServiceTests: XCTestCase {
-    let currencyService = CurrencyService()
     let baseUrl = "https://api.fixer.io/latest?base="
     let defaults: UserDefaults = UserDefaults.standard
     var calendar = Calendar.current
@@ -25,7 +24,7 @@ class CurrencyServiceTests: XCTestCase {
   func testSuccesfullConnexionToCurrencyRemoteService() {
     let ex = expectation(description: "currency name should be BGP & rate different from 0.0")
     
-    currencyService.fetchExchangeRate(apiUrl: baseUrl, from: "USD", to: "GBP", completion: {(rate)  in
+    CurrencyService.fetchExchangeRate(apiUrl: baseUrl, from: "USD", to: "GBP", completion: {(rate)  in
       XCTAssert(rate.currency == "GBP")
       XCTAssert(rate.rate != 0.0)
       ex.fulfill()
@@ -41,32 +40,25 @@ class CurrencyServiceTests: XCTestCase {
   
   func testFailConnexionToCurrencyRemoteService() {
    
-    currencyService.fetchExchangeRate(apiUrl: "", from: "USD", to: "GBP", completion: {(rate)  in
+    CurrencyService.fetchExchangeRate(apiUrl: "", from: "USD", to: "GBP", completion: {(rate)  in
       XCTAssertFalse(rate.currency == "GBP")
       XCTAssertFalse(type(of: rate) == [String: Any ].self)
     })
   }
   
   func testUserDefaultStorage() {
-    currencyService.storeLastUpdateDate()
+    CurrencyService.storeLastUpdateDate()
     XCTAssert( defaults.object(forKey:"lastUpdate") as? Date != nil)
   }
   
-  func testIfOneDayHasPastSinceLast() {
-    let date = Date()
-    defaults.set(date + 86400, forKey:"lastUpdate")
-    let lastCurrencyUpdate = defaults.object(forKey:"lastUpdate") as! Date
-    let checkResult = currencyService.verifyIfUpdateNeeded(since: lastCurrencyUpdate, to: date)
-    XCTAssert(checkResult)
-  }
   func testIfServerHasBeenUpdatedToday() {
     calendar.timeZone = .current
     let date = Date()
     if calendar.component(.hour, from: date) >= 16 {
-      XCTAssert(currencyService.verifyIfBankRatesUpdated())
+      XCTAssert(CurrencyService.verifyIfBankRatesUpdated())
       
     } else{
-      XCTAssertFalse(currencyService.verifyIfBankRatesUpdated())
+      XCTAssertFalse(CurrencyService.verifyIfBankRatesUpdated())
     }
   }
   

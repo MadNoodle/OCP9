@@ -69,6 +69,7 @@ struct WeatherService {
                       if let condition = item["condition"] as? [String : Any]{
                         // Actual dataObject to return
                         weather = CurrentWeather(dictionnary: condition, for: location)
+                        
                       }
                     }
                   }

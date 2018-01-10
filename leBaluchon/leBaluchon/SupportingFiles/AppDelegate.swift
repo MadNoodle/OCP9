@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
     var calendar = Calendar.current
     calendar.timeZone = .current
-    print(CurrencyService.verifyIfUpdateNeeded())
+  
     return true
   }
 

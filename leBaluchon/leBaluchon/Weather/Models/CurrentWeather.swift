@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /**
  Data model for weather info fetched from Yahoo Weather API
@@ -15,13 +16,14 @@ class CurrentWeather {
   let city: String?
   let temperature: String?
   let conditions: String?
-  let specials: Int?
+
+  let iconCode: String?
   
   init(dictionnary: [String: Any],for city: String){
     self.city = city
     temperature = dictionnary["temp"] as? String
     conditions = dictionnary["text"] as? String
-    specials = dictionnary["code"] as? Int
+    iconCode = dictionnary["code"] as? String
   }
 }
 

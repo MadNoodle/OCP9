@@ -17,9 +17,9 @@ class CustomTabBarController: UITabBarController {
     let settingsVc = UserSettingsViewController()
     
     viewControllers = [
+      createTabBarItem("Weather", imageName: "weather", for: weatherVc),
       createTabBarItem("Currency", imageName: "currency", for: currencyVc),
       createTabBarItem("Translation", imageName: "translation", for: translationVc),
-      createTabBarItem("Weather", imageName: "weather", for: weatherVc),
       createTabBarItem("Settings", imageName: "settings", for: settingsVc)
     ]
   }

@@ -51,6 +51,12 @@ class CurrencyServiceTests: XCTestCase {
     XCTAssert( defaults.object(forKey:"lastUpdate") as? Date != nil)
   }
   
+  func testIfneedToUpdate() {
+    calendar.timeZone = .current
+    let update = Date() + 86400
+    let result = CurrencyService.verifyIfUpdateNeeded(lastUpdate : update)
+    XCTAssert(result)
+  }
   func testIfServerHasBeenUpdatedToday() {
     calendar.timeZone = .current
     let date = Date()

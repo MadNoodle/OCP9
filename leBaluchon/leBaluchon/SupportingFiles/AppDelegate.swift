@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
     var calendar = Calendar.current
     calendar.timeZone = .current
+    
+
+  //print(selectedAway)
   
     return true
   }

@@ -16,7 +16,8 @@ import Alamofire
  https://github.com/hakanensari/fixer/
  */
 class CurrencyService {
-  
+  static let lastUpdate = UserSettings.loadUserSettings()
+  static let date = lastUpdate["lastUpdate"]! as! Date
   /**
    this function uses Alamofire framework to make Webrequest. and fetch Data in a CurrenyRate Object
  */
@@ -63,11 +64,10 @@ class CurrencyService {
    - returns: Bool
    */
 
-   static func verifyIfUpdateNeeded() -> Bool {
+  static func verifyIfUpdateNeeded(lastUpdate: Date) -> Bool {
     var checkResult:Bool?
-    let lastUpdate = UserSettings.loadUserSettings()
-    let date = lastUpdate["lastUpdate"]! as! Date
-    let interval = date.interval(ofComponent: .day, fromDate: Date())
+    
+    let interval = lastUpdate.interval(ofComponent: .day, fromDate: Date())
     if interval >= 1 || verifyIfBankRatesUpdated(){
       checkResult = true
     } else {

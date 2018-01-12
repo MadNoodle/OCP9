@@ -18,9 +18,10 @@ class UserSettings {
   static var awayLanguage = ""
   static var homeCity = ""
   static var awayCity = ""
+
   
   // stores data in user defaults
-  static func saveSettings(newupdateTime: Date,newHomeLanguage: String,newAwayLanguage: String,newHomeCity: String, newAwayCity: String){
+  static func saveSettings(newupdateTime: Date,newHomeLanguage: Int,newAwayLanguage: String,newHomeCity: Int, newAwayCity: String){
     defaults.set(newupdateTime,forKey:"lastUpdate")
     defaults.set(newHomeLanguage,forKey:"homeLanguage")
     defaults.set(newAwayLanguage,forKey:"AwayLanguage")
@@ -31,12 +32,24 @@ class UserSettings {
   // Loads settings from UserDefaults to a dictionnary
   static func loadUserSettings() -> [String : Any]{
     let settings : [String:Any] = [
-      "homeLanguage":  defaults.object(forKey:"homeLanguage") as! String,
-      "AwayLanguage":  defaults.object(forKey:"AwayLanguage") as! String,
+      "homeLanguage":  defaults.object(forKey:"homeLanguage") as! Int,
+      "AwayLanguage":  defaults.object(forKey:"AwayLanguage") as! Int,
       "homeCity":     defaults.object(forKey:"homeCity") as! String,
       "AwayCity":     defaults.object(forKey:"AwayCity") as! String,
       "lastUpdate": defaults.object(forKey:"lastUpdate") as! Date
     ]
     return settings
+  }
+  
+
+  static func  saveData(displayKey:String, value:String, indexKey:String, index:Int) {
+    defaults.set(value,forKey: displayKey)
+    defaults.set(index,forKey: indexKey)
+  }
+  
+  static func  loadData(displayKey:String, indexKey:String) -> (Int,Int) {
+    let strValue = defaults.integer(forKey:displayKey)
+    let indxValue = defaults.integer(forKey:indexKey)
+    return (strValue,indxValue)
   }
 }

@@ -45,5 +45,10 @@ class WeatherServiceTests: XCTestCase {
       }
     }
   }
-
+  func testCodeRetrieving(){
+    let string = "24"
+    let result = WeatherCodeConverter.FindConditions(for: string)
+    XCTAssert(result == "wind")
+    
+  }
 }

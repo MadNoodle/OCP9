@@ -104,13 +104,13 @@ struct CurrencyConverter {
    the operation can be + or - for the moment
    
    */
-  mutating func convert() -> Double {
+  mutating func convert(rate:Double) -> Double {
     var total: Double = 0
     // slices the memorized number
-    for (i, stringNumber) in stringNumbers.enumerated() {
+    for stringNumber in stringNumbers {
       //Convert string into Int to calculate
       if let number = Double(stringNumber) {
-        total = number * currencyAway!
+        total = number * rate
       }
     }
     clear()

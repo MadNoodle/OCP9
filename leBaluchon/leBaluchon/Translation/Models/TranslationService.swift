@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class TranslationService {
-  private static let API_KEY = "AIzaSyDBiXmXXpi5D2I0QIb0buMGNZgxXnD0X2k"
+  static private let API_KEY = "AIzaSyDBiXmXXpi5D2I0QIb0buMGNZgxXnD0X2k"
   
   /**
    Create the url request from a String a base language and final language

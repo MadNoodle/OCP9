@@ -34,18 +34,21 @@ class UserSettingsViewController: UIViewController {
   @IBOutlet weak var BLang: UILabel!
   @IBOutlet weak var BCurrency: UILabel!
   
+
   // MARK: - LifeCycle methods
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Settings"
+    updateUI()
   }
   
+
   override func viewWillAppear(_ animated: Bool) {
-    awayLanguage = languageListVc.away
-    homeLanguage = languageListVc.home
+    updateUI()
+    
+    // Receive value
     selectedHome = languageListVc.selectedHome
     selectedAway = languageListVc.selectedAway
-    ALang.text = awayLanguage
   }
   
   
@@ -71,5 +74,21 @@ class UserSettingsViewController: UIViewController {
   @IBAction func goToHomeCurrencySettings(_ sender: UIButton) {
     currencyListVc.initDetail(bgColor: #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1), txtSelect: #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4078431373, alpha: 1), destination: "home")
     navigationController?.pushViewController(currencyListVc, animated: true)
+  }
+  
+  private func updateUI() {
+    updateLabel(ALang, for: "awayLanguage")
+    updateLabel(BLang, for: "homeLanguage")
+    updateLabel(ACurrency, for: "awayCurrency")
+    updateLabel(BCurrency, for: "homeCurrency")
+  }
+  
+  func updateLabel(_ label: UILabel, for key: String){
+    if let text = UserSettings.defaults.object(forKey: key) as! String!
+    {
+      DispatchQueue.main.async {
+        label.text = text
+      }
+    }
   }
 }

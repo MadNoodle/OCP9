@@ -41,12 +41,20 @@ class UserSettings {
     return settings
   }
   
-
+  static func saveDate(newupdateTime: Date){
+    defaults.set(newupdateTime,forKey:"lastUpdate")
+  }
+  
+  static func loadDate() -> Date {
+    return  defaults.object(forKey:"lastUpdate") as! Date
+  }
+// a tester
   static func  saveData(displayKey:String, value:String, indexKey:String, index:Int) {
     defaults.set(value,forKey: displayKey)
     defaults.set(index,forKey: indexKey)
   }
   
+  // a tester
   static func  loadData(displayKey:String, indexKey:String) -> (Int,Int) {
     let strValue = defaults.integer(forKey:displayKey)
     let indxValue = defaults.integer(forKey:indexKey)

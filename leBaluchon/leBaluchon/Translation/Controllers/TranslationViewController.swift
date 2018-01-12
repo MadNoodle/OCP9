@@ -9,6 +9,7 @@
 import UIKit
 
 class TranslationViewController: UIViewController,UITextFieldDelegate {
+  
   // Initialize Translation Service
   let translationService = TranslationService()
   // Load Data from Userdefault
@@ -30,74 +31,54 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
   var originalConstraint: CGFloat = 0
   
   // MARK: - LifeCycle Methods
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Translation"
-    inputTextField.delegate = self
+    inputFieldSetup()
+    topTextViewSetup()
     loadLanguageSettings()
+    
     //Observe when keyboard appears and trigger the animation up
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
   }
   
   
   override func viewWillAppear(_ animated: Bool) {
+    inputFieldSetup()
+    topTextViewSetup()
     loadLanguageSettings()
   }
   
-  // MARK: - Keyboard folding methods
-  @objc func keyboardWillShow(notification: NSNotification){
-    if let info = notification.userInfo{
-      //grab CGRect size of keybaord
-      let rect : CGRect = info["UIKeyboardFrameEndUserInfoKey"] as! CGRect
-      self.view.layoutIfNeeded()
-      self.topView.isHidden = true
-      //animating stack view up
-      UIView.animate(withDuration: 0.25 , animations: {
-        self.view.layoutIfNeeded()
-        //self.topView.isHidden = true
-        self.bottomConstraint.constant = rect.height - 50
-      })
-    }
+  func inputFieldSetup() {
+    inputTextField.delegate = self
+    inputTextField.font = UIFont(name: "Montserrrat-Regular.otf", size: 17.0)
+    inputTextField.textAlignment = .left
+    let inputSentence = "Type your text here"
+    let url = translationService.createRequestUrl(text: inputSentence, from: "en", to: homeLanguage.text!)
+    translationService.fetchTranslation(translationUrl: url, completion: {(result) in
+      self.inputTextField.attributedPlaceholder = NSAttributedString(string: result!.text, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+    })
   }
   
-  func resetStackViewToOriginal() {
-    UIView.animate(withDuration: 0.25 , animations: {
-      self.topView.isHidden = false
-      self.bottomConstraint.constant = self.originalConstraint
-      self.view.layoutIfNeeded()
-    })}
-  
-  // MARK: - TextField Delegate Methods
-  
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    translate()
-    resetTextField()
-    self.view.endEditing(true)
+  func topTextViewSetup(){
+    let translationSentence = "Your translation will appear here"
+    let url = translationService.createRequestUrl(text: translationSentence, from: "en", to: homeLanguage.text!)
+    translationService.fetchTranslation(translationUrl: url, completion: {(result) in
+      self.translationContainer.text = result!.text
+    })
   }
   
-  func textFieldDidEndEditing(_ textField: UITextField) {
-   
-    resetTextField()
-  }
-  
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    translate()
-    resetTextField()
-    return (true)
-  }
-  
-  private func resetTextField() {
-    inputTextField.resignFirstResponder()
-    self.view.layoutIfNeeded()
-    resetStackViewToOriginal()
-  }
-  
-  func translate() {
-    let url = translationService.createRequestUrl(text: inputTextField.text!, from: homeLanguage.text!, to: awayLanguage.text!)
+  func translate(_ text: String) {
+    let url = translationService.createRequestUrl(text: text, from: homeLanguage.text!, to: awayLanguage.text!)
     translationService.fetchTranslation(translationUrl: url, completion: {(result) in
       self.translationContainer.text  = result!.text
     })
-   
   }
+  
+  
+
+  
   
 }

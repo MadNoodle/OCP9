@@ -19,7 +19,7 @@ class TranslationService {
     guard
       let urlEncodedText = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return ""}
     let url =  "https://www.googleapis.com/language/translate/v2?key=\(TranslationService.API_KEY)&q=\(urlEncodedText)&source=\(source)&target=\(target)"
-    print(url)
+ 
     return url
   }
   
@@ -37,23 +37,21 @@ class TranslationService {
         case .success:
           print("Validation Successful")
           Alamofire.request(translationUrl).responseJSON { (response) in
-            
-            
             if let json =  response.result.value as? [String : Any] {
-              //print(json)
               if let data = json["data"] as? [String : Any]{
                 if let translations = data["translations"] as? [ Any] {
                   if let text = translations[0] as? [String:Any]{
                     result = TranslationObject(text: text["translatedText"] as! String)
                   }
-                  
                 }
               }
             }
             completion(result)
           }
         case .failure(let error):
-          print(error)
+          print(error.localizedDescription)
+          result = TranslationObject(text: "Error")
+          completion(result)
         }
       }
     }
@@ -77,7 +75,7 @@ class TranslationService {
           print("Validation Successful")
           Alamofire.request(request).responseJSON { (response) in
             if let json =  response.result.value as? [String : Any] {
-             print(json)
+         
               if let data = json["data"] as? [String : Any]{
                 if let detections = data["detections"] as? [ Any] {
                   if let detection = detections[0] as? [Any]{
@@ -93,7 +91,9 @@ class TranslationService {
            
           }
         case .failure(let error):
-          print(error)
+          print(error.localizedDescription)
+         language = "error"
+         completion(language!)
         }
       }
     }  }

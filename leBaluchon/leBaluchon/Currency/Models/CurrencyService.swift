@@ -43,7 +43,8 @@ class CurrencyService {
       }
           case .failure(let error):
             rate = CurrencyRate(currencyDictionnary: ["error fetching Data":""], to: final)
-          print(error)
+          print(error.localizedDescription)
+          completion(rate!)
       }
     }
    

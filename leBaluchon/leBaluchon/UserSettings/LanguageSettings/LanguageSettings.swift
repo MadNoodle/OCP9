@@ -77,10 +77,8 @@ class LanguageSettings: UITableViewController {
   
   override func viewWillDisappear(_ animated: Bool){
     if source == "home" {
-      //print(selectedHome)
       UserSettings.saveData(displayKey: homeDisplayKey, value: home!, indexKey: homeIndexKey, index: selectedHome!)
     } else {
-      //print(selectedAway)
       UserSettings.saveData(displayKey: awayDisplayKey, value: away!, indexKey: awayIndexKey, index: selectedAway!)
     }
     
@@ -120,7 +118,6 @@ class LanguageSettings: UITableViewController {
     } else {
       home = ""
       away = dataSet[indexPath.row][value]!
-      print(away)
       selectedAway = indexPath.row
     }
     let cell = tableView.cellForRow(at: indexPath)

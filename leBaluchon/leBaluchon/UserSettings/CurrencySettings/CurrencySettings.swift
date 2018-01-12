@@ -77,10 +77,8 @@ class CurrencySettings: UITableViewController {
   
   override func viewWillDisappear(_ animated: Bool){
     if source == "home" {
-      //print(selectedHome)
       UserSettings.saveData(displayKey: homeDisplayKey, value: home!, indexKey: homeIndexKey, index: selectedHome!)
     } else {
-      //print(selectedAway)
       UserSettings.saveData(displayKey: awayDisplayKey, value: away!, indexKey: awayIndexKey, index: selectedAway!)
     }
     

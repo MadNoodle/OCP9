@@ -10,6 +10,8 @@
 		60C75CF90AD40D5E89DC5975 /* Pods_leBaluchon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BAC2FC894DD4FBD8A6A0866 /* Pods_leBaluchon.framework */; };
 		B952E8901FFFD5C000E0CC98 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B952E88F1FFFD5C000E0CC98 /* WeatherService.swift */; };
 		B952E8921FFFD5EC00E0CC98 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B952E8911FFFD5EC00E0CC98 /* CurrentWeather.swift */; };
+		B95FDBFC20097B8A008D7D67 /* TranslationViewController+keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FDBFB20097B8A008D7D67 /* TranslationViewController+keyboard.swift */; };
+		B95FDBFE20097BC8008D7D67 /* TranslationViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FDBFD20097BC8008D7D67 /* TranslationViewController+TextField.swift */; };
 		B97F481120018603009FF140 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F481020018603009FF140 /* CustomTabBarController.swift */; };
 		B97F481420018921009FF140 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F481220018921009FF140 /* CurrencyViewController.swift */; };
 		B97F481520018921009FF140 /* CurrencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F481320018921009FF140 /* CurrencyViewController.xib */; };
@@ -76,6 +78,8 @@
 		9300DEAAD8BEA5FE5805F102 /* Pods-leBaluchon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-leBaluchon.release.xcconfig"; path = "Pods/Target Support Files/Pods-leBaluchon/Pods-leBaluchon.release.xcconfig"; sourceTree = "<group>"; };
 		B952E88F1FFFD5C000E0CC98 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		B952E8911FFFD5EC00E0CC98 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		B95FDBFB20097B8A008D7D67 /* TranslationViewController+keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationViewController+keyboard.swift"; sourceTree = "<group>"; };
+		B95FDBFD20097BC8008D7D67 /* TranslationViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationViewController+TextField.swift"; sourceTree = "<group>"; };
 		B97F481020018603009FF140 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		B97F481220018921009FF140 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		B97F481320018921009FF140 /* CurrencyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyViewController.xib; sourceTree = "<group>"; };
@@ -191,12 +195,30 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		B95FDBFF20097BEF008D7D67 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B97F4816200190BB009FF140 /* TranslationViewController.swift */,
+				B95FDBFB20097B8A008D7D67 /* TranslationViewController+keyboard.swift */,
+				B95FDBFD20097BC8008D7D67 /* TranslationViewController+TextField.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B95FDC0020097BFC008D7D67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B97F4817200190BB009FF140 /* TranslationViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B9ADEBE01FFEE2D700C50F11 /* Translation */ = {
 			isa = PBXGroup;
 			children = (
+				B95FDC0020097BFC008D7D67 /* View */,
 				B952E88D1FFFD5A300E0CC98 /* Models */,
-				B97F4816200190BB009FF140 /* TranslationViewController.swift */,
-				B97F4817200190BB009FF140 /* TranslationViewController.xib */,
+				B95FDBFF20097BEF008D7D67 /* Controllers */,
 			);
 			path = Translation;
 			sourceTree = "<group>";
@@ -653,11 +675,13 @@
 				B9CC52C320075B1400E3B447 /* Languages.swift in Sources */,
 				B9D039F01FFD73DA00011D73 /* CurrencyService.swift in Sources */,
 				B9D039C41FFD738B00011D73 /* leBaluchon.xcdatamodeld in Sources */,
+				B95FDBFC20097B8A008D7D67 /* TranslationViewController+keyboard.swift in Sources */,
 				B952E8921FFFD5EC00E0CC98 /* CurrentWeather.swift in Sources */,
 				B97F4818200190BB009FF140 /* TranslationViewController.swift in Sources */,
 				B9D039BC1FFD738B00011D73 /* AppDelegate.swift in Sources */,
 				B9ADEBE21FFEE2ED00C50F11 /* TranslationService.swift in Sources */,
 				B9CC52B62006CB6200E3B447 /* CurrencyConverter.swift in Sources */,
+				B95FDBFE20097BC8008D7D67 /* TranslationViewController+TextField.swift in Sources */,
 				B97F481420018921009FF140 /* CurrencyViewController.swift in Sources */,
 				B9F9E6A020003C2200917C58 /* WeatherCodeConverter.swift in Sources */,
 				B9D039FB1FFD9EF900011D73 /* CurrencyRate .swift in Sources */,

@@ -18,7 +18,7 @@ class UserSettings {
   static var awayLanguage = ""
   static var homeCity = ""
   static var awayCity = ""
-
+  
   
   // stores data in user defaults
   static func saveSettings(newupdateTime: Date,newHomeLanguage: Int,newAwayLanguage: String,newHomeCity: Int, newAwayCity: String){
@@ -48,7 +48,7 @@ class UserSettings {
   static func loadDate() -> Date {
     return  defaults.object(forKey:"lastUpdate") as! Date
   }
-// a tester
+  // a tester
   static func  saveData(displayKey:String, value:String, indexKey:String, index:Int) {
     defaults.set(value,forKey: displayKey)
     defaults.set(index,forKey: indexKey)

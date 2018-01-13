@@ -16,8 +16,8 @@ import Alamofire
  https://github.com/hakanensari/fixer/
  */
 class CurrencyService {
-  static let lastUpdate = UserSettings.loadUserSettings()
-  static let date = lastUpdate["lastUpdate"]! as! Date
+ 
+  static let date = UserSettings.loadUpdateDate()
   /**
    this function uses Alamofire framework to make Webrequest. and fetch Data in a CurrenyRate Object
  */

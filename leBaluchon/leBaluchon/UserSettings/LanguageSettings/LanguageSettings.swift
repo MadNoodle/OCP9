@@ -70,7 +70,6 @@ class LanguageSettings: UITableViewController {
     } else {
       selectedAway = UserSettings.loadData(displayKey: awayDisplayKey, indexKey: awayIndexKey).1
       away = dataSet[selectedAway!][value]!
-      print(away)
       selectRow(selectedAway!)
     }
   }

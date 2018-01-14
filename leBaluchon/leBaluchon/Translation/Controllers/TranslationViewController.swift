@@ -12,11 +12,8 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
   
   // Initialize Translation Service
   let translationService = TranslationService()
-  // Load Data from Userdefault
-  private func loadLanguageSettings() {
-    homeLanguage.text = UserSettings.defaults.object(forKey: "homeLanguage") as! String!
-    awayLanguage.text = UserSettings.defaults.object(forKey: "awayLanguage") as! String!
-  }
+  var autodetect = false
+  
   
   // MARK: - OUTLETS
   @IBOutlet weak var stackView: UIStackView!
@@ -51,6 +48,50 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
     loadLanguageSettings()
   }
   
+  // MARK: - ACTIONS
+  @IBAction func toggleAutodetection(_ sender: UISwitch) {
+    if sender.isOn {
+      autodetect = true
+    } else {
+      autodetect = false
+    }
+  }
+  
+  
+  
+  // MARK : - Methods
+  // Load Data from Userdefault
+  private func loadLanguageSettings() {
+    homeLanguage.text = UserSettings.defaults.object(forKey: "homeLanguage") as! String!
+    awayLanguage.text = UserSettings.defaults.object(forKey: "awayLanguage") as! String!
+  }
+  fileprivate func fetchTranslationforUrl(_ url: String) {
+    translationService.fetchTranslation(translationUrl: url, completion: {(result) in
+      self.translationContainer.text  = result!.text
+    })
+  }
+  
+  func translate(_ text: String) {
+    var url = ""
+    if autodetect {
+      translationService.detectLanguage(from: text, completion: {(language) in
+        
+        url = self.translationService.createRequestUrl(text: text, from: String(language), to: self.awayLanguage.text!)
+        self.fetchTranslationforUrl(url)
+        self.homeLanguage.text! = String(language)
+      })
+      
+    } else{
+      url = translationService.createRequestUrl(text: text, from: homeLanguage.text!, to: awayLanguage.text!)
+      fetchTranslationforUrl(url)
+    }
+    
+    
+    
+  }
+  
+  // MARK: - UI Setup Methods
+  
   func inputFieldSetup() {
     inputTextField.delegate = self
     inputTextField.font = UIFont(name: "Montserrrat-Regular.otf", size: 17.0)
@@ -69,16 +110,6 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
       self.translationContainer.text = result!.text
     })
   }
-  
-  func translate(_ text: String) {
-    let url = translationService.createRequestUrl(text: text, from: homeLanguage.text!, to: awayLanguage.text!)
-    translationService.fetchTranslation(translationUrl: url, completion: {(result) in
-      self.translationContainer.text  = result!.text
-    })
-  }
-  
-  
-
   
   
 }

@@ -14,9 +14,10 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
     let height = self.view.frame.height - 50
     let width = self.view.frame.width
     //add textInput for search
-    let tableView = UITableView(frame: CGRect(x: 0, y: 50, width: width, height: height))
+    let tableView = UITableView(frame: CGRect(x: 0, y: 60, width: width, height: height))
+    
     //Placeholdr text
-    tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+    tableView.backgroundColor = backgroundColor
     return tableView
   }
 
@@ -34,7 +35,7 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
     //load data set
-    let data = dataSet[indexPath.row]
+    let data = dataSet[indexPath.row ]
     cell.textLabel?.text = "\(data.city),\(data.region),\(data.country) "
     
     setup(cell)
@@ -51,8 +52,8 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
 
     if source == "home" {
       home = dataSet[indexPath.row].city
-      away = ""
       selectedHome = indexPath.row
+      away = ""
     } else {
       home = ""
       away = dataSet[indexPath.row].city
@@ -70,7 +71,7 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
     //Setup data
 
     //set up cell appearance
-    cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+    cell.backgroundColor = backgroundColor
     cell.textLabel?.textColor = .white
     cell.textLabel?.font = UIFont(name: "Montserrat-regular.otf", size: 18.0)
   }

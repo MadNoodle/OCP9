@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Data for Model for currency controller
+ */
 class CurrencyRate {
   let currency: String?
   let rate: Double?

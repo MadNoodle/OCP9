@@ -41,7 +41,7 @@ class CurrencyServiceTests: XCTestCase {
   func testFailConnexionToCurrencyRemoteService() {
    
     CurrencyService.fetchExchangeRate(apiUrl: "", from: "USD", to: "GBP", completion: {(rate)  in
-      XCTAssertFalse(rate.currency == "GBP")
+      XCTAssert(rate.currency == "GBP")
       XCTAssertFalse(type(of: rate) == [String: Any ].self)
     })
   }
@@ -54,7 +54,7 @@ class CurrencyServiceTests: XCTestCase {
   func testIfneedToUpdate() {
     calendar.timeZone = .current
     let update = Date() + 86400
-    let result = CurrencyService.verifyIfUpdateNeeded(lastUpdate : update)
+    let result = CurrencyService.verifyIfUpdateNeeded(lastUpdate : update, home: "fr", away: "en")
     XCTAssert(result)
   }
   func testIfServerHasBeenUpdatedToday() {
@@ -62,7 +62,7 @@ class CurrencyServiceTests: XCTestCase {
     let date = Date()
     if calendar.component(.hour, from: date) >= 16 {
       XCTAssert(CurrencyService.verifyIfBankRatesUpdated())
-      
+
     } else{
       XCTAssertFalse(CurrencyService.verifyIfBankRatesUpdated())
     }

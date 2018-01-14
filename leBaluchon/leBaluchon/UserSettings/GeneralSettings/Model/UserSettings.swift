@@ -12,36 +12,56 @@ import Foundation
  Handles storing and retrieving for user preferences
  */
 class UserSettings {
+  // MARK: - Properties
+  
+   /// Invoke UserDefaults
   static let defaults = UserDefaults.standard
  
-  static func loadUpdateDate() -> Date {
-    return defaults.object(forKey:"lastUpdate") as! Date
-  }
   
-  static func saveDate(newupdateTime: Date){
-    defaults.set(newupdateTime,forKey:"lastUpdate")
-  }
+  // MARK: - Methods
   
-  static func loadDate() -> Date {
-    return  defaults.object(forKey:"lastUpdate") as! Date
-  }
-  // a tester
+//  /**
+// Retrieve lastupdate date from persistent memory
+//   - returns: Date
+//   */
+//  static func loadUpdateDate() -> Date {
+//    return defaults.object(forKey:"lastUpdate") as! Date
+//  }
+//  
+//  
+//  /**
+//   Save lastupdate date from persistent memory
+//   - parameters:
+//      - newUpdateTime: Date.
+//   Actual date when fetching currency from server
+//   - returns: Date
+//   */
+//  static func saveDate(newupdateTime: Date){
+//  defaults.set(newupdateTime,forKey:"lastUpdate")
+//  }
+//  
+
+  /**
+   Save data date from persistent memory
+   - parameters:
+       - displayKey: String. Name of the key for persistent container
+       - value: String
+       - indexKey: String. Name for of the key for persistent container
+       - index: Int
+   */
   static func saveData(displayKey:String, value:String, indexKey:String, index:Int) {
     defaults.set(value,forKey: displayKey)
     defaults.set(index,forKey: indexKey)
   }
-  // a tester
-  static func saveLocation(locationCityKey:String, locationCityValue:String, locationCountryKey:String, locationCountryValue:String) {
-    defaults.set(locationCountryValue,forKey: locationCityKey)
-    defaults.set(locationCountryValue,forKey: locationCountryKey)
-  }
-  // a tester
-  static func loadLocation(locationCityKey:String, locationCountryKey: String) -> (String?,String?) {
-    let city = defaults.object(forKey:locationCityKey) as? String
-    let country = defaults.object(forKey:locationCountryKey) as? String
-    return (city,country)
-  }
-  // a tester
+
+  
+  /**
+   Save data date from persistent memory
+   - parameters:
+     - displayKey: String. Name of the key to retrieve for persistent container
+     - indexKey: String. Name for of the key to retrieve for persistent container
+   - returns:(Int,Int)
+   */
   static func loadData(displayKey:String, indexKey:String) -> (Int,Int) {
     let strValue = defaults.integer(forKey:displayKey)
     let indxValue = defaults.integer(forKey:indexKey)

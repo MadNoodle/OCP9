@@ -42,13 +42,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="308.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aL-Q7-nj5">
-                                    <rect key="frame" x="25" y="25" width="325" height="42"/>
+                                    <rect key="frame" x="25" y="25" width="325" height="44"/>
                                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Your translation will appear here" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWp-fT-vbp">
-                                    <rect key="frame" x="25" y="67" width="325" height="216.5"/>
+                                    <rect key="frame" x="25" y="69" width="325" height="214.5"/>
                                     <color key="backgroundColor" red="1" green="0.41960784309999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
@@ -69,28 +69,50 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLk-ZR-zv6" userLabel="bottomView">
                             <rect key="frame" x="0.0" y="308.5" width="375" height="308.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6se-Xk-DfS">
-                                    <rect key="frame" x="25" y="15" width="325" height="42"/>
-                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EVP-aM-d7y">
-                                    <rect key="frame" x="25" y="57" width="325" height="226.5"/>
-                                    <color key="backgroundColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QcK-Qr-1X3">
+                                    <rect key="frame" x="25" y="15" width="325" height="268.5"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nV6-9b-RR5">
+                                            <rect key="frame" x="0.0" y="0.0" width="325" height="44"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6se-Xk-DfS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="276" height="44"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nLJ-RZ-z0B">
+                                                    <rect key="frame" x="276" y="0.0" width="51" height="44"/>
+                                                    <accessibility key="accessibilityConfiguration" label="autodetectSwitch"/>
+                                                    <color key="onTintColor" red="1" green="0.41960784309999999" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="toggleAutodetection:" destination="-1" eventType="valueChanged" id="0M5-L9-jny"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                        </stackView>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EVP-aM-d7y">
+                                            <rect key="frame" x="0.0" y="44" width="325" height="224.5"/>
+                                            <color key="backgroundColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nV6-9b-RR5" firstAttribute="leading" secondItem="QcK-Qr-1X3" secondAttribute="leading" id="1Ik-nX-ESf"/>
+                                        <constraint firstItem="EVP-aM-d7y" firstAttribute="leading" secondItem="QcK-Qr-1X3" secondAttribute="leading" id="8xf-OW-NKc"/>
+                                        <constraint firstAttribute="trailing" secondItem="EVP-aM-d7y" secondAttribute="trailing" id="MZB-kT-m9d"/>
+                                        <constraint firstAttribute="trailing" secondItem="nV6-9b-RR5" secondAttribute="trailing" id="W0r-zJ-MjK"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstItem="EVP-aM-d7y" firstAttribute="top" secondItem="6se-Xk-DfS" secondAttribute="bottom" id="E8N-CD-Ca8"/>
-                                <constraint firstItem="6se-Xk-DfS" firstAttribute="leading" secondItem="eLk-ZR-zv6" secondAttribute="leading" constant="25" id="VAO-cw-fDE"/>
-                                <constraint firstItem="6se-Xk-DfS" firstAttribute="top" secondItem="eLk-ZR-zv6" secondAttribute="top" constant="15" id="Y4J-e3-dlE"/>
-                                <constraint firstAttribute="trailing" secondItem="EVP-aM-d7y" secondAttribute="trailing" constant="25" id="qh4-3N-6TG"/>
-                                <constraint firstAttribute="bottom" secondItem="EVP-aM-d7y" secondAttribute="bottom" constant="25" id="tZg-ti-fNS"/>
-                                <constraint firstAttribute="trailing" secondItem="6se-Xk-DfS" secondAttribute="trailing" constant="25" id="uxP-c0-oZe"/>
-                                <constraint firstItem="EVP-aM-d7y" firstAttribute="leading" secondItem="eLk-ZR-zv6" secondAttribute="leading" constant="25" id="wSZ-Yk-ZEe"/>
+                                <constraint firstItem="QcK-Qr-1X3" firstAttribute="leading" secondItem="eLk-ZR-zv6" secondAttribute="leading" constant="25" id="lfV-03-MZE"/>
+                                <constraint firstAttribute="trailing" secondItem="QcK-Qr-1X3" secondAttribute="trailing" constant="25" id="ota-Yx-0dv"/>
+                                <constraint firstItem="QcK-Qr-1X3" firstAttribute="top" secondItem="eLk-ZR-zv6" secondAttribute="top" constant="15" id="vNj-Wd-ad5"/>
+                                <constraint firstAttribute="bottom" secondItem="QcK-Qr-1X3" secondAttribute="bottom" constant="25" id="wTi-Tp-Taq"/>
                             </constraints>
                         </view>
                     </subviews>

@@ -33,7 +33,6 @@ class UserSettingsViewController: UIViewController {
   @IBOutlet weak var BLang: UILabel!
   @IBOutlet weak var BCurrency: UILabel!
   
-
   // MARK: - LifeCycle methods
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,13 +42,9 @@ class UserSettingsViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     updateUI()
-    // Receive value
-    selectedHome = languageListVc.selectedHome
-    selectedAway = languageListVc.selectedAway
+    receiveValueForLanguage()
   }
 
-  
-  
   // MARK: - Actions
 
   // Language Actions
@@ -76,7 +71,7 @@ class UserSettingsViewController: UIViewController {
   
   // LocationActions
   @IBAction func goToAwayLocation(_ sender: UIButton) {
-    locationListVc.initDetail(bgColor: #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4078431373, alpha: 0.9545697774), txtSelect: #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1), destination: "away")
+    locationListVc.initDetail(bgColor: #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1), txtSelect: #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4078431373, alpha: 1), destination: "away")
     navigationController?.present(locationListVc, animated: true, completion: nil)
   }
   
@@ -85,6 +80,7 @@ class UserSettingsViewController: UIViewController {
     navigationController?.present(locationListVc, animated: true, completion: nil)
   }
   
+  // MARK: - UI methods
   private func updateUI() {
     updateLabel(ALang, for: "awayLanguage")
     updateLabel(BLang, for: "homeLanguage")
@@ -99,7 +95,14 @@ class UserSettingsViewController: UIViewController {
     {
       DispatchQueue.main.async {
         label.text = text
+        print(text)
       }
     }
+  }
+  
+  private func receiveValueForLanguage() {
+    // Receive value
+    selectedHome = languageListVc.selectedHome
+    selectedAway = languageListVc.selectedAway
   }
 }

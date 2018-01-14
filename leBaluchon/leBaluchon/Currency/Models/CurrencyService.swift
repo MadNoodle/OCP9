@@ -17,7 +17,8 @@ import Alamofire
  */
 class CurrencyService {
  
-  static let date = UserSettings.loadUpdateDate()
+
+  static let api = "https://api.fixer.io/latest?base="
   /**
    this function uses Alamofire framework to make Webrequest. and fetch Data in a CurrenyRate Object
  */
@@ -37,6 +38,8 @@ class CurrencyService {
         if let jsonDictionnary = response.result.value as? [String : Any]{
           if let currentRates = jsonDictionnary["rates"] as? [String : Any]{
             rate = CurrencyRate(currencyDictionnary: currentRates, to: final)
+            UserSettings.defaults.set(rate?.rate, forKey: "exchangeRate")
+            
           }
         }
         completion(rate!)
@@ -65,11 +68,12 @@ class CurrencyService {
    - returns: Bool
    */
 
-  static func verifyIfUpdateNeeded(lastUpdate: Date) -> Bool {
+  static func verifyIfUpdateNeeded(lastUpdate: Date, home: String, away: String) -> Bool {
     var checkResult:Bool?
-    
+    let storeHomed = UserSettings.defaults.object(forKey: "homeCurrency") as! String
+    let storeAway = UserSettings.defaults.object(forKey: "awayCurrency") as! String
     let interval = lastUpdate.interval(ofComponent: .day, fromDate: Date())
-    if interval >= 1 || verifyIfBankRatesUpdated(){
+    if interval >= 1 || verifyIfBankRatesUpdated() || home != storeHomed || away != storeAway {
       checkResult = true
     } else {
       checkResult =  false

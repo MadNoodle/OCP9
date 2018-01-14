@@ -18,31 +18,19 @@ class UserSettingsTests: XCTestCase {
   "newHomeCity": "Paris",
   "newAwayCity": "NewYork"]
   
-  func testStoringUserSettings() {
-    UserSettings.saveSettings(
-      newupdateTime: dummyData["newupdateTime"] as! Date,
-      newHomeLanguage: dummyData["newHomeLanguage"] as! String,
-      newAwayLanguage: dummyData["newAwayLanguage"] as! String,
-      newHomeCity: dummyData["newHomeCity"] as! String,
-      newAwayCity: dummyData["newAwayCity"] as! String
-    )
-    let testValue = UserDefaults.standard.object(forKey:"homeLanguage") as! String
-    XCTAssert(testValue == "fr")
-    
+
+  func testsaveData() {
+    UserSettings.saveData(displayKey: "test", value: "testValue", indexKey: "testKey", index: 1)
+    let testvalue1 = UserDefaults.standard.object(forKey: "test") as? String
+    let testvalue2 = UserDefaults.standard.integer(forKey: "testKey")
+    XCTAssertEqual(testvalue1, "testValue")
+    XCTAssertEqual(testvalue2, 1)
   }
-  
-  func testGettingUserSettings() {
-    UserSettings.saveSettings(
-      newupdateTime: dummyData["newupdateTime"] as! Date,
-      newHomeLanguage: dummyData["newHomeLanguage"] as! String,
-      newAwayLanguage: dummyData["newAwayLanguage"] as! String,
-      newHomeCity: dummyData["newHomeCity"] as! String,
-      newAwayCity: dummyData["newAwayCity"] as! String
-    )
-   let settings = UserSettings.loadUserSettings()
-    let language = settings["homeLanguage"] as! String
-    XCTAssert( language == "fr")
-    
+  func testLoadData(){
+    UserSettings.saveData(displayKey: "test", value: "testValue", indexKey: "testKey", index: 1)
+    let testvalue1 = UserSettings.loadData(displayKey: "test", indexKey: "testKey")
+    XCTAssertEqual(testvalue1.0, 0)
+    XCTAssertEqual(testvalue1.1, 1)
   }
     
 }

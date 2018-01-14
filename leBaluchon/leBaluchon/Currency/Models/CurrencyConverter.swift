@@ -48,11 +48,11 @@ struct CurrencyConverter {
    Add new number in the stack and memorize the former last one
    allows us to calculate numbers with more than one number long
    */
-  mutating func addNewNumber(_ newNumber: Int) {
+  mutating func addNewNumber(_ newNumber: Int,_ value: String) {
     if let stringNumber = stringNumbers.last {
       var stringNumberMutable = stringNumber
       //Convert Int to String and append it to the former number
-      stringNumberMutable += "\(newNumber)"
+      stringNumberMutable += "\(value)"
       // Replace formernumber with apended number
       stringNumbers[stringNumbers.count-1] = stringNumberMutable
       

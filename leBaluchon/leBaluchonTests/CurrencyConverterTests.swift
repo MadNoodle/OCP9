@@ -60,13 +60,13 @@ class CurrencyConverterTests: XCTestCase {
   
   // MARK: - Testing CalculatorBrain number storing
   func testGivenStackIsEmpty_WhenPressNumber_thenStackIsPopulated() {
-    brain.addNewNumber(1)
+    brain.addNewNumber(1,"1")
     XCTAssert(brain.stringNumbers == ["1"])
   }
   
   func testGivenStackIsPopulated_WhenPressNumber_thenStackNumberAppendNewNumber() {
     brain.stringNumbers = ["10"]
-    brain.addNewNumber(1)
+    brain.addNewNumber(1,"1")
     XCTAssert(brain.stringNumbers == ["101"])
   }
   

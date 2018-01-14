@@ -52,7 +52,7 @@ class LocationSettingsController: UIViewController {
     table?.delegate = self
     table?.dataSource = self
     table?.isHidden = true
-    
+
   }
   
   override func viewWillAppear(_ animated: Bool) {

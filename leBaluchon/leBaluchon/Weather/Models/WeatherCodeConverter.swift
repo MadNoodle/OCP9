@@ -35,7 +35,7 @@ class WeatherCodeConverter {
         conditions = weather.0
       }
     }
-    return conditions!
+    return conditions
   }
 
 }

@@ -58,7 +58,7 @@ extension LocationSettingsController {
   
   @objc func goBack(sender: UIButton){
 
-    
+
     dismiss(animated: true, completion: nil)
     table!.reloadData()
 

@@ -18,6 +18,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherViewController" customModule="leBaluchon" customModuleProvider="target">
             <connections>
+                <outlet property="awayCity" destination="zxn-GZ-NnW" id="E9K-0Q-U9D"/>
+                <outlet property="awayIcon" destination="LqZ-VW-b0e" id="CzS-Kz-iEz"/>
+                <outlet property="awayTemp" destination="N8U-tu-ifq" id="Fu8-Wo-WH5"/>
+                <outlet property="homeCity" destination="ObF-zU-gSy" id="dki-fu-rpA"/>
+                <outlet property="homeIcon" destination="zNn-xd-Uep" id="YlD-Pv-VmR"/>
+                <outlet property="homeTemp" destination="h6Q-9a-ghf" id="ZE4-7b-SEf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -41,31 +47,20 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="rdP-qt-AfA">
                                     <rect key="frame" x="25" y="100" width="228.5" height="208.5"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ktj-Zd-81c">
-                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="68.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxn-GZ-NnW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COUNTRY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YoE-m7-fmS">
-                                                    <rect key="frame" x="0.0" y="44" width="104" height="24.5"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxn-GZ-NnW">
+                                            <rect key="frame" x="0.0" y="0.0" width="228.5" height="44"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ayy-eG-ktD">
-                                            <rect key="frame" x="0.0" y="68.5" width="228.5" height="140"/>
+                                            <rect key="frame" x="0.0" y="44" width="228.5" height="164.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="LqZ-VW-b0e">
-                                                    <rect key="frame" x="0.0" y="56.5" width="104.5" height="27"/>
+                                                    <rect key="frame" x="0.0" y="69" width="104.5" height="27"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8U-tu-ifq">
-                                                    <rect key="frame" x="124.5" y="48" width="104" height="44"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8U-tu-ifq">
+                                                    <rect key="frame" x="124.5" y="60.5" width="104" height="44"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -74,6 +69,8 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="zxn-GZ-NnW" firstAttribute="leading" secondItem="rdP-qt-AfA" secondAttribute="leading" id="Adw-a8-c5r"/>
+                                        <constraint firstAttribute="trailing" secondItem="zxn-GZ-NnW" secondAttribute="trailing" id="bys-kF-47h"/>
                                         <constraint firstAttribute="trailing" secondItem="ayy-eG-ktD" secondAttribute="trailing" id="ffU-zr-oal"/>
                                     </constraints>
                                 </stackView>
@@ -92,64 +89,52 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Heu-B6-z7M" userLabel="bottomView">
                             <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QyS-tx-gde">
-                                    <rect key="frame" x="152" y="25" width="198" height="258.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="uxz-Wx-ltc">
+                                    <rect key="frame" x="137" y="25" width="213" height="258.5"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QpT-C8-fBl">
-                                            <rect key="frame" x="0.0" y="0.0" width="198" height="68.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away City" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObF-zU-gSy">
+                                            <rect key="frame" x="0.0" y="0.0" width="213" height="44"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ik1-2V-6n6">
+                                            <rect key="frame" x="0.0" y="44" width="213" height="214.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3J-h5-rZ7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="198" height="44"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6Q-9a-ghf">
+                                                    <rect key="frame" x="0.0" y="85.5" width="96.5" height="44"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COUNTRY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13l-fA-vyr">
-                                                    <rect key="frame" x="0.0" y="44" width="198" height="24.5"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="K3J-h5-rZ7" secondAttribute="trailing" id="AL8-Kw-95D"/>
-                                                <constraint firstItem="K3J-h5-rZ7" firstAttribute="leading" secondItem="QpT-C8-fBl" secondAttribute="leading" id="FTf-vo-YKU"/>
-                                                <constraint firstAttribute="trailing" secondItem="13l-fA-vyr" secondAttribute="trailing" id="Kpr-hx-LAa"/>
-                                                <constraint firstItem="13l-fA-vyr" firstAttribute="top" secondItem="K3J-h5-rZ7" secondAttribute="bottom" id="MmL-aV-rz1"/>
-                                            </constraints>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YfS-Qx-DNp">
-                                            <rect key="frame" x="0.0" y="68.5" width="198" height="190"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="23°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFY-A5-kob">
-                                                    <rect key="frame" x="0.0" y="73" width="84" height="44"/>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="Lh3-og-6Oj">
-                                                    <rect key="frame" x="104" y="81.5" width="94" height="27"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="zNn-xd-Uep">
+                                                    <rect key="frame" x="116.5" y="94" width="96.5" height="27"/>
                                                 </imageView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="YfS-Qx-DNp" secondAttribute="trailing" id="VOk-4b-uwj"/>
-                                        <constraint firstItem="YfS-Qx-DNp" firstAttribute="leading" secondItem="QyS-tx-gde" secondAttribute="leading" id="vQe-Lb-3BC"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ik1-2V-6n6" secondAttribute="trailing" id="43E-Yj-H3J"/>
+                                        <constraint firstItem="ObF-zU-gSy" firstAttribute="leading" secondItem="uxz-Wx-ltc" secondAttribute="leading" id="rQ2-w5-BPc"/>
+                                        <constraint firstAttribute="trailing" secondItem="ObF-zU-gSy" secondAttribute="trailing" id="xat-IA-LBY"/>
                                     </constraints>
                                 </stackView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eiffel" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-bw-aI6">
                                     <rect key="frame" x="25" y="64.5" width="112" height="220"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="220" id="OHP-wQ-i9w"/>
+                                        <constraint firstAttribute="width" secondItem="bzd-bw-aI6" secondAttribute="height" multiplier="28:55" id="vR4-oV-Tvn"/>
+                                    </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.25882352939999997" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="bzd-bw-aI6" firstAttribute="leading" secondItem="Heu-B6-z7M" secondAttribute="leading" constant="25" id="3jX-D3-cRp"/>
-                                <constraint firstAttribute="bottom" secondItem="QyS-tx-gde" secondAttribute="bottom" constant="50" id="OtP-GC-xMb"/>
-                                <constraint firstItem="QyS-tx-gde" firstAttribute="top" secondItem="Heu-B6-z7M" secondAttribute="top" constant="25" id="YRV-LH-vd7"/>
+                                <constraint firstAttribute="trailing" secondItem="uxz-Wx-ltc" secondAttribute="trailing" constant="25" id="ZgG-Lw-tL8"/>
                                 <constraint firstAttribute="bottom" secondItem="bzd-bw-aI6" secondAttribute="bottom" constant="49" id="aKo-3g-4Dd"/>
-                                <constraint firstAttribute="trailing" secondItem="QyS-tx-gde" secondAttribute="trailing" constant="25" id="fdo-cA-Cxf"/>
-                                <constraint firstItem="QyS-tx-gde" firstAttribute="leading" secondItem="bzd-bw-aI6" secondAttribute="trailing" constant="15" id="wI9-sG-VK1"/>
+                                <constraint firstAttribute="bottom" secondItem="uxz-Wx-ltc" secondAttribute="bottom" constant="50" id="eSQ-yF-JtA"/>
+                                <constraint firstItem="uxz-Wx-ltc" firstAttribute="top" secondItem="Heu-B6-z7M" secondAttribute="top" constant="25" id="gk9-qe-W3y"/>
+                                <constraint firstItem="uxz-Wx-ltc" firstAttribute="leading" secondItem="bzd-bw-aI6" secondAttribute="trailing" id="nQG-P6-42U"/>
                             </constraints>
                         </view>
                     </subviews>

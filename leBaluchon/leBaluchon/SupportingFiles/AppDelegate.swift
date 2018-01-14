@@ -14,9 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
-
-  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // properties
     window = UIWindow(frame: UIScreen.main.bounds)
@@ -25,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
     var calendar = Calendar.current
     calendar.timeZone = .current
-    
+
     return true
   }
 

@@ -28,7 +28,22 @@ class leBaluchonUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testTabBarNavigation() {
+      let app = XCUIApplication()
+      let tabBarsQuery = XCUIApplication().tabBars
+      let currencyButton = tabBarsQuery.buttons["Currency"]
+      currencyButton.tap()
+      let convert = app.buttons["CONVERT"]
+      XCTAssert(convert.exists)
+      XCTAssert(convert.isHittable)
+      tabBarsQuery.buttons["Translation"].tap()
+      let switchDetect = app.switches["autodetectSwitch"]
+      XCTAssert(switchDetect.exists)
+      XCTAssert(switchDetect.isHittable)
+      tabBarsQuery.buttons["Settings"].tap()
+      tabBarsQuery.buttons["Weather"].tap()
+      
+      
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

@@ -7,6 +7,7 @@ target 'leBaluchon' do
 
   # Pods for leBaluchon
   pod 'Alamofire'
+  pod 'lottie-ios'
 
   target 'leBaluchonTests' do
     inherit! :search_paths

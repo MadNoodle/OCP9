@@ -8,8 +8,13 @@
 
 import UIKit
 
+/**
+ This extension handles everything relative to the navbar in the Location settings Controller
+ */
 extension LocationSettingsController {
-  
+  /**
+   Instantiate a bespoke nav bar containing input text field and back button
+ */
   func setupNavbar(){
     
     //Properties
@@ -28,17 +33,22 @@ extension LocationSettingsController {
     addSearchInputField(margin,buttonWidth, navBarWidth, buttonHeight, navBar)
   }
   
+  /**
+   Programatically created textfield
+ */
   private func addSearchInputField(_ margin: CGFloat,_ buttonWidth:CGFloat, _ navBarWidth: CGFloat, _ buttonHeight: CGFloat, _ navBar: UIView) {
     //add textInput for search
     let searchInput = UITextField(frame: CGRect(x: (2 * margin + buttonWidth ), y: margin, width: navBarWidth - (2 * margin ) - (2 * margin ), height: buttonHeight))
-    //Placeholdr text
+    //Placeholder text
     searchInput.placeholder = "Enter your request"
     searchInput.delegate = self
     input = searchInput
     // add it to navbar
     navBar.addSubview(searchInput)
   }
-  
+  /**
+   Programatically created back button
+   */
   private func addBackButton(_ navBarWidth: CGFloat, _ margin: CGFloat, _ buttonWidth: CGFloat, _ buttonHeight: CGFloat, _ navBar: UIView) {
     //add Search button
     //Create button
@@ -56,9 +66,8 @@ extension LocationSettingsController {
     navBar.addSubview(button)
   }
   
+  // Callback function / selector for back button
   @objc func goBack(sender: UIButton){
-
-
     dismiss(animated: true, completion: nil)
     table!.reloadData()
 

@@ -8,15 +8,21 @@
 
 import UIKit
 
+/**
+ This extension handles everything relative to the tableView in the Location settings Controller, including delegate methods, and custom styling
+ */
 extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource {
   
+  /**
+   Programmatically created tableView
+ */
   func setupTableView() -> UITableView{
+    //height is minus 50 to leave the place for navBar.
     let height = self.view.frame.height - 50
     let width = self.view.frame.width
-    //add textInput for search
+    // Intantiation
     let tableView = UITableView(frame: CGRect(x: 0, y: 60, width: width, height: height))
-    
-    //Placeholdr text
+    //Styling
     tableView.backgroundColor = backgroundColor
     return tableView
   }
@@ -39,7 +45,7 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
     cell.textLabel?.text = "\(data.city),\(data.region),\(data.country) "
     
     setup(cell)
-    // check is cell is seleccted and apply the current highligth color Scheme
+    // check is cell is selected and apply the current highligth color Scheme
     if cell.isSelected{
       highlight(cell,with: selectedTextColor!)
     }
@@ -48,8 +54,8 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
 
   // MARK: - Cell State handling
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // Add a visual cue to indicate that the cell was selected.
-
+   
+    // Store value to pass tehm to user Settings Vc
     if source == "home" {
       home = dataSet[indexPath.row].city
       selectedHome = indexPath.row
@@ -59,6 +65,7 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
       away = dataSet[indexPath.row].city
       selectedAway = indexPath.row
     }
+     // Add a visual cue to indicate that the cell was selected.
     let cell = tableView.cellForRow(at: indexPath)
     highlight(cell!, with: selectedTextColor!)
   }
@@ -79,13 +86,18 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
 
   //change to new selected colorScheme fonts & check mark
   func highlight(_ cell: UITableViewCell, with color: UIColor){
+    //Higlight Color Schem
     cell.tintColor = color
-    cell.accessoryType = .checkmark
     cell.textLabel?.textColor =  color
     cell.backgroundColor = .white
+    // Background Color Higligth
     let bgColorView = UIView()
     bgColorView.backgroundColor = UIColor.white
     cell.selectedBackgroundView = bgColorView
+    // Add a checkMark
+    cell.accessoryType = .checkmark
+    
+    
   }
 
   //Used to select the cell according to Language code

@@ -36,9 +36,9 @@ class LocationService {
    ** in case of error an error is printed in console.
    but a guard properties make a first sanity check for url creation
    - parameters:
-       - location: String
-       - completion: this function returns an array of LocationModel
- */
+   - location: String
+   - completion: this function returns an array of LocationModel
+   */
   static func fetchData(for location:String, completion: @escaping ([LocationModel]) -> Void){
     // encode text to replace space
     guard let urlEncodedText = location.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -48,7 +48,7 @@ class LocationService {
     DispatchQueue.main.async {
       Alamofire.request(url).validate().responseJSON { response in
         switch response.result {
-          // check for connexion to remote server
+        // check for connexion to remote server
         case .success:
           print("Validation Successful")
           Alamofire.request(url).responseJSON { (response) in
@@ -65,7 +65,7 @@ class LocationService {
   
   /**
    Parse json result fetched from server and append each results in resultArray
- */
+   */
   static func parseResult(_ response: (DataResponse<Any>)) {
     if let jsonDictionnary = response.result.value as? [Any]{
       for json in jsonDictionnary {
@@ -76,7 +76,6 @@ class LocationService {
             resultArray.append(location)
           }
         }
-        
       }
     }
   }

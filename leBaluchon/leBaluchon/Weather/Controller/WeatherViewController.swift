@@ -10,6 +10,7 @@ import UIKit
 
 class WeatherViewController: UIViewController {
   
+  @IBOutlet weak var lottieView: UIView!
   // MARK: Properties
   // Home city properties
   @IBOutlet weak var homeCity: UILabel!
@@ -23,8 +24,9 @@ class WeatherViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "Weather"
     setupLabels()
+    self.title = "Weather"
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {

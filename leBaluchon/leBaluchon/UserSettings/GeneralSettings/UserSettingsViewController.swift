@@ -8,17 +8,29 @@
 
 import UIKit
 
+/**
+ This Vc handles all the communication to display value for user settings.
+ It guides the user througth new Vcs : language, location and currency settings.
+ For sanity, this controller does set any value. All the value are saved in the dedicated vcs throuth dedicated models
+ */
 class UserSettingsViewController: UIViewController {
   
   // MARK: - properties
-  // Detail settings View Controllers that user can access from general Settings
+  
+  // MARK: -  Delegate Vcs
+  ///Language settings View Controller
   let languageListVc = LanguageSettings(style: .plain, homeDisplayKey: "homeLanguage", awayDisplayKey: "awayLanguage", homeIndexKey: "homeLanguageIndex", awayIndexKey: "awayLanguageIndex")
+  ///Currrency settings View Controller
   let currencyListVc = CurrencySettings(style: .plain, homeDisplayKey: "homeCurrency", awayDisplayKey: "awayCurrency", homeIndexKey: "homeCurrencyIndex", awayIndexKey: "awayCurrencyIndex")
+  ///Location settings View Controller
   let locationListVc = LocationSettingsController(nibName: nil, bundle: nil)
+  
+  // MARK: - ColorScheme
   // ColorScheme to send to detail view. Color arre different for away & home scheme
   var backgroundColor : UIColor?
   var selectedTextColor  : UIColor?
   
+  // MARK: - data exchange valeus to Vcs
   // Optionnal value to receive result from detail Vc's and to be stored in persistence
   var awayLanguage : String?
   var homeLanguage : String?
@@ -90,18 +102,25 @@ class UserSettingsViewController: UIViewController {
     updateLabel(Bcity, for: "homeCity")
   }
   
+  /**
+   This method load data from persistent container asyncroneously to populate label
+   - parameters:
+   - label: UILabel destination label to populate
+   - key: String to call in UserDefaults to retrieve the current value to display
+ */
   func updateLabel(_ label: UILabel, for key: String){
+    // call persistent container and optional binding to prevent nil value
     if let text = UserSettings.defaults.object(forKey: key) as! String!
     {
+      // async load to prevent from nil value while fetching from persistent container
       DispatchQueue.main.async {
         label.text = text
-        print(text)
       }
     }
   }
   
   private func receiveValueForLanguage() {
-    // Receive value
+    // Receive value from language contaienr
     selectedHome = languageListVc.selectedHome
     selectedAway = languageListVc.selectedAway
   }

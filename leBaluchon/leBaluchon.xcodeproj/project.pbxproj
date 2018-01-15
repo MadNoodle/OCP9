@@ -15,6 +15,7 @@
 		B95FDC02200A2396008D7D67 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FDC01200A2396008D7D67 /* LocationService.swift */; };
 		B95FDC05200A32E0008D7D67 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FDC04200A32E0008D7D67 /* LocationModel.swift */; };
 		B9714FCB200C098D0098E3D0 /* LocationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9714FCA200C098D0098E3D0 /* LocationServiceTests.swift */; };
+		B9714FCF200CFE460098E3D0 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9714FCE200CFE460098E3D0 /* IntroViewController.swift */; };
 		B97F481120018603009FF140 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F481020018603009FF140 /* CustomTabBarController.swift */; };
 		B97F481420018921009FF140 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F481220018921009FF140 /* CurrencyViewController.swift */; };
 		B97F481520018921009FF140 /* CurrencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F481320018921009FF140 /* CurrencyViewController.xib */; };
@@ -91,6 +92,7 @@
 		B95FDC01200A2396008D7D67 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		B95FDC04200A32E0008D7D67 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		B9714FCA200C098D0098E3D0 /* LocationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceTests.swift; sourceTree = "<group>"; };
+		B9714FCE200CFE460098E3D0 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		B97F481020018603009FF140 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		B97F481220018921009FF140 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		B97F481320018921009FF140 /* CurrencyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyViewController.xib; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				B9D039C51FFD738B00011D73 /* Assets.xcassets */,
 				B9D039C71FFD738B00011D73 /* LaunchScreen.storyboard */,
 				B9D039BB1FFD738B00011D73 /* AppDelegate.swift */,
+				B9714FCE200CFE460098E3D0 /* IntroViewController.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				B9CC52C6200768CA00E3B447 /* CurrencyList.swift in Sources */,
 				B9CC52C320075B1400E3B447 /* Languages.swift in Sources */,
 				B9D039F01FFD73DA00011D73 /* CurrencyService.swift in Sources */,
+				B9714FCF200CFE460098E3D0 /* IntroViewController.swift in Sources */,
 				B9D039C41FFD738B00011D73 /* leBaluchon.xcdatamodeld in Sources */,
 				B95FDC02200A2396008D7D67 /* LocationService.swift in Sources */,
 				B95FDBFC20097B8A008D7D67 /* TranslationViewController+keyboard.swift in Sources */,
@@ -998,6 +1002,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 660C9B5FDBCB062D2A5F2855 /* Pods-leBaluchon.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8A9QAD896;
@@ -1014,6 +1019,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9300DEAAD8BEA5FE5805F102 /* Pods-leBaluchon.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V8A9QAD896;

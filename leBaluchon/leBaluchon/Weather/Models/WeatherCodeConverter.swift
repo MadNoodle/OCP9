@@ -8,9 +8,13 @@
 
 import Foundation
 import UIKit
-
+/**
+ This class contains all the codes from yahoo and gather them in different categories corresponding to our icons.
+ **The method findConditons returns the good icon name
+ */
 class WeatherCodeConverter {
   
+  // MARK : - Code classification
   static let clearDay = ["32","34","36"]
   static let clearNight =  ["31","33"]
   static let cloudy = ["26","44"]
@@ -26,8 +30,12 @@ class WeatherCodeConverter {
   static let wind =  ["24"]
   static let error = ["3200"]
   
+  // Properties that relay between codes and icon names
   static let weathers: [(String,[String])] = [("clear-day",clearDay), ("clear-night", clearNight), ("cloudy", cloudy), ("fog", fog), ("hail",hail),("partly-cloudy-day", partlyCloudyDay), ("partly-cloudy-night",partlyCloudyNight), ("rain", rain), ("sleet", sleet),("snow",  snow), ("thunderstorm", thunderstorm),("tornado", tornado),("wind" ,wind),("error",error)]
   
+  /**
+   This method receive a String from Data Model and returns the good icon name
+ */
   static func FindConditions(for code: String) -> String?{
     var conditions : String?
     for weather in weathers {

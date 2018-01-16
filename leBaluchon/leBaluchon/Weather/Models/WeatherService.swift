@@ -47,7 +47,7 @@ struct WeatherService {
    - location : the city you wish to get weather info
    - returns: CurrentWeather
    */
-  static func fetchWeather(for location: String, completion: @escaping(_ weather: CurrentWeather) ->Void){
+  static func fetchWeather(for location: String, completion: @escaping(_ weather: CurrentWeather, _ error: Error?) ->Void){
     let requestUrl: String = createRequestUrl(for: location)
     //Initialize the optional weather to store result of the request if there is one
     var weather: CurrentWeather?
@@ -74,13 +74,15 @@ struct WeatherService {
                     }
                   }
                 }
-                completion(weather!)
+                // return the weather via a closure
+                completion(weather!,nil)
               }
             }
             
           }
         case .failure(let error):
           print(error)
+          completion(CurrentWeather(dictionnary: ["error":"error"], for: location),error)
         }
       }
     }

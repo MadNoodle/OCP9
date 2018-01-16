@@ -8,9 +8,19 @@
 
 import UIKit
 
+/**
+ handles the aniamtion of the Translation StackView when keyboard pops up & down
+ */
 extension TranslationViewController {
   
   // MARK: - Keyboard folding methods
+  /**
+   Callback function called by UITextField Delegate when user
+   tap on the textField and begin to edit.
+   - parameters:
+      - notification: NSNotification notification received from observer
+      in viewDidLoad .
+ */
   @objc func keyboardWillShow(notification: NSNotification){
     if let info = notification.userInfo{
       //grab CGRect size of keybaord
@@ -25,7 +35,9 @@ extension TranslationViewController {
       })
     }
   }
-  
+  /**
+   Animate the StackView in initail position/layout when keyboard disappear
+ */
   func resetStackViewToOriginal() {
     UIView.animate(withDuration: 0.25 , animations: {
       self.topView.isHidden = false

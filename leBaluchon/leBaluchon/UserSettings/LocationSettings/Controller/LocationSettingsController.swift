@@ -39,9 +39,9 @@ class LocationSettingsController: UIViewController {
    Additive init method that allows us to pass the color scheme just before pushing the Vc from generalSettings Vc.
    - important: To change the colors, you need to change them in UserSettingsViewController.
    - parameters:
-   - bgColor: UIcolor for background
-   - txtSelect: UIColor secondary color for text and highlights
-   - destination: String.
+       - bgColor: UIcolor for background
+       - txtSelect: UIColor secondary color for text and highlights
+       - destination: String.
    ** Can be home or away. This value
    allows us to pass the value to the good vc and to retrieve them in the persistent container
    */
@@ -51,6 +51,7 @@ class LocationSettingsController: UIViewController {
     self.source = destination
   }
   
+  // MARK: LifeCycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupNavbar()
@@ -69,7 +70,6 @@ class LocationSettingsController: UIViewController {
     table?.isHidden = true
   }
   
-  
   override func viewWillDisappear(_ animated: Bool){
     if input?.text != nil {
       saveLocationSettings()
@@ -79,6 +79,7 @@ class LocationSettingsController: UIViewController {
     input?.text = ""
     table?.reloadData()
   }
+  // MARK: - Saving methods
   /**
    Pretty self explanatory. Stores value in persistent container
    */

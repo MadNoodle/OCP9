@@ -67,4 +67,14 @@ class UserSettings {
     let indxValue = defaults.integer(forKey:indexKey)
     return (strValue,indxValue)
   }
+  
+  static func resetToFactory(){
+    UserSettings.saveData(displayKey: "awayCurrency", value: "USD", indexKey: "awayCurrencyKey", index: 1)
+    UserSettings.saveData(displayKey: "homeCurrency", value: "EUR", indexKey: "homeCurrencyKey", index: 0)
+    UserSettings.saveData(displayKey: "awayCity", value: "New York", indexKey: "awayCityKey", index: 1)
+    UserSettings.saveData(displayKey: "homeCity", value: "Paris", indexKey: "homeCityKey", index: 0)
+    UserSettings.saveData(displayKey: "awayLanguage", value: "en", indexKey: "awayLanguageKey", index: 24)
+    UserSettings.saveData(displayKey: "homeLanguage", value: "fr", indexKey: "homeLanguageKey", index: 22)
+    
+  }
 }

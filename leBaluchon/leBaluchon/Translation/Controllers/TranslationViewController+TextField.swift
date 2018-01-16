@@ -8,21 +8,35 @@
 
 import UIKit
 
+/**
+ Handles all text field delegate Methods
+ */
 extension TranslationViewController {
   // MARK: - TextField Delegate Methods
   
+  /**
+   When user touches outside of the text field. it validates his text
+   and send translation request. the keyboard disappear.
+ */
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     translate(inputTextField.text!)
     resetTextField()
     self.view.endEditing(true)
   }
   
+  /**
+   When user presses enter on keyboard. it validates his text
+   and send translation request. the keyboard disappear.
+   */
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     translate(inputTextField.text!)
     resetTextField()
     return (true)
   }
   
+  /**
+   Animate back to original layout
+   */
   private func resetTextField() {
     inputTextField.resignFirstResponder()
     self.view.layoutIfNeeded()

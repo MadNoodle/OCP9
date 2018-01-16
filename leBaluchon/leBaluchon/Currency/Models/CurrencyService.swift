@@ -22,7 +22,7 @@ class CurrencyService {
   /**
    this function uses Alamofire framework to make Webrequest. and fetch Data in a CurrenyRate Object
  */
-  static func fetchExchangeRate(apiUrl: String,from base: String, to final: String, completion: @escaping (_ currency: CurrencyRate) -> Void) {
+  static func fetchExchangeRate(apiUrl: String,from base: String, to final: String, completion: @escaping (_ currency: CurrencyRate,_ error: Error?) -> Void) {
     let requestUrl = apiUrl + base
     var rate: CurrencyRate?
     // Make the call async to separate from UI calls
@@ -42,12 +42,12 @@ class CurrencyService {
             
           }
         }
-        completion(rate!)
+        completion(rate!, nil)
       }
           case .failure(let error):
             rate = CurrencyRate(currencyDictionnary: ["error fetching Data":""], to: final)
-          print(error.localizedDescription)
-          completion(rate!)
+         
+          completion(rate!, error)
       }
     }
    

@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Container for translation String fetched by API REST CALL
+ */
 struct TranslationObject {
   let text: String
 }

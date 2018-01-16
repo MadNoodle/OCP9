@@ -15,14 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // properties
+    // Set a custom first controller
     window = UIWindow(frame: UIScreen.main.bounds)
     window!.rootViewController = CustomTabBarController()
     window!.makeKeyAndVisible()
-   
+    // set tabBAr Seleccted color
+    UITabBar.appearance().tintColor = #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1)
+    // set the calendar to user's location timeZone
     var calendar = Calendar.current
     calendar.timeZone = .current
-
     return true
   }
 

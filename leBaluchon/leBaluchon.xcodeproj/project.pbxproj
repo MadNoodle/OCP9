@@ -318,7 +318,7 @@
 				B9D039F51FFD980200011D73 /* Currency */,
 				B9D039EE1FFD73B400011D73 /* SupportingFiles */,
 				B9D039CA1FFD738B00011D73 /* Info.plist */,
-				B97F481020018603009FF140 /* CustomTabBarController.swift */,
+				B9F443AF200EA878007F8605 /* MainTabBarContainerController */,
 			);
 			path = leBaluchon;
 			sourceTree = "<group>";
@@ -494,6 +494,14 @@
 				B97F481320018921009FF140 /* CurrencyViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B9F443AF200EA878007F8605 /* MainTabBarContainerController */ = {
+			isa = PBXGroup;
+			children = (
+				B97F481020018603009FF140 /* CustomTabBarController.swift */,
+			);
+			path = MainTabBarContainerController;
 			sourceTree = "<group>";
 		};
 		B9F9E6A120003C3B00917C58 /* Models */ = {

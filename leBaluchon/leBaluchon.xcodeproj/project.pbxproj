@@ -24,6 +24,8 @@
 		B97F481D200190D8009FF140 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F481B200190D8009FF140 /* WeatherViewController.xib */; };
 		B97F4820200190EB009FF140 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F481E200190EB009FF140 /* UserSettingsViewController.swift */; };
 		B97F4821200190EB009FF140 /* UserSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F481F200190EB009FF140 /* UserSettingsViewController.xib */; };
+		B98175FE2011041A00B1834A /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B98175FD2011041A00B1834A /* CustomTabBar.xib */; };
+		B98176002011042C00B1834A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98175FF2011042C00B1834A /* Constants.swift */; };
 		B9ADEBDF1FFEBA4200C50F11 /* CurrencyServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */; };
 		B9ADEBE21FFEE2ED00C50F11 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBE11FFEE2ED00C50F11 /* TranslationService.swift */; };
 		B9ADEBE41FFEE33D00C50F11 /* TranslationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBE31FFEE33D00C50F11 /* TranslationServiceTests.swift */; };
@@ -100,6 +102,8 @@
 		B97F481B200190D8009FF140 /* WeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
 		B97F481E200190EB009FF140 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		B97F481F200190EB009FF140 /* UserSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSettingsViewController.xib; sourceTree = "<group>"; };
+		B98175FD2011041A00B1834A /* CustomTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
+		B98175FF2011042C00B1834A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceHelper.swift; sourceTree = "<group>"; };
 		B9ADEBE11FFEE2ED00C50F11 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		B9ADEBE31FFEE33D00C50F11 /* TranslationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationServiceTests.swift; sourceTree = "<group>"; };
@@ -242,9 +246,9 @@
 		B9ADEBE01FFEE2D700C50F11 /* Translation */ = {
 			isa = PBXGroup;
 			children = (
-				B95FDC0020097BFC008D7D67 /* View */,
 				B952E88D1FFFD5A300E0CC98 /* Models */,
 				B95FDBFF20097BEF008D7D67 /* Controllers */,
+				B95FDC0020097BFC008D7D67 /* View */,
 			);
 			path = Translation;
 			sourceTree = "<group>";
@@ -312,13 +316,13 @@
 		B9D039BA1FFD738B00011D73 /* leBaluchon */ = {
 			isa = PBXGroup;
 			children = (
+				B9F443AF200EA878007F8605 /* MainTabBarContainerController */,
 				B9F9E6A22000BF7700917C58 /* UserSettings */,
 				B952E88E1FFFD5B200E0CC98 /* Weather */,
 				B9ADEBE01FFEE2D700C50F11 /* Translation */,
 				B9D039F51FFD980200011D73 /* Currency */,
 				B9D039EE1FFD73B400011D73 /* SupportingFiles */,
 				B9D039CA1FFD738B00011D73 /* Info.plist */,
-				B9F443AF200EA878007F8605 /* MainTabBarContainerController */,
 			);
 			path = leBaluchon;
 			sourceTree = "<group>";
@@ -500,6 +504,8 @@
 			isa = PBXGroup;
 			children = (
 				B97F481020018603009FF140 /* CustomTabBarController.swift */,
+				B98175FD2011041A00B1834A /* CustomTabBar.xib */,
+				B98175FF2011042C00B1834A /* Constants.swift */,
 			);
 			path = MainTabBarContainerController;
 			sourceTree = "<group>";
@@ -642,6 +648,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B98175FE2011041A00B1834A /* CustomTabBar.xib in Resources */,
 				B9CC52B32006C06C00E3B447 /* Montserrat-Bold.otf in Resources */,
 				B9CC52B42006C06C00E3B447 /* Montserrat-Regular.otf in Resources */,
 				B9CAA08120079881001EB421 /* LanguageSettings.xib in Resources */,
@@ -679,9 +686,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-leBaluchon/Pods-leBaluchon-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -739,13 +749,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-leBaluchon-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9D6633B47C2BC348CBFE4DC5 /* [CP] Check Pods Manifest.lock */ = {
@@ -754,13 +767,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-leBaluchonUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C72A5FD273CE5DA6262F7E5A /* [CP] Check Pods Manifest.lock */ = {
@@ -769,13 +785,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-leBaluchonTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E95D31B7E74DDC7F7FB1FB93 /* [CP] Copy Pods Resources */ = {
@@ -820,6 +839,7 @@
 				B9CAA07C20078BBC001EB421 /* CurrencySettings.swift in Sources */,
 				B97F481C200190D8009FF140 /* WeatherViewController.swift in Sources */,
 				B9CAA08020079881001EB421 /* LanguageSettings.swift in Sources */,
+				B98176002011042C00B1834A /* Constants.swift in Sources */,
 				B9DF731A200A5D7200907496 /* LocationSettingsController.swift in Sources */,
 				B9F9E6A42000BF8A00917C58 /* UserSettings.swift in Sources */,
 				B952E8901FFFD5C000E0CC98 /* WeatherService.swift in Sources */,

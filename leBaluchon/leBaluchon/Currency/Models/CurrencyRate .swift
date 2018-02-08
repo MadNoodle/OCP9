@@ -12,7 +12,9 @@ import Foundation
  Data for Model for currency controller
  */
 class CurrencyRate {
+  /// Currency name
   let currency: String?
+  /// Currency actual rate
   let rate: Double?
   
   init(currencyDictionnary: [String : Any], to currency: String){

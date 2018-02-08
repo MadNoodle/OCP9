@@ -20,7 +20,7 @@ class WeatherServiceTests: XCTestCase {
   func testFetchingWeather(){
     let city = "Paris"
     var actualWeather: CurrentWeather?
-    WeatherService.fetchWeather(for: city, completion: {(weather) in
+    WeatherService.fetchWeather(for: city, completion: {(weather,error) in
       actualWeather = weather
       XCTAssertEqual(actualWeather?.city, "Paris")
       XCTAssert(actualWeather?.conditions != nil)
@@ -33,7 +33,7 @@ class WeatherServiceTests: XCTestCase {
     
     let city = "Paris"
     var actualWeather: CurrentWeather?
-    WeatherService.fetchWeather(for: city, completion: {(weather) in
+    WeatherService.fetchWeather(for: city, completion: {(weather,error) in
       actualWeather = weather
       XCTAssert(actualWeather != nil)
       ex.fulfill()

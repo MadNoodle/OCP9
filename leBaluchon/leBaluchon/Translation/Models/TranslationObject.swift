@@ -12,5 +12,6 @@ import Foundation
  Container for translation String fetched by API REST CALL
  */
 struct TranslationObject {
+  /// text to translate
   let text: String
 }

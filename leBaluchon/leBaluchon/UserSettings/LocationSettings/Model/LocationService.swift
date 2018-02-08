@@ -16,33 +16,36 @@ import Alamofire
  */
 
 class LocationService {
-  
-  // MARK: - properties
+  // ////////////////// //
+  // MARK: - properties //
+  // ////////////////// //
   /// base url to fetch api
-  static let baseUrl = "http://nominatim.openstreetmap.org/search?q="
+  static let baseUrl = Constants.LOC_BASE_URL
   /// callback endPoint for format
-  static let endPoint = "&format=json"
+  static let endPoint = Constants.LOC_END_POINT
   /// array initialized to store results that will be sent back by fetchDAta method
   static var resultArray: [LocationModel] = []
   
-  // MARK: - methods
+  // ////////////////// //
+  // MARK: - methods    //
+  // ////////////////// //
   
   
-  /**
-   user input a string the method sends back an array of
-   possible matching location
-   * this method relies on Alamofire Framework and makes
-   a connexion check inside.
-   ** in case of error an error is printed in console.
-   but a guard properties make a first sanity check for url creation
-   - parameters:
-   - location: String
-   - completion: this function returns an array of LocationModel
-   */
+  /// user input a string the method sends back an array of
+ /// possible matching location
+  /// * this method relies on Alamofire Framework and makes
+  /// a connexion check inside.
+  /// ** in case of error an error is printed in console.
+  /// but a guard properties make a first sanity check for url creation
+  ///
+  /// - Parameters:
+  ///   - location: String City
+  ///   - completion: [LocationModel] this function returns an array of LocationModel
   static func fetchData(for location:String, completion: @escaping ([LocationModel]) -> Void){
     // encode text to replace space
     guard let urlEncodedText = location.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
       else {return}
+    /// Final Url to find a location
     let url = baseUrl + urlEncodedText + endPoint
     // Make the call async to separate from UI calls
     DispatchQueue.main.async {
@@ -63,10 +66,11 @@ class LocationService {
     }
   }
   
-  /**
-   Parse json result fetched from server and append each results in resultArray
-   */
+  ///  Parse json result fetched from server and append each results in resultArray
+  ///
+  /// - Parameter response: Response from location API call
   static func parseResult(_ response: (DataResponse<Any>)) {
+    
     if let jsonDictionnary = response.result.value as? [Any]{
       for json in jsonDictionnary {
         if let result = json as? [ String : Any] {

@@ -24,7 +24,7 @@ class CurrencyServiceTests: XCTestCase {
   func testSuccesfullConnexionToCurrencyRemoteService() {
     let ex = expectation(description: "currency name should be BGP & rate different from 0.0")
     
-    CurrencyService.fetchExchangeRate(apiUrl: baseUrl, from: "USD", to: "GBP", completion: {(rate)  in
+    CurrencyService.fetchExchangeRate(apiUrl: baseUrl, from: "USD", to: "GBP", completion: {(rate,error)  in
       XCTAssert(rate.currency == "GBP")
       XCTAssert(rate.rate != 0.0)
       ex.fulfill()
@@ -40,7 +40,7 @@ class CurrencyServiceTests: XCTestCase {
   
   func testFailConnexionToCurrencyRemoteService() {
    
-    CurrencyService.fetchExchangeRate(apiUrl: "", from: "USD", to: "GBP", completion: {(rate)  in
+    CurrencyService.fetchExchangeRate(apiUrl: "", from: "USD", to: "GBP", completion: {(rate,error)  in
       XCTAssert(rate.currency == "GBP")
       XCTAssertFalse(type(of: rate) == [String: Any ].self)
     })

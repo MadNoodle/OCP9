@@ -13,14 +13,15 @@ import UIKit
  */
 extension TranslationViewController {
   
-  // MARK: - Keyboard folding methods
-  /**
-   Callback function called by UITextField Delegate when user
-   tap on the textField and begin to edit.
-   - parameters:
-      - notification: NSNotification notification received from observer
-      in viewDidLoad .
- */
+  // //////////////////////////////// //
+  // MARK: - Keyboard folding methods //
+  // //////////////////////////////// //
+
+  /// Callback function called by UITextField Delegate when user
+  /// tap on the textField and begin to edit.
+  ///
+  /// - Parameter notification: NSNotification notification received from observer
+  /// in viewDidLoad .
   @objc func keyboardWillShow(notification: NSNotification){
     if let info = notification.userInfo{
       //grab CGRect size of keybaord
@@ -35,16 +36,13 @@ extension TranslationViewController {
       })
     }
   }
-  /**
-   Animate the StackView in initail position/layout when keyboard disappear
- */
+
+  /// Animate the StackView in initail position/layout when keyboard disappear
   func resetStackViewToOriginal() {
     UIView.animate(withDuration: 0.25 , animations: {
       self.topView.isHidden = false
       self.bottomConstraint.constant = self.originalConstraint
       self.view.layoutIfNeeded()
     })}
-  
 
-  
 }

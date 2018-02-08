@@ -7,10 +7,12 @@
 //
 
 import Foundation
-
+/**
+ Dictionnary that contains all key value pairs for language to google language code
+ */
 struct Languages {
   /**
-   Dictionnary that contains all key value pairs for language to google language code
+   Key Value Pairs for country/language
    */
   static let languages = [
     ["name" : "Afrikaans", "log" : "af"],

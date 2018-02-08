@@ -15,7 +15,9 @@ import UIKit
  */
 class UserSettingsViewController: UIViewController {
   
-  // MARK: - properties
+  // /////////////////// //
+  // MARK: - properties  //
+  // /////////////////// //
   
   // MARK: -  Delegate Vcs
   ///Language settings View Controller
@@ -24,28 +26,46 @@ class UserSettingsViewController: UIViewController {
   let currencyListVc = CurrencySettings(style: .plain, homeDisplayKey: "homeCurrency", awayDisplayKey: "awayCurrency", homeIndexKey: "homeCurrencyIndex", awayIndexKey: "awayCurrencyIndex")
   ///Location settings View Controller
   let locationListVc = LocationSettingsController(nibName: nil, bundle: nil)
-  
-  // MARK: - ColorScheme
-  // ColorScheme to send to detail view. Color arre different for away & home scheme
+  // /////////////////// //
+  // MARK: - ColorScheme //
+  // /////////////////// //
+
+  // Color Scheme properties
+  /// Value to customize Color Scheme background
   var backgroundColor : UIColor?
+  /// Value to customize Color Scheme text
   var selectedTextColor  : UIColor?
   
   // MARK: - data exchange valeus to Vcs
   // Optionnal value to receive result from detail Vc's and to be stored in persistence
+  /// Away Language value (refer to Language)
   var awayLanguage : String?
+  /// home LAnguage value (refer to Language)
   var homeLanguage : String?
+   /// Optional Value that stores home city Index to highligth it in tableView when reloading
   var selectedHome : Int?
+    /// Optional Value that stores Away city Index to highligth it in tableView when reloading
   var selectedAway : Int?
   
   // MARK: - Label's Outlets
+  ///Away city name
   @IBOutlet weak var Acity: UILabel!
+  /// Away country language
   @IBOutlet weak var ALang: UILabel!
+  /// Away country currency
   @IBOutlet weak var ACurrency: UILabel!
+  /// home city name
   @IBOutlet weak var Bcity: UILabel!
+  /// home country language
   @IBOutlet weak var BLang: UILabel!
+  /// home country currency
   @IBOutlet weak var BCurrency: UILabel!
   
-  // MARK: - LifeCycle methods
+
+  // /////////////////////// //
+  // MARK: LifeCycle Methods //
+  // /////////////////////// //
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Settings"
@@ -56,10 +76,12 @@ class UserSettingsViewController: UIViewController {
     updateUI()
     receiveValueForLanguage()
   }
+  
+  // //////////////// //
+  // MARK: - Actions  //
+  // //////////////// //
 
-  // MARK: - Actions
-
-  // Language Actions
+  
   @IBAction func gotToHomeLanguageSettings(_ sender: UIButton) {
    languageListVc.initDetail(bgColor: #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1), txtSelect: #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4078431373, alpha: 1), destination: "home")
     navigationController?.pushViewController(languageListVc, animated: true)
@@ -92,7 +114,11 @@ class UserSettingsViewController: UIViewController {
     navigationController?.present(locationListVc, animated: true, completion: nil)
   }
   
-  // MARK: - UI methods
+  // ////////////////// //
+  // MARK: - UI methods //
+  // ////////////////// //
+  
+  /// Load informations into labels and update UI
   private func updateUI() {
     updateLabel(ALang, for: "awayLanguage")
     updateLabel(BLang, for: "homeLanguage")
@@ -102,12 +128,11 @@ class UserSettingsViewController: UIViewController {
     updateLabel(Bcity, for: "homeCity")
   }
   
-  /**
-   This method load data from persistent container asyncroneously to populate label
-   - parameters:
-   - label: UILabel destination label to populate
-   - key: String to call in UserDefaults to retrieve the current value to display
- */
+  ///  This method load data from persistent container asyncroneously to populate label
+  ///
+  /// - Parameters:
+  ///   - label: UILabel destination label to populate
+  ///   - key: String to call in UserDefaults to retrieve the current value to display
   func updateLabel(_ label: UILabel, for key: String){
     // call persistent container and optional binding to prevent nil value
     if let text = UserSettings.defaults.object(forKey: key) as! String!
@@ -119,8 +144,9 @@ class UserSettingsViewController: UIViewController {
     }
   }
   
+  /// Load values from external Vc's in selectedValues
   private func receiveValueForLanguage() {
-    // Receive value from language contaienr
+    // Receive value from language container
     selectedHome = languageListVc.selectedHome
     selectedAway = languageListVc.selectedAway
   }

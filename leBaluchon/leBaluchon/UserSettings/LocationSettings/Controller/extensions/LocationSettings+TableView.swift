@@ -32,7 +32,6 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
     return 1
   }
 
-  // MARK: - Table View Protocol Methods
  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
   return dataSet.count
   }

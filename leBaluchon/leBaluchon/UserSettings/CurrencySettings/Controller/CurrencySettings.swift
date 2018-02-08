@@ -12,30 +12,47 @@ import UIKit
  This class handles the settings for Currency selecction for home and away coountry and stores them in persistent container
  */
 class CurrencySettings: UITableViewController {
-  //Initialize dataModel
-  let dataSet = CurrencyList.list
   
-  // MARK: - properties
+  // ////////////////// //
+  // MARK: - properties //
+  // ////////////////// //
+  
+  /// Array to store the results from search before displaying them in the tableView
+  var dataSet = CurrencyList.list
   
   //Init properties
+  /// storing keys in UserDefaults for Away City
   var awayDisplayKey : String
+  /// storing keys in UserDefaults for home City
   var homeDisplayKey : String
+  /// storing keys in UserDefaults for home CityIndex
   var homeIndexKey: String = "homeCurrencyIndex"
+  /// storing keys in UserDefaults for Away CityIndex
   var awayIndexKey: String = "awayCurrencyIndex"
   
-  //Value to customize Color Scheme
+  // Color Scheme properties
+   /// Value to customize Color Scheme background
   var backgroundColor : UIColor?
+  /// Value to customize Color Scheme text
   var selectedTextColor  : UIColor?
-  
   // Value to store
+  /// storing the value if location is home or Away
   var source = "home"
+  /// CoreData key to retrieve value
   var value = "log"
-  var away : String?
+  /// Optional Value that stores home city Name
   var home : String?
+  /// Optional Value that stores Away city Name
+  var away : String?
+  /// Optional Value that stores home city Index to highligth it in tableView when reloading
   var selectedHome : Int?
+  /// Optional Value that stores Away city Index to highligth it in tableView when reloading
   var selectedAway : Int?
   
-  // MARK: - Custom Initializer
+  // /////////////////////////// //
+  // MARK: - Custom Initializer //
+  // ////////////////////////// //
+  
   init(style:UITableViewStyle, homeDisplayKey:String, awayDisplayKey:String, homeIndexKey:String,awayIndexKey:String){
     self.awayDisplayKey = awayDisplayKey
     self.homeDisplayKey = homeDisplayKey
@@ -45,16 +62,16 @@ class CurrencySettings: UITableViewController {
   }
   
   
-  /**
-   Additive init method that allows us to pass the color scheme just before pushing the Vc from generalSettings Vc.
-   - important: To change the colors, you need to change them in UserSettingsViewController.
-   - parameters:
-       - bgColor: UIcolor for background
-       - txtSelect: UIColor secondary color for text and highlights
-       - destination: String.
-      ** Can be home or away. This value
-       allows us to pass the value to the good vc and to retrieve them in the persistent container
- */
+  ///  Additive init method that allows us to pass the color scheme just before pushing the Vc from generalSettings Vc.
+  ///- important: To change the colors, you need to change them in UserSettingsViewController.
+  ///
+  /// - Parameters:
+  ///   - bgColor: UIcolor for background
+  ///   - txtSelect: UIColor secondary color for text and highlights
+  ///   - destination: String Location
+  ///      ** Can be home or away. This value
+  ///       allows us to pass the value to the good vc and to retrieve them in the persistent container
+  
   func initDetail(bgColor:UIColor, txtSelect: UIColor, destination: String){
     self.backgroundColor = bgColor
     self.selectedTextColor = txtSelect
@@ -66,8 +83,11 @@ class CurrencySettings: UITableViewController {
     fatalError("init(coder:) has not been implemented")
   }
   
+  // /////////////////////// //
+  // MARK: LifeCycle Methods //
+  // /////////////////////// //
   
-  // MARK: - LifeCycle Methods
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
@@ -103,14 +123,14 @@ class CurrencySettings: UITableViewController {
     }
   }
   
-  // MARK: - Table view data source
+  // //////////////////////////////////// //
+  // MARK: - Table view delegate methods  //
+  // //////////////////////////////////// //
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  
-  // MARK: - Table View Protocol Methods
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return dataSet.count
@@ -130,8 +150,10 @@ class CurrencySettings: UITableViewController {
     return cell
   }
   
+  // /////////////////////////// //
+  // MARK: - Cell State handling //
+  // /////////////////////////// //
   
-  // MARK: - Cell State handling
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
     // Send back value to data exchange properties in order
@@ -162,12 +184,13 @@ class CurrencySettings: UITableViewController {
     return indexPath
   }
   
-  // MARK: - custom cell style handling
+  // ////////////////////////////////// //
+  // MARK: - custom cell style handling //
+  // ////////////////////////////////// //
   
-  
-  /**
-   set style and data for cell
-   */
+  /// set style and data for cell
+  ///
+  /// - Parameter cell: UITableViewCell cell to style
   func setup(_ cell: UITableViewCell){
     //Setup data
     
@@ -178,18 +201,20 @@ class CurrencySettings: UITableViewController {
   }
   
   
-  /**
-   Used to select the cell according to Language code
-   */
+  /// Used to select the cell according to Language code
+  ///
+  /// - Parameter rowNumber: Int row number to select
   func selectRow(_ rowNumber: Int){
     let indexPath = IndexPath(row:rowNumber , section: 0)
     self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
   }
   
   
-  /**
-   Change to new selected colorScheme fonts & check mark
-   */
+  /// Change to new selected colorScheme fonts & check mark
+  ///
+  /// - Parameters:
+  ///   - cell: UITableViewCell to Style
+  ///   - color: UIColor colorschem Color
   func highlight(_ cell: UITableViewCell, with color: UIColor){
     // Set the higlight color scheme
     cell.tintColor = color
@@ -204,9 +229,9 @@ class CurrencySettings: UITableViewController {
   }
   
   
-  /**
-   Reset Style to default
-   */
+  /// Reset Style to default
+  ///
+  /// - Parameter indexPath: indexPAth of the Cell to resets
   func deSelectedCell(at indexPath: IndexPath){
     // remove checkMark
     tableView.cellForRow(at: indexPath)?.accessoryType = .none

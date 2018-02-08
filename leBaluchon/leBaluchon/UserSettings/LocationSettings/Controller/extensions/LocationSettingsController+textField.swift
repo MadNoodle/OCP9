@@ -21,7 +21,6 @@ extension LocationSettingsController: UITextFieldDelegate{
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    
    searchLocation()
     table?.isHidden = false
       self.input?.resignFirstResponder()
@@ -31,7 +30,6 @@ extension LocationSettingsController: UITextFieldDelegate{
   private func resetTextField() {
     input?.resignFirstResponder()
     self.view.layoutIfNeeded()
-
   }
   /**
    This method takes the input text and generate a request trhoughth Location Service

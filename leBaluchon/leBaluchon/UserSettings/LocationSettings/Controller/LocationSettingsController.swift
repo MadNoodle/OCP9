@@ -9,49 +9,66 @@
 import UIKit
 
 class LocationSettingsController: UIViewController {
+
   
+  // ////////////////// //
+  // MARK: - properties //
+  // ////////////////// //
+  
+  /// Array to store the results from search before displaying them in the tableView
   var dataSet = [LocationModel]()
-  // MARK: - properties
+  
   //Init properties
+  /// table view to display location results
   var table : UITableView?
+  /// textField where user enter his query
   var input : UITextField?
-  // storing keys in UserDefaults for home City
+  /// storing keys in UserDefaults for home City
   var homeDisplayKey : String = "homeCity"
+  /// storing keys in UserDefaults for home CityIndex
   var homeIndexKey: String = "homeCityIndex"
-  
-  // storing keys in UserDefaults for Away City
+  /// storing keys in UserDefaults for Away City
   var awayDisplayKey : String = "awayCity"
+  /// storing keys in UserDefaults for Away CityIndex
   var awayIndexKey: String = "awayCityIndex"
+  /// Value to customize Color Scheme background
   
-  //Value to customize Color Scheme
+  // Color Scheme properties
+  /// Value to customize Color Scheme background
   var backgroundColor : UIColor?
+   /// Value to customize Color Scheme text
   var selectedTextColor  : UIColor?
-  
   // Value to store
+  /// storing the value if location is home or Away
   var source = "home"
+  /// CoreData key to retrieve value
   var value = "log"
+  /// Optional Value that stores home city Name
   var home : String?
+  /// Optional Value that stores Away city Name
   var away : String?
+  /// Optional Value that stores home city Index to highligth it in tableView when reloading
   var selectedHome : Int?
+  /// Optional Value that stores Away city Index to highligth it in tableView when reloading
   var selectedAway : Int?
-  
-  /**
-   Additive init method that allows us to pass the color scheme just before pushing the Vc from generalSettings Vc.
-   - important: To change the colors, you need to change them in UserSettingsViewController.
-   - parameters:
-       - bgColor: UIcolor for background
-       - txtSelect: UIColor secondary color for text and highlights
-       - destination: String.
-   ** Can be home or away. This value
-   allows us to pass the value to the good vc and to retrieve them in the persistent container
-   */
+
+  ///  Additive init method that allows us to pass the color scheme just before pushing the Vc from generalSettings Vc.
+  ///- important: To change the colors, you need to change them in UserSettingsViewController.
+  ///
+  /// - Parameters:
+  ///   - bgColor: UIcolor for background
+  ///   - txtSelect: UIColor secondary color for text and highlights
+  ///   - destination: String Location
   func initDetail(bgColor:UIColor, txtSelect: UIColor, destination: String){
     self.backgroundColor = bgColor
     self.selectedTextColor = txtSelect
     self.source = destination
   }
   
-  // MARK: LifeCycle Methods
+  // /////////////////////// //
+  // MARK: LifeCycle Methods //
+  // /////////////////////// //
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupNavbar()
@@ -79,9 +96,14 @@ class LocationSettingsController: UIViewController {
     input?.text = ""
     table?.reloadData()
   }
-  // MARK: - Saving methods
+  
+  // ////////////////////// //
+  // MARK: - Saving methods //
+  // ////////////////////// //
+  
+  
   /**
-   Pretty self explanatory. Stores value in persistent container
+   Stores value in persistent container
    */
   private func saveLocationSettings() {
     if source == "home" {

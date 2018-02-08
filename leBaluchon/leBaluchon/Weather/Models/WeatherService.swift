@@ -14,24 +14,30 @@ import Alamofire
  */
 struct WeatherService {
   
-  // MARK: - properties
-  static let baseUrl = "https://query.yahooapis.com/v1/public/yql?q="
-  static let endPoint = "&format=json"
+  // ////////////////// //
+  // MARK: - properties //
+  // ////////////////// //
   
-  // MARK: - methods
-  /**
-   This method generate a string from a location and yql request
-   ## Important
-   YQL (Yahoo Query Language) is a SQL-like language that lets you query, filter, and join data from Web services. With YQL, you can access data across the Internet through simple REST requests, eliminating the need to learn how to use different APIs.
-   - parameters:
-      - location : the city you wish to get weather info
-   - returns: String
- */
+  /// Yahoo API base url
+  static let baseUrl = Constants.WEATHER_BASE_URL
+  /// Yahoo API end Point
+  static let endPoint = Constants.WEATHER_END_POINT
+  
+  // /////////////// //
+  // MARK: - methods //
+  // /////////////// //
+  
+  /// This method generate a string from a location and yql request
+  /// ## Important
+  ///  YQL (Yahoo Query Language) is a SQL-like language that lets you query, filter, and join data from Web services. With YQL, you can access data across the Internet through simple REST requests, eliminating the need to learn how to use different APIs.
+  ///
+  /// - Parameter location: the city you wish to get weather info
+  /// - Returns: String
   static func createRequestUrl(for location: String) -> String{
     //Yql request can be modified to fetch more data
     // check examples here: https://developer.yahoo.com/weather/
     
-    let yqlRequest = "select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='\(location)') and u='c'"
+    let yqlRequest = Constants.WEATHER_YQL_REQUEST + "\(location)" + Constants.WEATHER_YQL_REQUEST_END_POINT
     
     //Transcoding
     guard
@@ -41,12 +47,12 @@ struct WeatherService {
     return requestUrl
   }
   
-  /**
-   This method make a GET request on yahoo Weather Rest API and returns a parsed data object
-   - parameters:
-   - location : the city you wish to get weather info
-   - returns: CurrentWeather
-   */
+
+  /// This method make a GET request on yahoo Weather Rest API and returns a parsed data object
+  ///
+  /// - Parameters:
+  ///   - location: the city you wish to get weather info
+  ///   - completion: CurrentWeather
   static func fetchWeather(for location: String, completion: @escaping(_ weather: CurrentWeather, _ error: Error?) ->Void){
     let requestUrl: String = createRequestUrl(for: location)
     //Initialize the optional weather to store result of the request if there is one

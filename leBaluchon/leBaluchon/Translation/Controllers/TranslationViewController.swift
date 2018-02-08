@@ -16,27 +16,44 @@ This controller handles translation display
  */
 class TranslationViewController: UIViewController,UITextFieldDelegate {
   
-  // MARK: - properties
-  // Initialize Translation Service
+  // ////////////////// //
+  // MARK: - properties //
+  // ////////////////// //
+  /// Initialize Translation Service
   let translationService = TranslationService()
+  /// Iniatially set autodetect translation false. Change to true if autodetect always on
   var autodetect = false
   
   
-  // MARK: - Outlets
+  // ////////////////// //
+  // MARK: - Outlets    //
+  // ////////////////// //
+  
+  /// Stack View that contains the input and translation container
   @IBOutlet weak var stackView: UIStackView!
+  /// Display the home language
   @IBOutlet weak var homeLanguage: UILabel!
+  /// Display the Away Language
   @IBOutlet weak var awayLanguage: UILabel!
+  /// TextField where user type the sentence he wants to translate
   @IBOutlet weak var inputTextField: UITextField!
+  /// TextView that displays the translation
   @IBOutlet weak var translationContainer: UITextView!
+  /// Container for the translation textView
   @IBOutlet weak var topView: UIView!
   
-  // MARK: - CONSTRAINT OUTLETS
+  // ////////////////////////// //
+  // MARK: - CONSTRAINT OUTLETS //
+  // ////////////////////////// //
+  
   /// Outlets used to move the stackview up when keyboard pops up
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   /// property used to reset stackView to initial position when keyboard pops out
   var originalConstraint: CGFloat = 0
   
-  // MARK: - LifeCycle Methods
+  // /////////////////////// //
+  // MARK: LifeCycle Methods //
+  // /////////////////////// //
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -64,21 +81,22 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
       autodetect = false
     }
   }
-  // MARK : - Methods
   
-  /**
-   Load languages settings from user default
- */
+  // //////////////// //
+  // MARK : - Methods //
+  // //////////////// //
+  
+  
+  ///  Load languages settings from user default
   private func loadLanguageSettings() {
     homeLanguage.text = UserSettings.defaults.object(forKey: "homeLanguage") as! String!
     awayLanguage.text = UserSettings.defaults.object(forKey: "awayLanguage") as! String!
   }
   
-  /**
-   Fetch translation of UITextfield text
-   - parameters:
-      - url: String. Character chain/sentence/word input in the textfield
-   */
+
+  /// Fetch translation of UITextfield text
+  ///
+  /// - Parameter url:  String. Character chain/sentence/word input in the textfield
   private func fetchTranslationforUrl(_ url: String) {
     translationService.fetchTranslation(translationUrl: url, completion: {(result,error) in
       // display an alert connexions fails
@@ -90,14 +108,13 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
     })
   }
   
-  /**
-   This method handles the translation part.
-   ** Important: 2 case are possible:
-     - Autodetect is off : uses UserSettings languages
-     - Autodetect is on : uses User Settings Away Language and retrieve home language from GOOGLE API
-   - parameters:
-    - text: String. TextField input
- */
+
+  /// This method handles the translation part.
+  /// ** Important: 2 case are possible:
+  /// - Autodetect is off : uses UserSettings languages
+  /// - Autodetect is on : uses User Settings Away Language and retrieve home language from GOOGLE API
+  ///
+  /// - Parameter text: String. TextField input
   func translate(_ text: String) {
     var url = ""
     
@@ -126,11 +143,11 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
     }
   }
   
-  // MARK: - UI Setup Methods
+  // //////////////////////// //
+  // MARK: - UI Setup Methods //
+  // //////////////////////// //
   
-  /**
-   Setup of UIText field including autotranslation of the placeholder text according to user Settings
- */
+  /// Setup of UIText field including autotranslation of the placeholder text according to user Settings
   func inputFieldSetup() {
     inputTextField.delegate = self
     inputTextField.font = UIFont(name: "Montserrrat-Regular.otf", size: 17.0)
@@ -147,9 +164,8 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
     })
   }
   
-  /**
-   Setup of Top UITextViewincluding autotranslation of the placeholder text according to user Settings
-   */
+
+  /// Setup of Top UITextViewincluding autotranslation of the placeholder text according to user Settings
   func topTextViewSetup(){
     let translationSentence = "Your translation will appear here"
     let url = translationService.createRequestUrl(text: translationSentence, from: "en", to: homeLanguage.text!)
@@ -163,12 +179,11 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
     })
   }
   
-  /**
-   Show alert when user try to do an invalid operation such as 2
-   decimal points in the same number or connexion problem
-   - parameters:
-   - message: String. Message to explain the error
-   */
+
+  /// Show alert when user try to do an invalid operation such as 2
+  /// decimal points in the same number or connexion problem
+  ///
+  /// - Parameter message: String. Message to explain the error
   func showAlert(message:String) {
     let alertVC = UIAlertController(title: "Attention", message: message, preferredStyle: .alert)
     alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

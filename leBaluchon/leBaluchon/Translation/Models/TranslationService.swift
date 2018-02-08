@@ -16,9 +16,14 @@ class TranslationService {
   /// api key private for security. Change it to your own if you want to reuse the codde
   static private let API_KEY = "AIzaSyDBiXmXXpi5D2I0QIb0buMGNZgxXnD0X2k"
   
-  /**
-   Create the url request from a String a base language and final language
-   */
+
+  /// Create the url request from a String a base language and final language
+  ///
+  /// - Parameters:
+  ///   - text: String. text to translate
+  ///   - source: String. Source language
+  ///   - target: String. target Language
+  /// - Returns: String url for request
   func createRequestUrl(text: String, from source: String, to target: String) -> String {
     guard
       let urlEncodedText = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return ""}
@@ -27,9 +32,12 @@ class TranslationService {
     return url
   }
   
-  /**
-   this function uses Alamofire framework to make Webrequest. and fetch Data in a CurrenyRate Object
-   */
+
+  /// this function uses Alamofire framework to make Webrequest. and fetch Data in a CurrenyRate Object
+  ///
+  /// - Parameters:
+  ///   - translationUrl: String url to reach te API
+  ///   - completion: TranslationObject
   func fetchTranslation(translationUrl: String, completion: @escaping (_ result: TranslationObject?, _ error: Error?) -> Void) {
     var result: TranslationObject?
     
@@ -61,9 +69,12 @@ class TranslationService {
     }
   }
   
-  /**
-   Method to auto detect the language from a text to translate. Can be combined with fetchTranslation to create an autodetected source language request to another
-   */
+
+  /// Method to auto detect the language from a text to translate. Can be combined with fetchTranslation to create an autodetected source language request to another
+  ///
+  /// - Parameters:
+  ///   - string: String. Input text
+  ///   - completion: String. Language of the text
   func detectLanguage(from string:String, completion: @escaping(_ language: String, _ error: Error?)-> Void ){
     //Convert String to url friendly string
     guard

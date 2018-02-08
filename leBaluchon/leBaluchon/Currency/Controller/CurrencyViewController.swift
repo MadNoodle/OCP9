@@ -10,22 +10,37 @@ import UIKit
 
 class CurrencyViewController: UIViewController {
   
-  // Inittialize Data Logic
-  var currencyConverter = CurrencyConverter()
+  // ////////////////// //
+  // MARK: - properties //
+  // ////////////////// //
   
-  // MARK: - properties
+  /// Inittialize Data Logic
+  var currencyConverter = CurrencyConverter()
+  /// Exchange rate
   var rateValue : Double = 0.0
+  /// Load home currency from Core data
   var homeCurrency = UserSettings.defaults.object(forKey: "homeCurrency") as? String
+  /// Load away Currency from Core Data
   var awayCurrency = UserSettings.defaults.object(forKey: "awayCurrency") as? String
   
-  // MARK: - OUTLETS
+  // /////////////// //
+  // MARK: - OUTLETS //
+  // /////////////// //
+  
+  ///  today's date display
   @IBOutlet weak var date: UILabel!
+  /// exchange rate display
   @IBOutlet weak var rate: UILabel!
+  /// Away currency rate display
   @IBOutlet weak var awayAmount: UILabel!
+  /// Home currency rate display
   @IBOutlet weak var homeAmount: UILabel!
+  /// Number Pad buttons
   @IBOutlet var numberButtons: [UIButton]!
   
-  // MARK: - LifeCycle Methods
+  // /////////////////////// //
+  // MARK: LifeCycle Methods //
+  // /////////////////////// //
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,7 +54,9 @@ class CurrencyViewController: UIViewController {
     self.awayAmount.text = "0 \(self.awayCurrency!)"
   }
   
-  // MARK: - BUTTONS ACTIONS
+  // /////////////////////// //
+  // MARK: - BUTTONS ACTIONS //
+  // /////////////////////// //
   
   @IBAction func tappedNumberButton(_ sender: UIButton) {
     for (i, numberButton) in numberButtons.enumerated() where sender == numberButton {
@@ -71,7 +88,9 @@ class CurrencyViewController: UIViewController {
     awayAmount.text = "0 \(awayCurrency!)"
   }
   
-  // MARK: - Display methods
+  // /////////////////////// //
+  // MARK: - Display methods //
+  // /////////////////////// //
   
   /**
    This method create the initial state of the converter.
@@ -86,9 +105,8 @@ class CurrencyViewController: UIViewController {
     awayAmount.text = "0 \(awayCurrency!)"
   }
   
-  /**
-   update home currency display when nulbers and decimal are tapped
- */
+ 
+  /// update home currency display when nulbers and decimal are tapped
   func updateDisplay() {
     var text = ""
     let stack = currencyConverter.stringNumbers.enumerated()
@@ -103,13 +121,14 @@ class CurrencyViewController: UIViewController {
     homeAmount.text = "\(text) \(homeCurrency!)"
   }
   
+  // ///////////////////////// //
+  // MARK: - Converter Methods //
+  // ///////////////////////// //
   
-  // MARK: - Converter Methods
-  /**
-   This method handles the fetching of currenct name from UserDefault
-   and REST API call to grab the exchang rate.
-   This informations feed the converter
- */
+
+  /// This method handles the fetching of currenct name from UserDefault
+  /// and REST API call to grab the exchang rate.
+  /// This informations feed the converter
   private func currencyConverterSetup() {
     setupDisplay()
     // grab data asynchroneously to not overload UILoading
@@ -130,9 +149,10 @@ class CurrencyViewController: UIViewController {
     }
   }
   
-  /**
-   Grab current date and format it
- */
+
+  /// Grab current date and format it
+  ///
+  /// - Returns: String Date
   private func currentDate() -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE, MMMM d, yyyy"
@@ -141,13 +161,10 @@ class CurrencyViewController: UIViewController {
     return convertedDateString
   }
   
-  
-  /**
-   Show alert when user try to do an invalid operation such as 2
-   decimal points in the same number or connexion problem
-   - parameters:
-   - message: String. Message to explain the error
-   */
+  ///  Show alert when user try to do an invalid operation such as 2
+  /// decimal points in the same number or connexion problem
+  ///
+  /// - Parameter message: String. Message to explain the error
   func showAlert(message:String) {
     let alertVC = UIAlertController(title: "Attention", message: message, preferredStyle: .alert)
     alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

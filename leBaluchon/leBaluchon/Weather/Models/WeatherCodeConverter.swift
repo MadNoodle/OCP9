@@ -14,7 +14,10 @@ import UIKit
  */
 class WeatherCodeConverter {
   
-  // MARK : - Code classification
+  // //////////////////////////// //
+  // MARK : - Code classification //
+  // //////////////////////////// //
+  
   static let clearDay = ["32","34","36"]
   static let clearNight =  ["31","33"]
   static let cloudy = ["26","44"]
@@ -30,12 +33,14 @@ class WeatherCodeConverter {
   static let wind =  ["24"]
   static let error = ["3200"]
   
-  // Properties that relay between codes and icon names
+  /// Properties that relay between codes and icon names
   static let weathers: [(String,[String])] = [("clear-day",clearDay), ("clear-night", clearNight), ("cloudy", cloudy), ("fog", fog), ("hail",hail),("partly-cloudy-day", partlyCloudyDay), ("partly-cloudy-night",partlyCloudyNight), ("rain", rain), ("sleet", sleet),("snow",  snow), ("thunderstorm", thunderstorm),("tornado", tornado),("wind" ,wind),("error",error)]
   
-  /**
-   This method receive a String from Data Model and returns the good icon name
- */
+
+  /// This method receive a String from Data Model and returns the good icon name
+  ///
+  /// - Parameter code: string code received from API
+  /// - Returns: String for image name
   static func FindConditions(for code: String) -> String?{
     var conditions : String?
     for weather in weathers {

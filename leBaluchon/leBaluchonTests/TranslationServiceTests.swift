@@ -21,7 +21,7 @@ class TranslationServiceTests: XCTestCase {
     let ex = expectation(description: "result should be hello chicken")
     let request: String = translationService.createRequestUrl(text: "bonjour poulet.", from: "fr", to: "en")
     var translation = ""
-    translationService.fetchTranslation(translationUrl: request, completion: {(result) in
+    translationService.fetchTranslation(translationUrl: request, completion: {(result,error) in
       translation = (result?.text)!
       XCTAssertEqual(translation,"hello chicken." )
       ex.fulfill()
@@ -38,7 +38,7 @@ class TranslationServiceTests: XCTestCase {
     let ex = expectation(description: "fr")
     let request: String = translationService.createRequestUrl(text: "bonjour poulet.", from: "fr", to: "en")
     var translation = ""
-    translationService.fetchTranslation(translationUrl: request, completion: {(result) in
+    translationService.fetchTranslation(translationUrl: request, completion: {(result,error) in
       translation = (result?.text)!
       XCTAssertEqual(translation,"hello chicken." )
       ex.fulfill()
@@ -55,7 +55,7 @@ class TranslationServiceTests: XCTestCase {
     var result = ""
     let ex = expectation(description: "language is french")
     
-    translationService.detectLanguage(from: input, completion: {(language) in
+    translationService.detectLanguage(from: input, completion: {(language,error) in
       result = language
       XCTAssert(result == "fr")
       ex.fulfill()

@@ -28,24 +28,31 @@ class leBaluchonUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testTabBarNavigation() {
+    func testTabBarNavigationByTapping() {
       let app = XCUIApplication()
       let tabBarsQuery = XCUIApplication().tabBars
       let currencyButton = tabBarsQuery.buttons["Currency"]
       currencyButton.tap()
-      let convert = app.buttons["CONVERT"]
-      XCTAssert(convert.exists)
-      XCTAssert(convert.isHittable)
+      XCTAssert(app.navigationBars["Currency"].exists)
       tabBarsQuery.buttons["Translation"].tap()
-      let switchDetect = app.switches["autodetectSwitch"]
-      XCTAssert(switchDetect.exists)
-      XCTAssert(switchDetect.isHittable)
+      XCTAssert(app.navigationBars["Translation"].exists)
       tabBarsQuery.buttons["Settings"].tap()
+      XCTAssert(app.navigationBars["Settings"].exists)
       tabBarsQuery.buttons["Weather"].tap()
-      
-      
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+      XCTAssert(app.navigationBars["Weather"].exists)
     }
+  
+  func testTabBarNavigationBySwiping() {
+    let app = XCUIApplication()
+          XCTAssert(app.navigationBars["Weather"].exists)
+    app.staticTexts["Asnières-sur-Seine"].swipeLeft()
+          XCTAssert(app.navigationBars["Currency"].exists)
+    app.staticTexts["0 EUR"].swipeLeft()
+          XCTAssert(app.navigationBars["Translation"].exists)
+    let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
+    element.children(matching: .other).element(boundBy: 0).swipeLeft()
+      XCTAssert(app.navigationBars["Settings"].exists)
+  }
+  
     
 }

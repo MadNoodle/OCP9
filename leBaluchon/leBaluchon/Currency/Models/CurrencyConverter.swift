@@ -16,17 +16,25 @@ import Foundation
  */
 struct CurrencyConverter {
   
-  // MARK: - Properties
+  // ////////////////// //
+  // MARK: - Properties //
+  // ////////////////// //
+  
+  /// Array to store key inputs
   var stringNumbers: [String] = [String()]
+  /// initial index
   var index = 0
+  /// Home currency value
   var currencyHome: Double?
+  /// Away Currency Value
   var currencyAway: Double?
   
-  // MARK: - Input Methods
-  /**
-   Computed property that check if there is one number in number stack.
-   if yes then you can add an operand
-   */
+  // ///////////////////// //
+  // MARK: - Input Methods //
+  // ///////////////////// //
+  
+  /// Computed property that check if there is one number in number stack.
+  /// if yes then you can add an operand
   var canAddOperator: Bool {
     if let stringNumber = stringNumbers.last {
       if stringNumber.isEmpty {
@@ -36,18 +44,13 @@ struct CurrencyConverter {
     return true
   }
   
-//  /**
-//   When press operand this methods store operands and first number
-//   */
-//  mutating func sendOperandsToBrain(operand: String, number: String) {
-//    operators.append(operand)
-//    stringNumbers.append(number)
-//  }
-//
-  /**
-   Add new number in the stack and memorize the former last one
-   allows us to calculate numbers with more than one number long
-   */
+
+  /// Add new number in the stack and memorize the former last one
+  /// allows us to calculate numbers with more than one number long
+  ///
+  /// - Parameters:
+  ///   - newNumber: Int
+  ///   - value: Int
   mutating func addNewNumber(_ newNumber: Int,_ value: String) {
     if let stringNumber = stringNumbers.last {
       var stringNumberMutable = stringNumber
@@ -59,9 +62,8 @@ struct CurrencyConverter {
     }
   }
   
-  /**
-   Check if the stack already contains a point or is empty and returns false it is
-   */
+
+  /// Check if the stack already contains a point or is empty and returns false it is
   var canAddDecimal: Bool {
     if let strings = stringNumbers.last {
       if strings.contains(".") || strings.isEmpty {
@@ -71,6 +73,7 @@ struct CurrencyConverter {
     return true
   }
   
+  /// Method to add a decimal point
   mutating func addDecimal(){
     if let stringNumber = stringNumbers.last {
       var stringNumberDecimal = stringNumber
@@ -80,12 +83,12 @@ struct CurrencyConverter {
       stringNumbers[stringNumbers.count-1] = stringNumberDecimal
     }
   }
+  // /////////////////////////////////////// //
+  // MARK: - Evaluation & calculation metods //
+  // /////////////////////////////////////// //
   
-  // MARK: - Evaluation & calculation metods
-  /**
-   Computed property that check if there is empty or have
-   only one member in number stack. Then you cannot perform operation
-   */
+  /// Computed property that check if there is empty or have
+  /// only one member in number stack. Then you cannot perform operation
   var isExpressionCorrect: Bool {
     if let stringNumber = stringNumbers.last {
       if stringNumber.isEmpty {
@@ -99,11 +102,11 @@ struct CurrencyConverter {
   }
   
   
-  /**
-   Perform the operation between the 2 numbers in the stack.
-   the operation can be + or - for the moment
-   
-   */
+  /// Perform the operation between the 2 numbers in the stack.
+  /// the operation can be + or - for the moment
+  ///
+  /// - Parameter rate: Currency exchange rate
+  /// - Returns: Double converted result
   mutating func convert(rate:Double) -> Double {
     var total: Double = 0
     // slices the memorized number
@@ -117,9 +120,10 @@ struct CurrencyConverter {
     return total
   }
   
-  /**
-   Check if the result is an Integer
-   */
+  /// Check if the result is an Integer
+  ///
+  /// - Parameter result: Double
+  /// - Returns: Bool
   mutating func roundEvaluation(_ result: Double) -> Bool{
     if result.truncatingRemainder(dividingBy: 1) == 0 {
       return true
@@ -127,19 +131,18 @@ struct CurrencyConverter {
     return false
   }
   
-  // MARK: - Reset Method
-  /**
-   Clear the model's data
-   */
+  // //////////////////// //
+  // MARK: - Reset Method //
+  // //////////////////// //
+ 
+  /// Clear the model's data
   mutating func clear() {
     stringNumbers = [String()]
 
     index = 0
   }
   
-  /**
-   Clear the model's data and purge former result
-   */
+  /// Clear the model's data and purge former result
   mutating func allClear() {
     clear()
  

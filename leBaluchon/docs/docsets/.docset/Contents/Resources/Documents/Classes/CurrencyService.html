@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CurrencyService Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/CurrencyService" class="dashAnchor"></a>
+    <a title="CurrencyService Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (75% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CurrencyService Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyRate.html">CurrencyRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyService.html">CurrencyService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencySettings.html">CurrencySettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrentWeather.html">CurrentWeather</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CustomTabBarController.html">CustomTabBarController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LanguageSettings.html">LanguageSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocationService.html">LocationService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TranslationService.html">TranslationService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TranslationViewController.html">TranslationViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSettings.html">UserSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSettingsViewController.html">UserSettingsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WeatherCodeConverter.html">WeatherCodeConverter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WeatherViewController.html">WeatherViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Constants.html">Constants</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CurrencyConverter.html">CurrencyConverter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CurrencyList.html">CurrencyList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Languages.html">Languages</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LocationModel.html">LocationModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TranslationObject.html">TranslationObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/WeatherService.html">WeatherService</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CurrencyService</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CurrencyService</span></code></pre>
+
+                </div>
+              </div>
+            <p>This Servvice handle the collection of rates from <a href="https://api.fixer.io">https://api.fixer.io</a>.
+Documentation available at : <a href="http://fixer.io/">http://fixer.io/</a>
+The API updates rates daily around 4PM CET
+<a href="https://github.com/hakanensari/fixer/">https://github.com/hakanensari/fixer/</a></p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon15CurrencyServiceC3apiSSvZ"></a>
+                    <a name="//apple_ref/swift/Variable/api" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon15CurrencyServiceC3apiSSvZ">api</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Currency Service Api Key</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">api</span> <span class="o">=</span> <span class="kt"><a href="../Structs/Constants.html">Constants</a></span><span class="o">.</span><span class="kt">CURRENCY_API_CALL</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon15CurrencyServiceC17fetchExchangeRateySS6apiUrl_SS4fromSS2toyAA0cG0C_s5Error_pSgtc10completiontFZ"></a>
+                    <a name="//apple_ref/swift/Method/fetchExchangeRate(apiUrl:from:to:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon15CurrencyServiceC17fetchExchangeRateySS6apiUrl_SS4fromSS2toyAA0cG0C_s5Error_pSgtc10completiontFZ">fetchExchangeRate(apiUrl:from:to:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>this function uses Alamofire framework to make Webrequest. and fetch Data in a CurrenyRate Object</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchExchangeRate</span><span class="p">(</span><span class="nv">apiUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span><span class="n">from</span> <span class="nv">base</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">to</span> <span class="nv">final</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">currency</span><span class="p">:</span> <span class="kt"><a href="../Classes/CurrencyRate.html">CurrencyRate</a></span><span class="p">,</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>apiUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>base</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String home currency</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>final</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String away currency</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>CuurencyRate or Error</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon15CurrencyServiceC19storeLastUpdateDateyyFZ"></a>
+                    <a name="//apple_ref/swift/Method/storeLastUpdateDate()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon15CurrencyServiceC19storeLastUpdateDateyyFZ">storeLastUpdateDate()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stores last update time in User default</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">storeLastUpdateDate</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon15CurrencyServiceC20verifyIfUpdateNeededSb10Foundation4DateV04lastG0_SS4homeSS4awaytFZ"></a>
+                    <a name="//apple_ref/swift/Method/verifyIfUpdateNeeded(lastUpdate:home:away:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon15CurrencyServiceC20verifyIfUpdateNeededSb10Foundation4DateV04lastG0_SS4homeSS4awaytFZ">verifyIfUpdateNeeded(lastUpdate:home:away:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Compare last update date from userDefault and send true if interval is greater than one day or if it is later 4 pm (BCE update time).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">verifyIfUpdateNeeded</span><span class="p">(</span><span class="nv">lastUpdate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">,</span> <span class="nv">home</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">away</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lastUpdate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Date. last update date</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>home</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String. home currency</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>away</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String. awaway currency</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Bool</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon15CurrencyServiceC24verifyIfBankRatesUpdatedSbyFZ"></a>
+                    <a name="//apple_ref/swift/Method/verifyIfBankRatesUpdated()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon15CurrencyServiceC24verifyIfBankRatesUpdatedSbyFZ">verifyIfBankRatesUpdated()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method that check if it s later than 4 pm GMT (BCE update time)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">verifyIfBankRatesUpdated</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Boolean</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-02-08)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

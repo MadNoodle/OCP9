@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UserSettingsViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/UserSettingsViewController" class="dashAnchor"></a>
+    <a title="UserSettingsViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (75% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        UserSettingsViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyRate.html">CurrencyRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencyService.html">CurrencyService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrencySettings.html">CurrencySettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CurrentWeather.html">CurrentWeather</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CustomTabBarController.html">CustomTabBarController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LanguageSettings.html">LanguageSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocationService.html">LocationService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TranslationService.html">TranslationService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TranslationViewController.html">TranslationViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSettings.html">UserSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSettingsViewController.html">UserSettingsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WeatherCodeConverter.html">WeatherCodeConverter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WeatherViewController.html">WeatherViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Constants.html">Constants</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CurrencyConverter.html">CurrencyConverter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CurrencyList.html">CurrencyList</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Languages.html">Languages</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LocationModel.html">LocationModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TranslationObject.html">TranslationObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/WeatherService.html">WeatherService</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>UserSettingsViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">UserSettingsViewController</span><span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+
+                </div>
+              </div>
+            <p>This Vc handles all the communication to display value for user settings.
+It guides the user througth new Vcs : language, location and currency settings.
+For sanity, this controller does set any value. All the value are saved in the dedicated vcs throuth dedicated models</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/%20Delegate%20Vcs"></a>
+                <a name="//apple_ref/swift/Section/ Delegate Vcs" class="dashAnchor"></a>
+                <a href="#/%20Delegate%20Vcs">
+                  <h3 class="section-name"> Delegate Vcs</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC14languageListVcAA08LanguageD0Cv"></a>
+                    <a name="//apple_ref/swift/Property/languageListVc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC14languageListVcAA08LanguageD0Cv">languageListVc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Language settings View Controller</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">languageListVc</span> <span class="o">=</span> <span class="kt"><a href="../Classes/LanguageSettings.html">LanguageSettings</a></span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">plain</span><span class="p">,</span> <span class="nv">homeDisplayKey</span><span class="p">:</span> <span class="s">"homeLanguage"</span><span class="p">,</span> <span class="nv">awayDisplayKey</span><span class="p">:</span> <span class="s">"awayLanguage"</span><span class="p">,</span> <span class="nv">homeIndexKey</span><span class="p">:</span> <span class="s">"homeLanguageIndex"</span><span class="p">,</span> <span class="nv">awayIndexKey</span><span class="p">:</span> <span class="s">"awayLanguageIndex"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC14currencyListVcAA08CurrencyD0Cv"></a>
+                    <a name="//apple_ref/swift/Property/currencyListVc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC14currencyListVcAA08CurrencyD0Cv">currencyListVc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Currrency settings View Controller</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">currencyListVc</span> <span class="o">=</span> <span class="kt"><a href="../Classes/CurrencySettings.html">CurrencySettings</a></span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">plain</span><span class="p">,</span> <span class="nv">homeDisplayKey</span><span class="p">:</span> <span class="s">"homeCurrency"</span><span class="p">,</span> <span class="nv">awayDisplayKey</span><span class="p">:</span> <span class="s">"awayCurrency"</span><span class="p">,</span> <span class="nv">homeIndexKey</span><span class="p">:</span> <span class="s">"homeCurrencyIndex"</span><span class="p">,</span> <span class="nv">awayIndexKey</span><span class="p">:</span> <span class="s">"awayCurrencyIndex"</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC14locationListVcAA08LocationdF0Cv"></a>
+                    <a name="//apple_ref/swift/Property/locationListVc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC14locationListVcAA08LocationdF0Cv">locationListVc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Location settings View Controller</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">locationListVc</span> <span class="o">=</span> <span class="kt">LocationSettingsController</span><span class="p">(</span><span class="nv">nibName</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">bundle</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/ColorScheme%20//"></a>
+                <a name="//apple_ref/swift/Section/ColorScheme //" class="dashAnchor"></a>
+                <a href="#/ColorScheme%20//">
+                  <h3 class="section-name">ColorScheme //</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC15backgroundColorSo7UIColorCSgv"></a>
+                    <a name="//apple_ref/swift/Property/backgroundColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC15backgroundColorSo7UIColorCSgv">backgroundColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Value to customize Color Scheme background</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">backgroundColor</span> <span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC17selectedTextColorSo7UIColorCSgv"></a>
+                    <a name="//apple_ref/swift/Property/selectedTextColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC17selectedTextColorSo7UIColorCSgv">selectedTextColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Value to customize Color Scheme text</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">selectedTextColor</span>  <span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/data%20exchange%20valeus%20to%20Vcs"></a>
+                <a name="//apple_ref/swift/Section/data exchange valeus to Vcs" class="dashAnchor"></a>
+                <a href="#/data%20exchange%20valeus%20to%20Vcs">
+                  <h3 class="section-name">data exchange valeus to Vcs</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC12awayLanguageSSSgv"></a>
+                    <a name="//apple_ref/swift/Property/awayLanguage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC12awayLanguageSSSgv">awayLanguage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Away Language value (refer to Language)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">awayLanguage</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC12homeLanguageSSSgv"></a>
+                    <a name="//apple_ref/swift/Property/homeLanguage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC12homeLanguageSSSgv">homeLanguage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>home LAnguage value (refer to Language)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">homeLanguage</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC12selectedHomeSiSgv"></a>
+                    <a name="//apple_ref/swift/Property/selectedHome" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC12selectedHomeSiSgv">selectedHome</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional Value that stores home city Index to highligth it in tableView when reloading</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">selectedHome</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC12selectedAwaySiSgv"></a>
+                    <a name="//apple_ref/swift/Property/selectedAway" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC12selectedAwaySiSgv">selectedAway</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional Value that stores Away city Index to highligth it in tableView when reloading</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">selectedAway</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Label&#39;s%20Outlets"></a>
+                <a name="//apple_ref/swift/Section/Label&#39;s Outlets" class="dashAnchor"></a>
+                <a href="#/Label&#39;s%20Outlets">
+                  <h3 class="section-name">Label&#39;s Outlets</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)Acity"></a>
+                    <a name="//apple_ref/swift/Property/Acity" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)Acity">Acity</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Away city name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">Acity</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)ALang"></a>
+                    <a name="//apple_ref/swift/Property/ALang" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)ALang">ALang</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Away country language</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">ALang</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)ACurrency"></a>
+                    <a name="//apple_ref/swift/Property/ACurrency" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)ACurrency">ACurrency</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Away country currency</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">ACurrency</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)Bcity"></a>
+                    <a name="//apple_ref/swift/Property/Bcity" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)Bcity">Bcity</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>home city name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">Bcity</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)BLang"></a>
+                    <a name="//apple_ref/swift/Property/BLang" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)BLang">BLang</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>home country language</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">BLang</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)BCurrency"></a>
+                    <a name="//apple_ref/swift/Property/BCurrency" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@leBaluchon@objc(cs)UserSettingsViewController(py)BCurrency">BCurrency</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>home country currency</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">BCurrency</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UI%20methods%20//"></a>
+                <a name="//apple_ref/swift/Section/UI methods //" class="dashAnchor"></a>
+                <a href="#/UI%20methods%20//">
+                  <h3 class="section-name">UI methods //</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC8updateUI33_097235D4B98195BDD425311BA334462ELLyyF"></a>
+                    <a name="//apple_ref/swift/Method/updateUI()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC8updateUI33_097235D4B98195BDD425311BA334462ELLyyF">updateUI()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Load informations into labels and update UI</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">updateUI</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC11updateLabelySo7UILabelC_SS3fortF"></a>
+                    <a name="//apple_ref/swift/Method/updateLabel(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC11updateLabelySo7UILabelC_SS3fortF">updateLabel(_:for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method load data from persistent container asyncroneously to populate label</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateLabel</span><span class="p">(</span><span class="n">_</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">UILabel</span><span class="p">,</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10leBaluchon26UserSettingsViewControllerC23receiveValueForLanguage33_097235D4B98195BDD425311BA334462ELLyyF"></a>
+                    <a name="//apple_ref/swift/Method/receiveValueForLanguage()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10leBaluchon26UserSettingsViewControllerC23receiveValueForLanguage33_097235D4B98195BDD425311BA334462ELLyyF">receiveValueForLanguage()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Load values from external Vc&rsquo;s in selectedValues</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">receiveValueForLanguage</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-02-08)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

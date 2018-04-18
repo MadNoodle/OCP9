@@ -17,7 +17,7 @@ class CurrencyRate {
   /// Currency actual rate
   let rate: Double?
   
-  init(currencyDictionnary: [String : Any], to currency: String){
+  init(currencyDictionnary: [String: Any], to currency: String) {
     self.currency = currency
     rate = currencyDictionnary[currency] as? Double
   }

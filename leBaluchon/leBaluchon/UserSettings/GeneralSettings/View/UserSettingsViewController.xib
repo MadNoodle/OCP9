@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,12 +20,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserSettingsViewController" customModule="leBaluchon" customModuleProvider="target">
             <connections>
-                <outlet property="ACurrency" destination="Dy7-4m-N41" id="VzA-OP-6EH"/>
-                <outlet property="ALang" destination="X4m-1O-BAV" id="71c-0Q-E8u"/>
-                <outlet property="Acity" destination="c2l-Rl-4Cw" id="PdX-ZB-jwC"/>
-                <outlet property="BCurrency" destination="26y-0p-etO" id="qir-6X-ALP"/>
-                <outlet property="BLang" destination="xTP-jR-7T3" id="bRp-Ih-Z6q"/>
-                <outlet property="Bcity" destination="8b8-iD-THx" id="foU-pY-2hl"/>
+                <outlet property="aCity" destination="c2l-Rl-4Cw" id="FXs-Pi-U9A"/>
+                <outlet property="aCurrency" destination="Dy7-4m-N41" id="F2X-35-B0s"/>
+                <outlet property="aLang" destination="X4m-1O-BAV" id="GtP-Wy-8Nd"/>
+                <outlet property="bCity" destination="8b8-iD-THx" id="2n2-6E-0rF"/>
+                <outlet property="bCurrency" destination="26y-0p-etO" id="SiH-oC-uBF"/>
+                <outlet property="bLang" destination="xTP-jR-7T3" id="LU8-hl-yhs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -44,31 +44,31 @@
                                     <rect key="frame" x="25" y="25" width="325" height="258.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ley-bM-TZx">
-                                            <rect key="frame" x="0.0" y="0.0" width="325" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="325" height="44"/>
                                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="36"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="BtL-yc-IP9">
-                                            <rect key="frame" x="0.0" y="44.5" width="325" height="214"/>
+                                            <rect key="frame" x="0.0" y="44" width="325" height="214.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="IyL-ji-Kl1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="325" height="71"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="325" height="71.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="home city" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2G-4h-7Op">
-                                                            <rect key="frame" x="0.0" y="0.0" width="161" height="71"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="161" height="71.5"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New York" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2l-Rl-4Cw">
-                                                            <rect key="frame" x="161" y="0.0" width="146" height="71"/>
+                                                            <rect key="frame" x="161" y="0.0" width="146" height="71.5"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFY-Kh-fwe">
-                                                            <rect key="frame" x="307" y="0.0" width="18" height="71"/>
+                                                            <rect key="frame" x="307" y="0.0" width="18" height="71.5"/>
                                                             <state key="normal" image="ic_right_arrow"/>
                                                             <connections>
                                                                 <action selector="goToAwayLocation:" destination="-1" eventType="touchUpInside" id="HCM-Kn-YkF"/>
@@ -77,22 +77,22 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="cAJ-bm-OfS">
-                                                    <rect key="frame" x="0.0" y="71" width="325" height="71.5"/>
+                                                    <rect key="frame" x="0.0" y="71.5" width="325" height="71.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZK-BX-36k">
-                                                            <rect key="frame" x="0.0" y="0.0" width="88.5" height="71.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="85" height="71.5"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4m-1O-BAV">
-                                                            <rect key="frame" x="88.5" y="0.0" width="226" height="71.5"/>
+                                                            <rect key="frame" x="85" y="0.0" width="230" height="71.5"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0H-h7-KoK">
-                                                            <rect key="frame" x="314.5" y="0.0" width="10.5" height="71.5"/>
+                                                            <rect key="frame" x="315" y="0.0" width="10" height="71.5"/>
                                                             <state key="normal" image="ic_right_arrow"/>
                                                             <connections>
                                                                 <action selector="goToAwayLanguageSettings:" destination="-1" eventType="touchUpInside" id="9ga-bH-BMM"/>
@@ -101,7 +101,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="qUy-yz-5EJ">
-                                                    <rect key="frame" x="0.0" y="142.5" width="325" height="71.5"/>
+                                                    <rect key="frame" x="0.0" y="143" width="325" height="71.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmi-q7-QoM">
                                                             <rect key="frame" x="0.0" y="0.0" width="215" height="71.5"/>

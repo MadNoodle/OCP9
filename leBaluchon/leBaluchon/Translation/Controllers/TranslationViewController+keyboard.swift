@@ -12,7 +12,7 @@ import UIKit
  handles the aniamtion of the Translation StackView when keyboard pops up & down
  */
 extension TranslationViewController {
-  
+
   // //////////////////////////////// //
   // MARK: - Keyboard folding methods //
   // //////////////////////////////// //
@@ -22,14 +22,14 @@ extension TranslationViewController {
   ///
   /// - Parameter notification: NSNotification notification received from observer
   /// in viewDidLoad .
-  @objc func keyboardWillShow(notification: NSNotification){
-    if let info = notification.userInfo{
+  @objc func keyboardWillShow(notification: NSNotification) {
+    if let info = notification.userInfo {
       //grab CGRect size of keybaord
-      let rect : CGRect = info["UIKeyboardFrameEndUserInfoKey"] as! CGRect
+      guard let rect: CGRect = info["UIKeyboardFrameEndUserInfoKey"] as? CGRect else { return}
       self.view.layoutIfNeeded()
       self.topView.isHidden = true
       //animating stack view up
-      UIView.animate(withDuration: 0.25 , animations: {
+      UIView.animate(withDuration: 0.25, animations: {
         self.view.layoutIfNeeded()
         //self.topView.isHidden = true
         self.bottomConstraint.constant = rect.height - 50
@@ -39,7 +39,7 @@ extension TranslationViewController {
 
   /// Animate the StackView in initail position/layout when keyboard disappear
   func resetStackViewToOriginal() {
-    UIView.animate(withDuration: 0.25 , animations: {
+    UIView.animate(withDuration: 0.25, animations: {
       self.topView.isHidden = false
       self.bottomConstraint.constant = self.originalConstraint
       self.view.layoutIfNeeded()

@@ -12,15 +12,15 @@ import Alamofire
 
 class WeatherServiceTests: XCTestCase {
 
-  func testEncodingYqlQuery(){
+  func testEncodingYqlQuery() {
     let yqlRequest = "select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='Paris') and u='c'"
     let urlEncodedText = yqlRequest.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
     XCTAssertEqual(urlEncodedText, "select%20item.condition%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text='Paris')%20and%20u='c'")
   }
-  func testFetchingWeather(){
+  func testFetchingWeather() {
     let city = "Paris"
     var actualWeather: CurrentWeather?
-    WeatherService.fetchWeather(for: city, completion: {(weather,error) in
+    WeatherService.fetchWeather(for: city, completion: {(weather, _) in
       actualWeather = weather
       XCTAssertEqual(actualWeather?.city, "Paris")
       XCTAssert(actualWeather?.conditions != nil)
@@ -29,14 +29,14 @@ class WeatherServiceTests: XCTestCase {
   }
   
   func testSuccesfullConnexionToWeatherService() {
-    let ex = expectation(description: "weather object is populated")
+    let exp = expectation(description: "weather object is populated")
     
     let city = "Paris"
     var actualWeather: CurrentWeather?
-    WeatherService.fetchWeather(for: city, completion: {(weather,error) in
+    WeatherService.fetchWeather(for: city, completion: {(weather, _) in
       actualWeather = weather
       XCTAssert(actualWeather != nil)
-      ex.fulfill()
+      exp.fulfill()
     })
     
     waitForExpectations(timeout: 10) { (error) in
@@ -45,9 +45,9 @@ class WeatherServiceTests: XCTestCase {
       }
     }
   }
-  func testCodeRetrieving(){
+  func testCodeRetrieving() {
     let string = "24"
-    let result = WeatherCodeConverter.FindConditions(for: string)
+    let result = WeatherCodeConverter.findConditions(for: string)
     XCTAssert(result == "wind")
     
   }

@@ -24,12 +24,10 @@ class CurrentWeather {
   let iconCode: String?
   
   // Init
-  init(dictionnary: [String: Any],for city: String){
+  init(dictionnary: [String: Any], for city: String) {
     self.city = city
     temperature = dictionnary["temp"] as? String
     conditions = dictionnary["text"] as? String
     iconCode = dictionnary["code"] as? String
   }
 }
-
-

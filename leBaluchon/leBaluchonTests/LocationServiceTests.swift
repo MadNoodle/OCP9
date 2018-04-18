@@ -11,18 +11,18 @@ import XCTest
 
 class LocationServiceTests: XCTestCase {
 
-  func testFetchingDataFromRemoteServer(){
+  func testFetchingDataFromRemoteServer() {
     let location = "paris"
     var locations: [LocationModel] = []
-      let ex = expectation(description: "currency name should be BGP & rate different from 0.0")
+      let exp = expectation(description: "currency name should be BGP & rate different from 0.0")
       
        LocationService.fetchData(for: location, completion: {(result) in
-        for data in result{
+        for data in result {
           locations.append(data)
         }
         XCTAssert(locations.count != 0)
        
-        ex.fulfill()
+        exp.fulfill()
       })
       
       waitForExpectations(timeout: 10) { (error) in

@@ -8,7 +8,7 @@
 
 import XCTest
 
-class leBaluchonUITests: XCTestCase {
+class LeBaluchonUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -53,6 +53,5 @@ class leBaluchonUITests: XCTestCase {
     element.children(matching: .other).element(boundBy: 0).swipeLeft()
       XCTAssert(app.navigationBars["Settings"].exists)
   }
-  
-    
+
 }

@@ -18,13 +18,13 @@ class TranslationServiceTests: XCTestCase {
   }
   
   func testSuccesfullConnexionToTranslationRemoteService() {
-    let ex = expectation(description: "result should be hello chicken")
+    let exp = expectation(description: "result should be hello chicken")
     let request: String = translationService.createRequestUrl(text: "bonjour poulet.", from: "fr", to: "en")
     var translation = ""
-    translationService.fetchTranslation(translationUrl: request, completion: {(result,error) in
+    translationService.fetchTranslation(translationUrl: request, completion: {(result, _) in
       translation = (result?.text)!
-      XCTAssertEqual(translation,"hello chicken." )
-      ex.fulfill()
+      XCTAssertEqual(translation, "hello chicken." )
+      exp.fulfill()
     })
   
     waitForExpectations(timeout: 10) { (error) in
@@ -35,13 +35,13 @@ class TranslationServiceTests: XCTestCase {
   }
   
   func testLanguageDetection() {
-    let ex = expectation(description: "fr")
+    let exp = expectation(description: "fr")
     let request: String = translationService.createRequestUrl(text: "bonjour poulet.", from: "fr", to: "en")
     var translation = ""
-    translationService.fetchTranslation(translationUrl: request, completion: {(result,error) in
+    translationService.fetchTranslation(translationUrl: request, completion: {(result, _) in
       translation = (result?.text)!
-      XCTAssertEqual(translation,"hello chicken." )
-      ex.fulfill()
+      XCTAssertEqual(translation, "hello chicken." )
+      exp.fulfill()
     })
     
     waitForExpectations(timeout: 10) { (error) in
@@ -53,12 +53,12 @@ class TranslationServiceTests: XCTestCase {
   func testDetectLanguage() {
     let input = "bonjour tout le monde"
     var result = ""
-    let ex = expectation(description: "language is french")
+    let exp = expectation(description: "language is french")
     
-    translationService.detectLanguage(from: input, completion: {(language,error) in
+    translationService.detectLanguage(from: input, completion: {(language, _) in
       result = language
       XCTAssert(result == "fr")
-      ex.fulfill()
+      exp.fulfill()
     })
     
     waitForExpectations(timeout: 10) { (error) in

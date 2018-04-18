@@ -10,7 +10,6 @@ import UIKit
 
 class LocationSettingsController: UIViewController {
 
-  
   // ////////////////// //
   // MARK: - properties //
   // ////////////////// //
@@ -20,37 +19,37 @@ class LocationSettingsController: UIViewController {
   
   //Init properties
   /// table view to display location results
-  var table : UITableView?
+  var table: UITableView?
   /// textField where user enter his query
-  var input : UITextField?
+  var input: UITextField?
   /// storing keys in UserDefaults for home City
-  var homeDisplayKey : String = "homeCity"
+  var homeDisplayKey: String = "homeCity"
   /// storing keys in UserDefaults for home CityIndex
   var homeIndexKey: String = "homeCityIndex"
   /// storing keys in UserDefaults for Away City
-  var awayDisplayKey : String = "awayCity"
+  var awayDisplayKey: String = "awayCity"
   /// storing keys in UserDefaults for Away CityIndex
   var awayIndexKey: String = "awayCityIndex"
   /// Value to customize Color Scheme background
   
   // Color Scheme properties
   /// Value to customize Color Scheme background
-  var backgroundColor : UIColor?
+  var backgroundColor: UIColor?
    /// Value to customize Color Scheme text
-  var selectedTextColor  : UIColor?
+  var selectedTextColor: UIColor?
   // Value to store
   /// storing the value if location is home or Away
-  var source = "home"
+  var source: Destination?
   /// CoreData key to retrieve value
   var value = "log"
   /// Optional Value that stores home city Name
-  var home : String?
+  var home: String?
   /// Optional Value that stores Away city Name
-  var away : String?
+  var away: String?
   /// Optional Value that stores home city Index to highligth it in tableView when reloading
-  var selectedHome : Int?
+  var selectedHome: Int?
   /// Optional Value that stores Away city Index to highligth it in tableView when reloading
-  var selectedAway : Int?
+  var selectedAway: Int?
 
   ///  Additive init method that allows us to pass the color scheme just before pushing the Vc from generalSettings Vc.
   ///- important: To change the colors, you need to change them in UserSettingsViewController.
@@ -59,9 +58,14 @@ class LocationSettingsController: UIViewController {
   ///   - bgColor: UIcolor for background
   ///   - txtSelect: UIColor secondary color for text and highlights
   ///   - destination: String Location
-  func initDetail(bgColor:UIColor, txtSelect: UIColor, destination: String){
-    self.backgroundColor = bgColor
-    self.selectedTextColor = txtSelect
+  func initDetail(destination: Destination) {
+    if destination == .home {
+      self.backgroundColor = ColorTemplate.green.rawValue
+      self.selectedTextColor = ColorTemplate.red.rawValue
+    } else {
+      self.backgroundColor = ColorTemplate.red.rawValue
+      self.selectedTextColor = ColorTemplate.green.rawValue
+    }
     self.source = destination
   }
   
@@ -75,19 +79,18 @@ class LocationSettingsController: UIViewController {
     self.view.backgroundColor = backgroundColor
     self.table = setupTableView()
     self.view.addSubview(table!)
-    table?.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+    table?.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
     table?.delegate = self
     table?.dataSource = self
     table?.isHidden = true
-    
   }
   
   override func viewWillAppear(_ animated: Bool) {
     self.view.backgroundColor = backgroundColor
     table?.isHidden = true
   }
-  
-  override func viewWillDisappear(_ animated: Bool){
+
+  override func viewWillDisappear(_ animated: Bool) {
     if input?.text != nil {
       saveLocationSettings()
     }
@@ -101,21 +104,18 @@ class LocationSettingsController: UIViewController {
   // MARK: - Saving methods //
   // ////////////////////// //
   
-  
   /**
    Stores value in persistent container
    */
   private func saveLocationSettings() {
-    if source == "home" {
+    if source == .home {
       // Sanity check for empty texfield
-      if selectedHome != nil
-      {
+      if selectedHome != nil {
         UserSettings.saveData(displayKey: homeDisplayKey, value: home!, indexKey: homeIndexKey, index: selectedHome!)}
-      
     } else {
       // Sanity check for empty texfield
-      if selectedAway != nil
-      { UserSettings.saveData(displayKey: awayDisplayKey, value: away!, indexKey: awayIndexKey, index: selectedAway!)}
+      if selectedAway != nil {
+        UserSettings.saveData(displayKey: awayDisplayKey, value: away!, indexKey: awayIndexKey, index: selectedAway!)}
     }
   }
 }

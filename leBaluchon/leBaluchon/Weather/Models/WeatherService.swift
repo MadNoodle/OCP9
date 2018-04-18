@@ -19,9 +19,9 @@ struct WeatherService {
   // ////////////////// //
   
   /// Yahoo API base url
-  static let baseUrl = Constants.WEATHER_BASE_URL
+  static let baseUrl = Constants.Url.WEATHER_BASE_URL
   /// Yahoo API end Point
-  static let endPoint = Constants.WEATHER_END_POINT
+  static let endPoint = Constants.Url.WEATHER_END_POINT
   
   // /////////////// //
   // MARK: - methods //
@@ -33,27 +33,28 @@ struct WeatherService {
   ///
   /// - Parameter location: the city you wish to get weather info
   /// - Returns: String
-  static func createRequestUrl(for location: String) -> String{
+  static func createRequestUrl(for location: String) -> String {
     //Yql request can be modified to fetch more data
     // check examples here: https://developer.yahoo.com/weather/
     
-    let yqlRequest = Constants.WEATHER_YQL_REQUEST + "\(location)" + Constants.WEATHER_YQL_REQUEST_END_POINT
+    let yqlRequest = Constants.Url.WEATHER_YQL_REQUEST + "\(location)" + Constants.Url.WEATHER_YQL_REQUEST_END_POINT
     
     //Transcoding
     guard
       let urlEncodedText = yqlRequest.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return ""}
     //Concatening url to the final requestUrl
-    let requestUrl:String = baseUrl + urlEncodedText + endPoint
+    let requestUrl: String = baseUrl + urlEncodedText + endPoint
     return requestUrl
   }
   
-
   /// This method make a GET request on yahoo Weather Rest API and returns a parsed data object
   ///
   /// - Parameters:
   ///   - location: the city you wish to get weather info
   ///   - completion: CurrentWeather
-  static func fetchWeather(for location: String, completion: @escaping(_ weather: CurrentWeather, _ error: Error?) ->Void){
+  static func fetchWeather(for location: String,
+                           completion: @escaping(_ weather: CurrentWeather,
+    _ error: Error?) -> Void) {
     let requestUrl: String = createRequestUrl(for: location)
     //Initialize the optional weather to store result of the request if there is one
     var weather: CurrentWeather?
@@ -64,15 +65,15 @@ struct WeatherService {
       Alamofire.request(requestUrl).validate().responseJSON { response in
         switch response.result {
         case .success:
-          print("Validation Successful")
+          print(Constants.Validation.success)
           Alamofire.request(requestUrl).responseJSON { (response) in
             //Parsing
-            if let jsonDictionnary = response.result.value as? [String : Any]{
-              if let query = jsonDictionnary["query"] as? [String : Any] {
-                if let results = query["results"] as? [String : Any] {
-                  if let channel = results["channel"] as? [String : Any] {
-                    if let item = channel["item"] as? [String : Any] {
-                      if let condition = item["condition"] as? [String : Any]{
+            if let jsonDictionnary = response.result.value as? [String: Any] {
+              if let query = jsonDictionnary["query"] as? [String: Any] {
+                if let results = query["results"] as? [String: Any] {
+                  if let channel = results["channel"] as? [String: Any] {
+                    if let item = channel["item"] as? [String: Any] {
+                      if let condition = item["condition"] as? [String: Any] {
                         // Actual dataObject to return
                         weather = CurrentWeather(dictionnary: condition, for: location)
                         
@@ -81,14 +82,14 @@ struct WeatherService {
                   }
                 }
                 // return the weather via a closure
-                completion(weather!,nil)
+                completion(weather!, nil)
               }
             }
             
           }
         case .failure(let error):
           print(error)
-          completion(CurrentWeather(dictionnary: ["error":"error"], for: location),error)
+          completion(CurrentWeather(dictionnary: ["error": "error"], for: location), error)
         }
       }
     }

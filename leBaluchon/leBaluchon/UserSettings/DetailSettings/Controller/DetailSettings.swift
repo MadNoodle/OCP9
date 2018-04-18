@@ -11,53 +11,49 @@ import UIKit
 /**
  Handles all the language Settings for home and away city
  */
-class LanguageSettings: UITableViewController {
+class DetailSettings: UITableViewController {
   
   // ////////////////// //
   // MARK: - properties //
   // ////////////////// //
   
    /// Array to store the results from search before displaying them in the tableView
-  let dataSet = Languages.languages
-  
+  var dataSet: [[String: String]] = []
   
   //Init properties
   /// storing keys in UserDefaults for Away City
-  var awayDisplayKey : String
+  var awayDisplayKey: String = ""
    /// storing keys in UserDefaults for home City
-  var homeDisplayKey : String
+  var homeDisplayKey: String = ""
   /// storing keys in UserDefaults for home CityIndex
-  var homeIndexKey: String = "homeLanguageIndex"
+  var homeIndexKey: String = ""
+  //"homeLanguageIndex"
   /// storing keys in UserDefaults for Away CityIndex
-  var awayIndexKey: String = "awayLanguageIndex"
+  var awayIndexKey: String = ""
+  //"awayLanguageIndex"
   
   // Color Scheme properties
   /// Value to customize Color Scheme background
-  var backgroundColor : UIColor?
+  var backgroundColor: UIColor?
   /// Value to customize Color Scheme text
-  var selectedTextColor  : UIColor?
+  var selectedTextColor: UIColor?
   // Value to store
+  var controllerType: Settings?
   /// storing the value if location is home or Away
-  var source = "home"
+  var source: Destination?
   /// CoreData key to retrieve value
   var value = "log"
   /// Optional Value that stores home city Name
-  var home : String?
+  var home: String?
   /// Optional Value that stores Away city Name
-  var away : String?
+  var away: String?
   /// Optional Value that stores home city Index to highligth it in tableView when reloading
-  var selectedHome : Int?
+  var selectedHome: Int?
   /// Optional Value that stores Away city Index to highligth it in tableView when reloading
-  var selectedAway : Int?
+  var selectedAway: Int?
   
   // MARK: - Custom Initializer
-  init(style:UITableViewStyle, homeDisplayKey:String, awayDisplayKey:String, homeIndexKey:String,awayIndexKey:String){
-    self.awayDisplayKey = awayDisplayKey
-    self.homeDisplayKey = homeDisplayKey
-    self.homeIndexKey = homeIndexKey
-    self.awayIndexKey = awayIndexKey
-    super.init(style: style)
-  }
+
   /**
    Method that allows us to use the same controller for away and home language
    by sending color scheme and destination "home" or "away"
@@ -66,33 +62,54 @@ class LanguageSettings: UITableViewController {
    - txtSelecct: UIColor.TintColor for Higligtht
    - destination: String. destination "home" or "away"
  */
-  func initDetail(bgColor:UIColor, txtSelect: UIColor, destination: String){
-    self.backgroundColor = bgColor
-    self.selectedTextColor = txtSelect
+  func initDetail(destination: Destination, of type: Settings) {
+    if destination == .home {
+      self.backgroundColor = ColorTemplate.green.rawValue
+      self.selectedTextColor = ColorTemplate.red.rawValue
+    } else {
+      self.backgroundColor = ColorTemplate.red.rawValue
+      self.selectedTextColor = ColorTemplate.green.rawValue
+    }
+    self.controllerType = type
     self.source = destination
   }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
+
   // ///////////////////////// //
   // MARK: - LifeCycle Methods //
   // ///////////////////////// //
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupProperties(for: controllerType!)
     tableView.delegate = self
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myCell")
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
     tableView.reloadData()
   }
   
-  override func viewWillAppear(_ animated: Bool){
+  func setupProperties(for controllerType: Settings) {
+    switch controllerType {
+    case .language:
+      homeDisplayKey = Constants.LanguageStorage.home
+      awayDisplayKey = Constants.LanguageStorage.away
+      homeIndexKey = Constants.LanguageStorage.homeIndex
+      awayIndexKey = Constants.LanguageStorage.awayIndex
+      dataSet = Languages.languages
+    case .currency:
+      homeDisplayKey = Constants.CurrencyStorage.home
+      awayDisplayKey = Constants.CurrencyStorage.away
+      homeIndexKey = Constants.CurrencyStorage.homeIndex
+      awayIndexKey = Constants.CurrencyStorage.awayIndex
+      dataSet = CurrencyList.list
+    case .location:
+      break
+    }
+  }
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     // reload data when pushing the VC
     tableView.reloadData()
     // Load data pastly stored and display it visualy in the tableView
-    if source == "home" { // home
+    if source == .home { // home
       selectedHome = UserSettings.loadData(displayKey: homeDisplayKey, indexKey: homeIndexKey).1
       home = dataSet[selectedHome!][value]!
       selectRow(selectedHome!)
@@ -103,15 +120,40 @@ class LanguageSettings: UITableViewController {
     }
   }
   
-  override func viewWillDisappear(_ animated: Bool){
+  override func viewWillDisappear(_ animated: Bool) {
     // save data when leaving the controller
-    if source == "home" { //home
+    if source == .home { //home
       UserSettings.saveData(displayKey: homeDisplayKey, value: home!, indexKey: homeIndexKey, index: selectedHome!)
+      notifyChange(for: "home", with: home!, in: homeDisplayKey)
     } else {//away
       UserSettings.saveData(displayKey: awayDisplayKey, value: away!, indexKey: awayIndexKey, index: selectedAway!)
+      notifyChange(for: "away", with: awayDisplayKey, in: away!)
+    }
+
+  }
+
+  func notifyChange(for key: String, with value: String, in container: String) {
+    switch controllerType {
+    case .currency?:
+    let place = "\(key)CurrencyValueChanged"
+      NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: place),
+                                                   object: nil,
+                                                   userInfo: ["Key": container,
+                                                              "currency": value]
+      ))
+    case .language?:
+     let place = "\(key)LanguageValueChanged"
+      NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: place),
+                                                   object: nil,
+                                                   userInfo: ["Key": container,
+                                                              "language": value]
+      ))
+    case .location?:
+      break
+    case .none:
+      break
     }
   }
-  
   // //////////////////////////////////// //
   // MARK: - Table view delegate methods  //
   // //////////////////////////////////// //
@@ -120,19 +162,18 @@ class LanguageSettings: UITableViewController {
     return 1
   }
   
-
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return dataSet.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-    //load data set
-    let data = dataSet[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath)
+    let data = dataSet[indexPath.row]["name"]!
+ 
     setup(cell, with: data)
     // check is cell is seleccted and apply the current highligth color Scheme
-    if cell.isSelected{
-      highlight(cell,with: selectedTextColor!)
+    if cell.isSelected {
+      highlight(cell, with: selectedTextColor!)
     }
     return cell
   }
@@ -144,7 +185,7 @@ class LanguageSettings: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // Add a visual cue to indicate that the cell was selected.
     
-    if source == "home" { // home
+    if source == .home { // home
       home = dataSet[indexPath.row][value]!
       away = ""
       selectedHome = indexPath.row
@@ -176,19 +217,19 @@ class LanguageSettings: UITableViewController {
   /// set style and data for cell
   ///
   /// - Parameter cell: UITableViewCell cell to style
-  func setup(_ cell: UITableViewCell, with data:[String:String]){
+  func setup(_ cell: UITableViewCell, with data: String) {
     //Setup data
-    cell.textLabel?.text = data["name"]
+    cell.textLabel?.text = data
     //set up cell appearance
     cell.backgroundColor = backgroundColor
     cell.textLabel?.textColor = .white
-    cell.textLabel?.font = UIFont(name: "Montserrat-regular.otf", size: 18.0)
+    cell.textLabel?.font = UIFont(name: Constants.FontFamily.montserrat, size: 18.0)
   }
   /// Used to select the cell according to Language code
   ///
   /// - Parameter rowNumber: Int row number to select
-  func selectRow(_ rowNumber: Int){
-    let indexPath = IndexPath(row:rowNumber , section: 0)
+  func selectRow(_ rowNumber: Int) {
+    let indexPath = IndexPath(row: rowNumber, section: 0)
     self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
   }
   
@@ -197,7 +238,7 @@ class LanguageSettings: UITableViewController {
   /// - Parameters:
   ///   - cell: UITableViewCell to Style
   ///   - color: UIColor colorschem Color
-  func highlight(_ cell: UITableViewCell, with color: UIColor){
+  func highlight(_ cell: UITableViewCell, with color: UIColor) {
     // Set the higlight color scheme
     cell.tintColor = color
     cell.textLabel?.textColor =  color
@@ -209,12 +250,11 @@ class LanguageSettings: UITableViewController {
     // add a check mark
     cell.accessoryType = .checkmark
   }
-  
-  
+
   /// Reset Style to default
   ///
   /// - Parameter indexPath: indexPAth of the Cell to resets
-  func deSelectedCell(at indexPath: IndexPath){
+  func deSelectedCell(at indexPath: IndexPath) {
     // remove checkMark
     tableView.cellForRow(at: indexPath)?.accessoryType = .none
     // Reset Background color

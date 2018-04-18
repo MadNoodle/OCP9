@@ -14,7 +14,7 @@ This controller handles translation display
  - one for keyboard behaviour management
  - one for textField Delegation management
  */
-class TranslationViewController: UIViewController,UITextFieldDelegate {
+class TranslationViewController: UIViewController, UITextFieldDelegate {
   
   // ////////////////// //
   // MARK: - properties //
@@ -23,7 +23,6 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
   let translationService = TranslationService()
   /// Iniatially set autodetect translation false. Change to true if autodetect always on
   var autodetect = false
-  
   
   // ////////////////// //
   // MARK: - Outlets    //
@@ -63,10 +62,9 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
     loadLanguageSettings()
     
     //Observe when keyboard appears and trigger the animation up
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector( keyboardWillShow(notification: )), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
   }
   
-
   override func viewWillAppear(_ animated: Bool) {
     inputFieldSetup()
     topTextViewSetup()
@@ -81,34 +79,31 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
       autodetect = false
     }
   }
-  
   // //////////////// //
-  // MARK : - Methods //
+  // MARK: - METHODS //
   // //////////////// //
-  
   
   ///  Load languages settings from user default
   private func loadLanguageSettings() {
-    homeLanguage.text = UserSettings.defaults.object(forKey: "homeLanguage") as! String!
-    awayLanguage.text = UserSettings.defaults.object(forKey: "awayLanguage") as! String!
+    guard case homeLanguage.text = UserSettings.defaults.object(forKey: Constants.LanguageStorage.home) as? String,
+      case awayLanguage.text = UserSettings.defaults.object(forKey: Constants.LanguageStorage.away) as? String
+      else { return}
   }
   
-
   /// Fetch translation of UITextfield text
   ///
   /// - Parameter url:  String. Character chain/sentence/word input in the textfield
   private func fetchTranslationforUrl(_ url: String) {
-    translationService.fetchTranslation(translationUrl: url, completion: {(result,error) in
+    translationService.fetchTranslation(translationUrl: url, completion: {(result, error) in
       // display an alert connexions fails
       if error != nil {
-        self.showAlert(message: "Problème de connexion au serveur")
+        self.showAlert(message: Constants.AlertMessages.connexionProblem)
         return
       }
       self.translationContainer.text  = result!.text
     })
   }
   
-
   /// This method handles the translation part.
   /// ** Important: 2 case are possible:
   /// - Autodetect is off : uses UserSettings languages
@@ -120,10 +115,10 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
     
     // Autodetection enabled
     if autodetect {
-      translationService.detectLanguage(from: text, completion: {(language,error) in
+      translationService.detectLanguage(from: text, completion: {(language, error) in
         // display an alert connexions fails
         if error != nil {
-          self.showAlert(message: "Problème de connexion au serveur")
+      self.showAlert(message: Constants.AlertMessages.connexionProblem)
           return
         }
         // Create url from textField Input nalayze by GoogleApi who sent back a language
@@ -132,10 +127,10 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
         self.fetchTranslationforUrl(url)
         self.homeLanguage.text! = String(language)
       })
-      
+
     }
     // Autodetection not enabled
-    else{
+    else {
       // Create url from textField and userSettings languages
       url = translationService.createRequestUrl(text: text, from: homeLanguage.text!, to: awayLanguage.text!)
       //Send it the REST API CALL and return data
@@ -150,44 +145,42 @@ class TranslationViewController: UIViewController,UITextFieldDelegate {
   /// Setup of UIText field including autotranslation of the placeholder text according to user Settings
   func inputFieldSetup() {
     inputTextField.delegate = self
-    inputTextField.font = UIFont(name: "Montserrrat-Regular.otf", size: 17.0)
+    inputTextField.font = UIFont(name: Constants.FontFamily.montserrat, size: 17.0)
     inputTextField.textAlignment = .left
-    let inputSentence = "Type your text here"
+    let inputSentence = Constants.TranslationPrompts.type
     let url = translationService.createRequestUrl(text: inputSentence, from: "en", to: homeLanguage.text!)
     translationService.fetchTranslation(translationUrl: url, completion: {(result, error) in
       // display an alert connexions fails
       if error != nil {
-        self.showAlert(message: "Problème de connexion au serveur")
+        self.showAlert(message: Constants.AlertMessages.connexionProblem)
         return
       }
-      self.inputTextField.attributedPlaceholder = NSAttributedString(string: result!.text, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+      self.inputTextField.attributedPlaceholder = NSAttributedString(string: result!.text,
+                                                                     attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
     })
   }
-  
 
   /// Setup of Top UITextViewincluding autotranslation of the placeholder text according to user Settings
-  func topTextViewSetup(){
-    let translationSentence = "Your translation will appear here"
+  func topTextViewSetup() {
+    let translationSentence = Constants.TranslationPrompts.result
     let url = translationService.createRequestUrl(text: translationSentence, from: "en", to: homeLanguage.text!)
     translationService.fetchTranslation(translationUrl: url, completion: {(result, error) in
       // display an alert connexions fails
       if error != nil {
-        self.showAlert(message: "Problème de connexion au serveur")
+        self.showAlert(message: Constants.AlertMessages.connexionProblem)
         return
       }
       self.translationContainer.text = result!.text
     })
   }
-  
 
   /// Show alert when user try to do an invalid operation such as 2
   /// decimal points in the same number or connexion problem
   ///
   /// - Parameter message: String. Message to explain the error
-  func showAlert(message:String) {
-    let alertVC = UIAlertController(title: "Attention", message: message, preferredStyle: .alert)
+  func showAlert(message: String) {
+    let alertVC = UIAlertController(title: Constants.AlertMessages.warning, message: message, preferredStyle: .alert)
     alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
     self.present(alertVC, animated: true, completion: nil)
   }
-  
 }

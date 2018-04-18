@@ -34,22 +34,24 @@ class CustomTabBarController: UITabBarController {
     
     // Assign controllers to tab bar
     viewControllers = [
-      createTabBarItem("Weather", imageName: "weather", for: weatherVc),
-      createTabBarItem("Currency", imageName: "currency", for: currencyVc),
-      createTabBarItem("Translation", imageName: "translation", for: translationVc),
-      createTabBarItem("Settings", imageName: "settings", for: settingsVc)
+      createTabBarItem(Constants.ControlleTitles.weather, for: weatherVc),
+      createTabBarItem(Constants.ControlleTitles.currency,
+                       for: currencyVc),
+      createTabBarItem(Constants.ControlleTitles.translation, for: translationVc),
+      createTabBarItem(Constants.ControlleTitles.settings, for: settingsVc)
     ]
   }
   
   /**
    This method initialize tabBar item and insert them in a navigationController
    */
-  func createTabBarItem(_ title: String, imageName: String, for controller : UIViewController) -> UINavigationController{
+  func createTabBarItem(_ title: String, for controller: UIViewController) -> UINavigationController {
     /// Navigontion controller embedded in tabBar
     let navController = UINavigationController(rootViewController: controller)
     // Set title
     navController.tabBarItem.title = title
     //Set icon
+    let imageName = Constants.ControlleTitles.getIcon(for: title)
     navController.tabBarItem.image = UIImage(named: imageName)
     return navController
   }
@@ -57,7 +59,7 @@ class CustomTabBarController: UITabBarController {
   /**
    Initialize left and rigth swipe gesture in order to swipe between tab bars items
    */
-  private func setupSwipe(){
+  private func setupSwipe() {
     
     /// Right swipe gesture instantiation
     let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swiped))

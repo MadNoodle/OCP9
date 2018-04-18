@@ -9,9 +9,10 @@
 import UIKit
 
 /**
- This extension handles everything relative to the textField in the Location settings Controller, including delegate methods
+ This extension handles everything relative to the textField in the
+ Location settings Controller, including delegate methods
  */
-extension LocationSettingsController: UITextFieldDelegate{
+extension LocationSettingsController: UITextFieldDelegate {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     searchLocation()
@@ -35,14 +36,14 @@ extension LocationSettingsController: UITextFieldDelegate{
    This method takes the input text and generate a request trhoughth Location Service
    - returns : [LocationModel] that will be displayed in table view
  */
-  func searchLocation(){
+  func searchLocation() {
     //TextField to perform the search
     let textfield = input
     // grab text from textfield
     if let query = textfield?.text {
       
       // Background task to save time for UI display
-      DispatchQueue.global(qos: .userInteractive).async{
+      DispatchQueue.global(qos: .userInteractive).async {
         LocationService.fetchData(for: query, completion: {(result) in
           for data in result {
             self.dataSet.append(data)

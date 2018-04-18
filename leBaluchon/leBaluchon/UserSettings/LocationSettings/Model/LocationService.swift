@@ -20,17 +20,16 @@ class LocationService {
   // MARK: - properties //
   // ////////////////// //
   /// base url to fetch api
-  static let baseUrl = Constants.LOC_BASE_URL
+  static let baseUrl = Constants.Url.LOC_BASE_URL
   /// callback endPoint for format
-  static let endPoint = Constants.LOC_END_POINT
+  static let endPoint = Constants.Url.LOC_END_POINT
   /// array initialized to store results that will be sent back by fetchDAta method
   static var resultArray: [LocationModel] = []
   
   // ////////////////// //
   // MARK: - methods    //
   // ////////////////// //
-  
-  
+ 
   /// user input a string the method sends back an array of
  /// possible matching location
   /// * this method relies on Alamofire Framework and makes
@@ -41,7 +40,7 @@ class LocationService {
   /// - Parameters:
   ///   - location: String City
   ///   - completion: [LocationModel] this function returns an array of LocationModel
-  static func fetchData(for location:String, completion: @escaping ([LocationModel]) -> Void){
+  static func fetchData(for location: String, completion: @escaping ([LocationModel]) -> Void) {
     // encode text to replace space
     guard let urlEncodedText = location.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
       else {return}
@@ -53,7 +52,7 @@ class LocationService {
         switch response.result {
         // check for connexion to remote server
         case .success:
-          print("Validation Successful")
+          print(Constants.Validation.success)
           Alamofire.request(url).responseJSON { (response) in
             parseResult(response)
             // escape resultArray
@@ -71,12 +70,12 @@ class LocationService {
   /// - Parameter response: Response from location API call
   static func parseResult(_ response: (DataResponse<Any>)) {
     
-    if let jsonDictionnary = response.result.value as? [Any]{
+    if let jsonDictionnary = response.result.value as? [Any] {
       for json in jsonDictionnary {
-        if let result = json as? [ String : Any] {
-          if let display = result["display_name"] as? String{
+        if let result = json as? [ String: Any] {
+          if let display = result["display_name"] as? String {
             let city = display.components(separatedBy: ",")
-            let location = LocationModel(city: city[0],region: city[1], country: city.last!)
+            let location = LocationModel(city: city[0], region: city[1], country: city.last!)
             resultArray.append(location)
           }
         }

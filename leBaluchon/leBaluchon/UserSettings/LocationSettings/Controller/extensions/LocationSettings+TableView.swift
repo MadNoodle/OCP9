@@ -9,14 +9,16 @@
 import UIKit
 
 /**
- This extension handles everything relative to the tableView in the Location settings Controller, including delegate methods, and custom styling
+ This extension handles everything relative to the tableView
+ in the Location settings Controller, including delegate methods,
+ and custom styling
  */
-extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource {
+extension LocationSettingsController: UITableViewDelegate, UITableViewDataSource {
   
   /**
    Programmatically created tableView
  */
-  func setupTableView() -> UITableView{
+  func setupTableView() -> UITableView {
     //height is minus 50 to leave the place for navBar.
     let height = self.view.frame.height - 50
     let width = self.view.frame.width
@@ -36,17 +38,16 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
   return dataSet.count
   }
 
-  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath)
     //load data set
     let data = dataSet[indexPath.row ]
     cell.textLabel?.text = "\(data.city),\(data.region),\(data.country) "
     
     setup(cell)
     // check is cell is selected and apply the current highligth color Scheme
-    if cell.isSelected{
-      highlight(cell,with: selectedTextColor!)
+    if cell.isSelected {
+      highlight(cell, with: selectedTextColor!)
     }
     return cell
   }
@@ -55,7 +56,7 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
    
     // Store value to pass tehm to user Settings Vc
-    if source == "home" {
+    if source == .home {
       home = dataSet[indexPath.row].city
       selectedHome = indexPath.row
       away = ""
@@ -69,22 +70,20 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
     highlight(cell!, with: selectedTextColor!)
   }
 
-
   // MARK: - custom cell style handling
 
   //set style and data for cell
-  func setup(_ cell: UITableViewCell){
+  func setup(_ cell: UITableViewCell) {
     //Setup data
 
     //set up cell appearance
     cell.backgroundColor = backgroundColor
     cell.textLabel?.textColor = .white
-    cell.textLabel?.font = UIFont(name: "Montserrat-regular.otf", size: 18.0)
+    cell.textLabel?.font = UIFont(name: Constants.FontFamily.montserrat, size: 18.0)
   }
 
-
   //change to new selected colorScheme fonts & check mark
-  func highlight(_ cell: UITableViewCell, with color: UIColor){
+  func highlight(_ cell: UITableViewCell, with color: UIColor) {
     //Higlight Color Schem
     cell.tintColor = color
     cell.textLabel?.textColor =  color
@@ -95,25 +94,18 @@ extension LocationSettingsController : UITableViewDelegate,UITableViewDataSource
     cell.selectedBackgroundView = bgColorView
     // Add a checkMark
     cell.accessoryType = .checkmark
-    
-    
   }
 
   //Used to select the cell according to Language code
-  func selectRow(_ rowNumber: Int){
-    let indexPath = IndexPath(row:rowNumber , section: 0)
+  func selectRow(_ rowNumber: Int) {
+    let indexPath = IndexPath(row: rowNumber, section: 0)
     table?.selectRow(at: indexPath, animated: false, scrollPosition: .none)
   }
   
-
-  
   // Reset Style to default
-  func deSelectedCell(at indexPath: IndexPath){
+  func deSelectedCell(at indexPath: IndexPath) {
     table?.cellForRow(at: indexPath)?.accessoryType = .none
     table?.cellForRow(at: indexPath)?.backgroundColor = backgroundColor
     table?.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.white
   }
-  
-
 }
-

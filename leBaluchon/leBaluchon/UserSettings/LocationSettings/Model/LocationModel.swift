@@ -22,7 +22,7 @@ struct LocationModel {
   
   // MARK: - Init
   /// Initializer to instantiate a location
-  init(city:String, region:String, country: String){
+  init(city: String, region: String, country: String) {
     self.city = city
     self.region = region
     self.country = country

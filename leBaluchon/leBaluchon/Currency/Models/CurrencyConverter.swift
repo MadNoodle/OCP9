@@ -7,10 +7,6 @@
 //
 
 import Foundation
-
-
-
-import Foundation
 /**
  Handles all the logic for calculations
  */
@@ -44,14 +40,13 @@ struct CurrencyConverter {
     return true
   }
   
-
   /// Add new number in the stack and memorize the former last one
   /// allows us to calculate numbers with more than one number long
   ///
   /// - Parameters:
   ///   - newNumber: Int
   ///   - value: Int
-  mutating func addNewNumber(_ newNumber: Int,_ value: String) {
+  mutating func addNewNumber(_ newNumber: Int, _ value: String) {
     if let stringNumber = stringNumbers.last {
       var stringNumberMutable = stringNumber
       //Convert Int to String and append it to the former number
@@ -62,7 +57,6 @@ struct CurrencyConverter {
     }
   }
   
-
   /// Check if the stack already contains a point or is empty and returns false it is
   var canAddDecimal: Bool {
     if let strings = stringNumbers.last {
@@ -74,7 +68,7 @@ struct CurrencyConverter {
   }
   
   /// Method to add a decimal point
-  mutating func addDecimal(){
+  mutating func addDecimal() {
     if let stringNumber = stringNumbers.last {
       var stringNumberDecimal = stringNumber
       //Convert Int to String and append it to the former number
@@ -101,13 +95,12 @@ struct CurrencyConverter {
     return true
   }
   
-  
   /// Perform the operation between the 2 numbers in the stack.
   /// the operation can be + or - for the moment
   ///
   /// - Parameter rate: Currency exchange rate
   /// - Returns: Double converted result
-  mutating func convert(rate:Double) -> Double {
+  mutating func convert(rate: Double) -> Double {
     var total: Double = 0
     // slices the memorized number
     for stringNumber in stringNumbers {
@@ -124,7 +117,7 @@ struct CurrencyConverter {
   ///
   /// - Parameter result: Double
   /// - Returns: Bool
-  mutating func roundEvaluation(_ result: Double) -> Bool{
+  mutating func roundEvaluation(_ result: Double) -> Bool {
     if result.truncatingRemainder(dividingBy: 1) == 0 {
       return true
     }
@@ -148,4 +141,3 @@ struct CurrencyConverter {
  
   }
 }
-

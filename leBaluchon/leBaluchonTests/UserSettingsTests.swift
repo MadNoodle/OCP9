@@ -11,14 +11,13 @@ import XCTest
 
 class UserSettingsTests: XCTestCase {
   
-  var dummyData : [String : Any] = [
+  var dummyData: [String: Any] = [
   "newupdateTime": Date(),
   "newHomeLanguage": "fr",
   "newAwayLanguage": "en",
   "newHomeCity": "Paris",
   "newAwayCity": "NewYork"]
   
-
   func testsaveData() {
     UserSettings.saveData(displayKey: "test", value: "testValue", indexKey: "testKey", index: 1)
     let testvalue1 = UserDefaults.standard.object(forKey: "test") as? String
@@ -26,7 +25,7 @@ class UserSettingsTests: XCTestCase {
     XCTAssertEqual(testvalue1, "testValue")
     XCTAssertEqual(testvalue2, 1)
   }
-  func testLoadData(){
+  func testLoadData() {
     UserSettings.saveData(displayKey: "test", value: "testValue", indexKey: "testKey", index: 1)
     let testvalue1 = UserSettings.loadData(displayKey: "test", indexKey: "testKey")
     XCTAssertEqual(testvalue1.0, 0)

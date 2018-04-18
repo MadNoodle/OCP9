@@ -15,19 +15,19 @@ class CurrencyServiceTests: XCTestCase {
     let defaults: UserDefaults = UserDefaults.standard
     var calendar = Calendar.current
   
-  func testCreateCurrencyRate(){
-    let testDictionnary = ["USD" : 1.2]
-    let rate = CurrencyRate(currencyDictionnary: testDictionnary, to : "USD")
+  func testCreateCurrencyRate() {
+    let testDictionnary = ["USD": 1.2]
+    let rate = CurrencyRate(currencyDictionnary: testDictionnary, to: "USD")
     XCTAssertEqual(rate.currency, "USD")
     XCTAssertEqual(rate.rate, 1.2)
   }
   func testSuccesfullConnexionToCurrencyRemoteService() {
-    let ex = expectation(description: "currency name should be BGP & rate different from 0.0")
+    let exp = expectation(description: "currency name should be BGP & rate different from 0.0")
     
-    CurrencyService.fetchExchangeRate(apiUrl: baseUrl, from: "USD", to: "GBP", completion: {(rate,error)  in
+    CurrencyService.fetchExchangeRate(apiUrl: baseUrl, from: "USD", to: "GBP", completion: {(rate, _)  in
       XCTAssert(rate.currency == "GBP")
       XCTAssert(rate.rate != 0.0)
-      ex.fulfill()
+      exp.fulfill()
     })
     
     waitForExpectations(timeout: 10) { (error) in
@@ -37,10 +37,12 @@ class CurrencyServiceTests: XCTestCase {
     }
   }
   
-  
   func testFailConnexionToCurrencyRemoteService() {
    
-    CurrencyService.fetchExchangeRate(apiUrl: "", from: "USD", to: "GBP", completion: {(rate,error)  in
+    CurrencyService.fetchExchangeRate(apiUrl: "",
+                                      from: "USD",
+                                      to: "GBP",
+                                      completion: {(rate, _)  in
       XCTAssert(rate.currency == "GBP")
       XCTAssertFalse(type(of: rate) == [String: Any ].self)
     })
@@ -48,13 +50,13 @@ class CurrencyServiceTests: XCTestCase {
   
   func testUserDefaultStorage() {
     CurrencyService.storeLastUpdateDate()
-    XCTAssert( defaults.object(forKey:"lastUpdate") as? Date != nil)
+    XCTAssert( defaults.object(forKey: "lastUpdate") as? Date != nil)
   }
   
   func testIfneedToUpdate() {
     calendar.timeZone = .current
     let update = Date() + 86400
-    let result = CurrencyService.verifyIfUpdateNeeded(lastUpdate : update, home: "fr", away: "en")
+    let result = CurrencyService.verifyIfUpdateNeeded(lastUpdate: update, home: "fr", away: "en")
     XCTAssert(result)
   }
   func testIfServerHasBeenUpdatedToday() {
@@ -63,10 +65,9 @@ class CurrencyServiceTests: XCTestCase {
     if calendar.component(.hour, from: date) >= 16 {
       XCTAssert(CurrencyService.verifyIfBankRatesUpdated())
 
-    } else{
+    } else {
       XCTAssertFalse(CurrencyService.verifyIfBankRatesUpdated())
     }
   }
   
   }
-

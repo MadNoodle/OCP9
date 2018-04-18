@@ -15,15 +15,22 @@ import UIKit
  */
 class UserSettingsViewController: UIViewController {
   
+  var homeDisplayKey: String?
+  
+  var awayDisplayKey: String?
+  
+  var homeIndexKey: String?
+  
+  var awayIndexKey: String?
+
   // /////////////////// //
   // MARK: - properties  //
   // /////////////////// //
   
-  // MARK: -  Delegate Vcs
   ///Language settings View Controller
-  let languageListVc = LanguageSettings(style: .plain, homeDisplayKey: "homeLanguage", awayDisplayKey: "awayLanguage", homeIndexKey: "homeLanguageIndex", awayIndexKey: "awayLanguageIndex")
+  let languageListVc = DetailSettings()
   ///Currrency settings View Controller
-  let currencyListVc = CurrencySettings(style: .plain, homeDisplayKey: "homeCurrency", awayDisplayKey: "awayCurrency", homeIndexKey: "homeCurrencyIndex", awayIndexKey: "awayCurrencyIndex")
+  let currencyListVc = DetailSettings()
   ///Location settings View Controller
   let locationListVc = LocationSettingsController(nibName: nil, bundle: nil)
   // /////////////////// //
@@ -32,35 +39,34 @@ class UserSettingsViewController: UIViewController {
 
   // Color Scheme properties
   /// Value to customize Color Scheme background
-  var backgroundColor : UIColor?
+  var backgroundColor: UIColor?
   /// Value to customize Color Scheme text
-  var selectedTextColor  : UIColor?
+  var selectedTextColor: UIColor?
   
   // MARK: - data exchange valeus to Vcs
   // Optionnal value to receive result from detail Vc's and to be stored in persistence
   /// Away Language value (refer to Language)
-  var awayLanguage : String?
+  var awayLanguage: String?
   /// home LAnguage value (refer to Language)
-  var homeLanguage : String?
+  var homeLanguage: String?
    /// Optional Value that stores home city Index to highligth it in tableView when reloading
-  var selectedHome : Int?
+  var selectedHome: Int?
     /// Optional Value that stores Away city Index to highligth it in tableView when reloading
-  var selectedAway : Int?
-  
+  var selectedAway: Int?
+
   // MARK: - Label's Outlets
   ///Away city name
-  @IBOutlet weak var Acity: UILabel!
+  @IBOutlet weak var aCity: UILabel!
   /// Away country language
-  @IBOutlet weak var ALang: UILabel!
+  @IBOutlet weak var aLang: UILabel!
   /// Away country currency
-  @IBOutlet weak var ACurrency: UILabel!
+  @IBOutlet weak var aCurrency: UILabel!
   /// home city name
-  @IBOutlet weak var Bcity: UILabel!
+  @IBOutlet weak var bCity: UILabel!
   /// home country language
-  @IBOutlet weak var BLang: UILabel!
+  @IBOutlet weak var bLang: UILabel!
   /// home country currency
-  @IBOutlet weak var BCurrency: UILabel!
-  
+  @IBOutlet weak var bCurrency: UILabel!
 
   // /////////////////////// //
   // MARK: LifeCycle Methods //
@@ -68,7 +74,7 @@ class UserSettingsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "Settings"
+    self.title = Constants.ControlleTitles.settings
     updateUI()
   }
   
@@ -81,69 +87,69 @@ class UserSettingsViewController: UIViewController {
   // MARK: - Actions  //
   // //////////////// //
 
-  
   @IBAction func gotToHomeLanguageSettings(_ sender: UIButton) {
-   languageListVc.initDetail(bgColor: #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1), txtSelect: #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4078431373, alpha: 1), destination: "home")
+  
+    languageListVc.initDetail( destination: .home, of: .language)
     navigationController?.pushViewController(languageListVc, animated: true)
   }
   
   @IBAction func goToAwayLanguageSettings(_ sender: UIButton) {
-    languageListVc.initDetail(bgColor: #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4078431373, alpha: 1), txtSelect: #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1), destination: "away")
+    languageListVc.initDetail(destination: .away, of: .language)
     navigationController?.pushViewController(languageListVc, animated: true)
   }
   
   // Currency actions
   @IBAction func goToCurrencySettings(_ sender: UIButton) {
-    currencyListVc.initDetail(bgColor: #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4078431373, alpha: 1), txtSelect: #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1), destination: "away")
+      currencyListVc.initDetail( destination: .away, of: .currency)
+  
     navigationController?.pushViewController(currencyListVc, animated: true)
   }
   
   @IBAction func goToHomeCurrencySettings(_ sender: UIButton) {
-    currencyListVc.initDetail(bgColor: #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1), txtSelect: #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4078431373, alpha: 1), destination: "home")
+      currencyListVc.initDetail( destination: .home, of: .currency)
     navigationController?.pushViewController(currencyListVc, animated: true)
   }
   
   // LocationActions
   @IBAction func goToAwayLocation(_ sender: UIButton) {
-    locationListVc.initDetail(bgColor: #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1), txtSelect: #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4078431373, alpha: 1), destination: "away")
+    locationListVc.initDetail( destination: .away)
     navigationController?.present(locationListVc, animated: true, completion: nil)
   }
   
   @IBAction func gotToHomeLocation(_ sender: UIButton) {
-    locationListVc.initDetail(bgColor: #colorLiteral(red: 0.2588235294, green: 0.8039215686, blue: 0.768627451, alpha: 1), txtSelect: #colorLiteral(red: 1, green: 0.4196078431, blue: 0.4078431373, alpha: 1), destination: "home")
+    locationListVc.initDetail( destination: .home)
     navigationController?.present(locationListVc, animated: true, completion: nil)
   }
-  
+
   // ////////////////// //
   // MARK: - UI methods //
   // ////////////////// //
-  
+
   /// Load informations into labels and update UI
   private func updateUI() {
-    updateLabel(ALang, for: "awayLanguage")
-    updateLabel(BLang, for: "homeLanguage")
-    updateLabel(ACurrency, for: "awayCurrency")
-    updateLabel(BCurrency, for: "homeCurrency")
-    updateLabel(Acity, for: "awayCity")
-    updateLabel(Bcity, for: "homeCity")
+    updateLabel(aLang, for: Constants.LanguageStorage.away)
+    updateLabel(bLang, for: Constants.LanguageStorage.home)
+    updateLabel(aCurrency, for: Constants.CurrencyStorage.away)
+    updateLabel(bCurrency, for: Constants.CurrencyStorage.home)
+    updateLabel(aCity, for: Constants.LocationStorage.away)
+    updateLabel(bCity, for: Constants.LocationStorage.home)
   }
-  
+
   ///  This method load data from persistent container asyncroneously to populate label
   ///
   /// - Parameters:
   ///   - label: UILabel destination label to populate
   ///   - key: String to call in UserDefaults to retrieve the current value to display
-  func updateLabel(_ label: UILabel, for key: String){
+  func updateLabel(_ label: UILabel, for key: String) {
     // call persistent container and optional binding to prevent nil value
-    if let text = UserSettings.defaults.object(forKey: key) as! String!
-    {
+    if let text = UserSettings.defaults.object(forKey: key) as? String? {
       // async load to prevent from nil value while fetching from persistent container
       DispatchQueue.main.async {
         label.text = text
       }
     }
   }
-  
+
   /// Load values from external Vc's in selectedValues
   private func receiveValueForLanguage() {
     // Receive value from language container

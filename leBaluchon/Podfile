@@ -6,7 +6,7 @@ target 'leBaluchon' do
   use_frameworks!
 
   # Pods for leBaluchon
-  pod 'Alamofire'
+  pod 'Alamofire', :inhibit_warnings => true
 
   target 'leBaluchonTests' do
     inherit! :search_paths

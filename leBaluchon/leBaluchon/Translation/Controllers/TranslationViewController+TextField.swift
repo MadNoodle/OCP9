@@ -15,8 +15,6 @@ extension TranslationViewController {
   // ////////////////////////////////// //
   // MARK: - TextField Delegate Methods //
   // ////////////////////////////////// //
-  
-  
   /**
   
  */
@@ -31,7 +29,6 @@ extension TranslationViewController {
     resetTextField()
     self.view.endEditing(true)
   }
-  
 
   /// When user presses enter on keyboard. it validates his text
   /// and send translation request. the keyboard disappear.
@@ -43,7 +40,6 @@ extension TranslationViewController {
     resetTextField()
     return (true)
   }
-  
 
   /// Animate back to original layout
   private func resetTextField() {

@@ -18,7 +18,7 @@ import Alamofire
 class CurrencyService {
   
   /// Currency Service Api Key
-  static let api = Constants.CURRENCY_API_CALL
+  static let api = Constants.Url.CURRENCY_API_CALL
   
   /// this function uses Alamofire framework to make Webrequest. and fetch Data in a CurrenyRate Object
   ///
@@ -27,7 +27,7 @@ class CurrencyService {
   ///   - base: String home currency
   ///   - final: String away currency
   ///   - completion: CuurencyRate or Error
-  static func fetchExchangeRate(apiUrl: String,from base: String, to final: String, completion: @escaping (_ currency: CurrencyRate,_ error: Error?) -> Void) {
+  static func fetchExchangeRate(apiUrl: String, from base: String, to final: String, completion: @escaping (_ currency: CurrencyRate, _ error: Error?) -> Void) {
     let requestUrl = apiUrl + base
     var rate: CurrencyRate?
     // Make the call async to separate from UI calls
@@ -35,11 +35,11 @@ class CurrencyService {
       Alamofire.request(requestUrl).validate().responseJSON { response in
         switch response.result {
         case .success:
-          print("Validation Successful")
+          print(Constants.Validation.success)
           Alamofire.request(requestUrl).responseJSON { (response) in
             
-            if let jsonDictionnary = response.result.value as? [String : Any]{
-              if let currentRates = jsonDictionnary["rates"] as? [String : Any]{
+            if let jsonDictionnary = response.result.value as? [String: Any] {
+              if let currentRates = jsonDictionnary["rates"] as? [String: Any] {
                 rate = CurrencyRate(currencyDictionnary: currentRates, to: final)
                 UserSettings.defaults.set(rate?.rate, forKey: "exchangeRate")
                 
@@ -48,7 +48,7 @@ class CurrencyService {
             completion(rate!, nil)
           }
         case .failure(let error):
-          rate = CurrencyRate(currencyDictionnary: ["error fetching Data":""], to: final)
+          rate = CurrencyRate(currencyDictionnary: [Constants.Validation.failure: ""], to: final)
           
           completion(rate!, error)
         }
@@ -56,8 +56,7 @@ class CurrencyService {
       
     }
   }
- 
-  
+
   /// Stores last update time in User default
   static func storeLastUpdateDate() {
     let date = Date()
@@ -65,10 +64,8 @@ class CurrencyService {
     defaults.set(date, forKey: "lastUpdate")
   }
   
-  
-
-  
-  /// Compare last update date from userDefault and send true if interval is greater than one day or if it is later 4 pm (BCE update time).
+  /// Compare last update date from userDefault and send true if
+  ///interval is greater than one day or if it is later 4 pm (BCE update time).
   ///
   /// - Parameters:
   ///   - lastUpdate: Date. last update date
@@ -76,9 +73,9 @@ class CurrencyService {
   ///   - away: String. awaway currency
   /// - Returns: Bool
   static func verifyIfUpdateNeeded(lastUpdate: Date, home: String, away: String) -> Bool {
-    var checkResult:Bool?
-    let storeHomed = UserSettings.defaults.object(forKey: "homeCurrency") as! String
-    let storeAway = UserSettings.defaults.object(forKey: "awayCurrency") as! String
+    var checkResult: Bool?
+    guard let storeHomed = UserSettings.defaults.object(forKey: Constants.CurrencyStorage.home) as? String else { return false}
+    guard let storeAway = UserSettings.defaults.object(forKey: Constants.CurrencyStorage.away) as? String else { return false}
     let interval = lastUpdate.interval(ofComponent: .day, fromDate: Date())
     if interval >= 1 || verifyIfBankRatesUpdated() || home != storeHomed || away != storeAway {
       checkResult = true
@@ -87,17 +84,16 @@ class CurrencyService {
     }
     return checkResult!
   }
-  
- 
+
   /// Method that check if it s later than 4 pm GMT (BCE update time)
   ///
   /// - Returns: Boolean
   static func verifyIfBankRatesUpdated() -> Bool {
-    var checkResult:Bool?
+    var checkResult: Bool?
     var BCECalendar = Calendar.current
     BCECalendar.timeZone = .current
     let centralBankUpdateCheck = BCECalendar.component(.hour, from: Date())
-    if centralBankUpdateCheck >= 16{
+    if centralBankUpdateCheck >= 16 {
       checkResult = true
     } else {
       checkResult =  false

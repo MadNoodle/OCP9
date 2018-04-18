@@ -26,13 +26,12 @@
 		B97F4821200190EB009FF140 /* UserSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F481F200190EB009FF140 /* UserSettingsViewController.xib */; };
 		B98175FE2011041A00B1834A /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B98175FD2011041A00B1834A /* CustomTabBar.xib */; };
 		B98176002011042C00B1834A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98175FF2011042C00B1834A /* Constants.swift */; };
+		B98C330A20872D8A00577B5A /* ColorTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C330920872D8A00577B5A /* ColorTemplate.swift */; };
 		B9ADEBDF1FFEBA4200C50F11 /* CurrencyServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */; };
 		B9ADEBE21FFEE2ED00C50F11 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBE11FFEE2ED00C50F11 /* TranslationService.swift */; };
 		B9ADEBE41FFEE33D00C50F11 /* TranslationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBE31FFEE33D00C50F11 /* TranslationServiceTests.swift */; };
 		B9ADEBE61FFEEC6800C50F11 /* TranslationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBE51FFEEC6800C50F11 /* TranslationObject.swift */; };
-		B9CAA07C20078BBC001EB421 /* CurrencySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA07A20078BBC001EB421 /* CurrencySettings.swift */; };
-		B9CAA07D20078BBC001EB421 /* CurrencySettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CAA07B20078BBC001EB421 /* CurrencySettings.xib */; };
-		B9CAA08020079881001EB421 /* LanguageSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA07E20079881001EB421 /* LanguageSettings.swift */; };
+		B9CAA08020079881001EB421 /* DetailSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CAA07E20079881001EB421 /* DetailSettings.swift */; };
 		B9CAA08120079881001EB421 /* LanguageSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CAA07F20079881001EB421 /* LanguageSettings.xib */; };
 		B9CC52B32006C06C00E3B447 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9CEE13F2006B97C0001CC2C /* Montserrat-Bold.otf */; };
 		B9CC52B42006C06C00E3B447 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9CEE13E2006B9710001CC2C /* Montserrat-Regular.otf */; };
@@ -53,6 +52,7 @@
 		B9DF731F200A7E2A00907496 /* LocationSettingsController+navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DF731E200A7E2A00907496 /* LocationSettingsController+navbar.swift */; };
 		B9DF7323200A98BC00907496 /* LocationSettingsController+textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DF7322200A98BC00907496 /* LocationSettingsController+textField.swift */; };
 		B9DF7325200B6BEC00907496 /* LocationSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DF7324200B6BEC00907496 /* LocationSettingsView.xib */; };
+		B9F5D4EF2087340100AA54D8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F5D4EE2087340100AA54D8 /* Settings.swift */; };
 		B9F9E69E2000270B00917C58 /* WeatherServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F9E69D2000270B00917C58 /* WeatherServiceTests.swift */; };
 		B9F9E6A020003C2200917C58 /* WeatherCodeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F9E69F20003C2200917C58 /* WeatherCodeConverter.swift */; };
 		B9F9E6A42000BF8A00917C58 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F9E6A32000BF8A00917C58 /* UserSettings.swift */; };
@@ -104,13 +104,12 @@
 		B97F481F200190EB009FF140 /* UserSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSettingsViewController.xib; sourceTree = "<group>"; };
 		B98175FD2011041A00B1834A /* CustomTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
 		B98175FF2011042C00B1834A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B98C330920872D8A00577B5A /* ColorTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTemplate.swift; sourceTree = "<group>"; };
 		B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceHelper.swift; sourceTree = "<group>"; };
 		B9ADEBE11FFEE2ED00C50F11 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		B9ADEBE31FFEE33D00C50F11 /* TranslationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationServiceTests.swift; sourceTree = "<group>"; };
 		B9ADEBE51FFEEC6800C50F11 /* TranslationObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationObject.swift; sourceTree = "<group>"; };
-		B9CAA07A20078BBC001EB421 /* CurrencySettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySettings.swift; sourceTree = "<group>"; };
-		B9CAA07B20078BBC001EB421 /* CurrencySettings.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencySettings.xib; sourceTree = "<group>"; };
-		B9CAA07E20079881001EB421 /* LanguageSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettings.swift; sourceTree = "<group>"; };
+		B9CAA07E20079881001EB421 /* DetailSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettings.swift; sourceTree = "<group>"; };
 		B9CAA07F20079881001EB421 /* LanguageSettings.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageSettings.xib; sourceTree = "<group>"; };
 		B9CC52B52006CB6200E3B447 /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
 		B9CC52B9200750DA00E3B447 /* CurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTests.swift; sourceTree = "<group>"; };
@@ -137,6 +136,7 @@
 		B9DF731E200A7E2A00907496 /* LocationSettingsController+navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationSettingsController+navbar.swift"; sourceTree = "<group>"; };
 		B9DF7322200A98BC00907496 /* LocationSettingsController+textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationSettingsController+textField.swift"; sourceTree = "<group>"; };
 		B9DF7324200B6BEC00907496 /* LocationSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSettingsView.xib; sourceTree = "<group>"; };
+		B9F5D4EE2087340100AA54D8 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B9F9E69D2000270B00917C58 /* WeatherServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTests.swift; sourceTree = "<group>"; };
 		B9F9E69F20003C2200917C58 /* WeatherCodeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCodeConverter.swift; sourceTree = "<group>"; };
 		B9F9E6A32000BF8A00917C58 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -243,6 +243,48 @@
 			path = LocationSettings;
 			sourceTree = "<group>";
 		};
+		B99184632087EE8A002973DC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B97F481E200190EB009FF140 /* UserSettingsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B99184642087EE94002973DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B97F481F200190EB009FF140 /* UserSettingsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B99184652087EEAB002973DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B98175FF2011042C00B1834A /* Constants.swift */,
+				B98C330920872D8A00577B5A /* ColorTemplate.swift */,
+				B9F5D4EE2087340100AA54D8 /* Settings.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B99184662087EEB6002973DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B98175FD2011041A00B1834A /* CustomTabBar.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B99184672087EEBC002973DC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B97F481020018603009FF140 /* CustomTabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		B9ADEBE01FFEE2D700C50F11 /* Translation */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,14 +295,14 @@
 			path = Translation;
 			sourceTree = "<group>";
 		};
-		B9CC52BB20075A5000E3B447 /* LanguageSettings */ = {
+		B9CC52BB20075A5000E3B447 /* DetailSettings */ = {
 			isa = PBXGroup;
 			children = (
 				B9DF732D200B6EF500907496 /* Model */,
 				B9DF732E200B6EFD00907496 /* Controller */,
 				B9DF732F200B6F0600907496 /* View */,
 			);
-			path = LanguageSettings;
+			path = DetailSettings;
 			sourceTree = "<group>";
 		};
 		B9CC52C020075AA800E3B447 /* Model */ = {
@@ -275,20 +317,10 @@
 			isa = PBXGroup;
 			children = (
 				B9CC52C020075AA800E3B447 /* Model */,
-				B97F481E200190EB009FF140 /* UserSettingsViewController.swift */,
-				B97F481F200190EB009FF140 /* UserSettingsViewController.xib */,
+				B99184632087EE8A002973DC /* Controller */,
+				B99184642087EE94002973DC /* View */,
 			);
 			path = GeneralSettings;
-			sourceTree = "<group>";
-		};
-		B9CC52C4200768AC00E3B447 /* CurrencySettings */ = {
-			isa = PBXGroup;
-			children = (
-				B9DF7328200B6C3200907496 /* Model */,
-				B9DF7329200B6C3900907496 /* Controller */,
-				B9DF732C200B6CAF00907496 /* View */,
-			);
-			path = CurrencySettings;
 			sourceTree = "<group>";
 		};
 		B9D039AF1FFD738A00011D73 = {
@@ -420,33 +452,10 @@
 			path = extensions;
 			sourceTree = "<group>";
 		};
-		B9DF7328200B6C3200907496 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B9CC52C5200768CA00E3B447 /* CurrencyList.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B9DF7329200B6C3900907496 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B9CAA07A20078BBC001EB421 /* CurrencySettings.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		B9DF732C200B6CAF00907496 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B9CAA07B20078BBC001EB421 /* CurrencySettings.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		B9DF732D200B6EF500907496 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B9CC52C5200768CA00E3B447 /* CurrencyList.swift */,
 				B9CC52C220075B1400E3B447 /* Languages.swift */,
 			);
 			path = Model;
@@ -455,7 +464,7 @@
 		B9DF732E200B6EFD00907496 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B9CAA07E20079881001EB421 /* LanguageSettings.swift */,
+				B9CAA07E20079881001EB421 /* DetailSettings.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -503,9 +512,9 @@
 		B9F443AF200EA878007F8605 /* MainTabBarContainerController */ = {
 			isa = PBXGroup;
 			children = (
-				B97F481020018603009FF140 /* CustomTabBarController.swift */,
-				B98175FD2011041A00B1834A /* CustomTabBar.xib */,
-				B98175FF2011042C00B1834A /* Constants.swift */,
+				B99184652087EEAB002973DC /* Model */,
+				B99184672087EEBC002973DC /* Controller */,
+				B99184662087EEB6002973DC /* View */,
 			);
 			path = MainTabBarContainerController;
 			sourceTree = "<group>";
@@ -524,8 +533,7 @@
 			isa = PBXGroup;
 			children = (
 				B95FDC03200A28A7008D7D67 /* LocationSettings */,
-				B9CC52C4200768AC00E3B447 /* CurrencySettings */,
-				B9CC52BB20075A5000E3B447 /* LanguageSettings */,
+				B9CC52BB20075A5000E3B447 /* DetailSettings */,
 				B9CC52C120075AE100E3B447 /* GeneralSettings */,
 			);
 			path = UserSettings;
@@ -544,6 +552,7 @@
 				B9D039B61FFD738B00011D73 /* Resources */,
 				012DDCE57B87E67D12F89092 /* [CP] Embed Pods Frameworks */,
 				038CFC85F4AAEE3DC3C1638E /* [CP] Copy Pods Resources */,
+				B971633120879FAA00DC1EB8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -603,7 +612,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Mathieu Janneau";
 				TargetAttributes = {
 					B9D039B71FFD738B00011D73 = {
@@ -653,7 +662,6 @@
 				B9CC52B42006C06C00E3B447 /* Montserrat-Regular.otf in Resources */,
 				B9CAA08120079881001EB421 /* LanguageSettings.xib in Resources */,
 				B97F481D200190D8009FF140 /* WeatherViewController.xib in Resources */,
-				B9CAA07D20078BBC001EB421 /* CurrencySettings.xib in Resources */,
 				B97F4819200190BB009FF140 /* TranslationViewController.xib in Resources */,
 				B9DF7325200B6BEC00907496 /* LocationSettingsView.xib in Resources */,
 				B97F4821200190EB009FF140 /* UserSettingsViewController.xib in Resources */,
@@ -779,6 +787,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B971633120879FAA00DC1EB8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		C72A5FD273CE5DA6262F7E5A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -836,15 +857,15 @@
 			files = (
 				B9ADEBE61FFEEC6800C50F11 /* TranslationObject.swift in Sources */,
 				B9DF731F200A7E2A00907496 /* LocationSettingsController+navbar.swift in Sources */,
-				B9CAA07C20078BBC001EB421 /* CurrencySettings.swift in Sources */,
 				B97F481C200190D8009FF140 /* WeatherViewController.swift in Sources */,
-				B9CAA08020079881001EB421 /* LanguageSettings.swift in Sources */,
+				B9CAA08020079881001EB421 /* DetailSettings.swift in Sources */,
 				B98176002011042C00B1834A /* Constants.swift in Sources */,
 				B9DF731A200A5D7200907496 /* LocationSettingsController.swift in Sources */,
 				B9F9E6A42000BF8A00917C58 /* UserSettings.swift in Sources */,
 				B952E8901FFFD5C000E0CC98 /* WeatherService.swift in Sources */,
 				B9DF731D200A66FC00907496 /* LocationSettings+TableView.swift in Sources */,
 				B97F4820200190EB009FF140 /* UserSettingsViewController.swift in Sources */,
+				B98C330A20872D8A00577B5A /* ColorTemplate.swift in Sources */,
 				B97F481120018603009FF140 /* CustomTabBarController.swift in Sources */,
 				B9ADEBDF1FFEBA4200C50F11 /* CurrencyServiceHelper.swift in Sources */,
 				B9CC52C6200768CA00E3B447 /* CurrencyList.swift in Sources */,
@@ -855,6 +876,7 @@
 				B95FDBFC20097B8A008D7D67 /* TranslationViewController+keyboard.swift in Sources */,
 				B952E8921FFFD5EC00E0CC98 /* CurrentWeather.swift in Sources */,
 				B9DF7323200A98BC00907496 /* LocationSettingsController+textField.swift in Sources */,
+				B9F5D4EF2087340100AA54D8 /* Settings.swift in Sources */,
 				B97F4818200190BB009FF140 /* TranslationViewController.swift in Sources */,
 				B9D039BC1FFD738B00011D73 /* AppDelegate.swift in Sources */,
 				B95FDC05200A32E0008D7D67 /* LocationModel.swift in Sources */,
@@ -929,6 +951,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -936,6 +959,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -986,6 +1010,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -993,6 +1018,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

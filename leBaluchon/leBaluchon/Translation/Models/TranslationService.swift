@@ -85,7 +85,7 @@ class TranslationService {
       Alamofire.request(request).validate().responseJSON { response in
         switch response.result {
         case .success:
-          print(Constants.Validation.success)
+          print(Constants.ValidationMessages.success)
           Alamofire.request(request).responseJSON { (response) in
             // Parse result
             if let json =  response.result.value as? [String: Any] {
@@ -102,7 +102,7 @@ class TranslationService {
             }
           }
         case .failure(let error):
-         language = Constants.Validation.failure
+         language = Constants.ValidationMessages.failure
          completion(language!, error)
         }
       }

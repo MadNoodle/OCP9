@@ -52,7 +52,7 @@ class LocationService {
         switch response.result {
         // check for connexion to remote server
         case .success:
-          print(Constants.Validation.success)
+          print(Constants.ValidationMessages.success)
           Alamofire.request(url).responseJSON { (response) in
             parseResult(response)
             // escape resultArray
@@ -69,14 +69,22 @@ class LocationService {
   ///
   /// - Parameter response: Response from location API call
   static func parseResult(_ response: (DataResponse<Any>)) {
-    
+    var location: LocationModel?
     if let jsonDictionnary = response.result.value as? [Any] {
       for json in jsonDictionnary {
         if let result = json as? [ String: Any] {
           if let display = result["display_name"] as? String {
-            let city = display.components(separatedBy: ",")
-            let location = LocationModel(city: city[0], region: city[1], country: city.last!)
-            resultArray.append(location)
+            // Check if there is only one word in display
+            if display.range(of: ",") != nil {
+              let city = display.components(separatedBy: ",")
+              
+              location = LocationModel(city: city[0], region: city[1], country: city.last!)
+             
+            } else {
+              location = LocationModel(city: display, region: "", country: "")
+            }
+
+            resultArray.append(location!)
           }
         }
       }

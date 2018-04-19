@@ -65,7 +65,7 @@ struct WeatherService {
       Alamofire.request(requestUrl).validate().responseJSON { response in
         switch response.result {
         case .success:
-          print(Constants.Validation.success)
+          print(Constants.ValidationMessages.success)
           Alamofire.request(requestUrl).responseJSON { (response) in
             //Parsing
             if let jsonDictionnary = response.result.value as? [String: Any] {

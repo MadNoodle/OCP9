@@ -25,8 +25,8 @@
 		B97F4820200190EB009FF140 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F481E200190EB009FF140 /* UserSettingsViewController.swift */; };
 		B97F4821200190EB009FF140 /* UserSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97F481F200190EB009FF140 /* UserSettingsViewController.xib */; };
 		B98175FE2011041A00B1834A /* CustomTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B98175FD2011041A00B1834A /* CustomTabBar.xib */; };
-		B98176002011042C00B1834A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98175FF2011042C00B1834A /* Constants.swift */; };
-		B98C330A20872D8A00577B5A /* ColorTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C330920872D8A00577B5A /* ColorTemplate.swift */; };
+		B98176002011042C00B1834A /* ConfigFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98175FF2011042C00B1834A /* ConfigFile.swift */; };
+		B9918469208881FC002973DC /* SettingsDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9918468208881FC002973DC /* SettingsDispatcher.swift */; };
 		B9ADEBDF1FFEBA4200C50F11 /* CurrencyServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */; };
 		B9ADEBE21FFEE2ED00C50F11 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBE11FFEE2ED00C50F11 /* TranslationService.swift */; };
 		B9ADEBE41FFEE33D00C50F11 /* TranslationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9ADEBE31FFEE33D00C50F11 /* TranslationServiceTests.swift */; };
@@ -52,7 +52,6 @@
 		B9DF731F200A7E2A00907496 /* LocationSettingsController+navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DF731E200A7E2A00907496 /* LocationSettingsController+navbar.swift */; };
 		B9DF7323200A98BC00907496 /* LocationSettingsController+textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DF7322200A98BC00907496 /* LocationSettingsController+textField.swift */; };
 		B9DF7325200B6BEC00907496 /* LocationSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DF7324200B6BEC00907496 /* LocationSettingsView.xib */; };
-		B9F5D4EF2087340100AA54D8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F5D4EE2087340100AA54D8 /* Settings.swift */; };
 		B9F9E69E2000270B00917C58 /* WeatherServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F9E69D2000270B00917C58 /* WeatherServiceTests.swift */; };
 		B9F9E6A020003C2200917C58 /* WeatherCodeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F9E69F20003C2200917C58 /* WeatherCodeConverter.swift */; };
 		B9F9E6A42000BF8A00917C58 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F9E6A32000BF8A00917C58 /* UserSettings.swift */; };
@@ -103,8 +102,8 @@
 		B97F481E200190EB009FF140 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		B97F481F200190EB009FF140 /* UserSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSettingsViewController.xib; sourceTree = "<group>"; };
 		B98175FD2011041A00B1834A /* CustomTabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBar.xib; sourceTree = "<group>"; };
-		B98175FF2011042C00B1834A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B98C330920872D8A00577B5A /* ColorTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTemplate.swift; sourceTree = "<group>"; };
+		B98175FF2011042C00B1834A /* ConfigFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFile.swift; sourceTree = "<group>"; };
+		B9918468208881FC002973DC /* SettingsDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDispatcher.swift; sourceTree = "<group>"; };
 		B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceHelper.swift; sourceTree = "<group>"; };
 		B9ADEBE11FFEE2ED00C50F11 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		B9ADEBE31FFEE33D00C50F11 /* TranslationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationServiceTests.swift; sourceTree = "<group>"; };
@@ -136,7 +135,6 @@
 		B9DF731E200A7E2A00907496 /* LocationSettingsController+navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationSettingsController+navbar.swift"; sourceTree = "<group>"; };
 		B9DF7322200A98BC00907496 /* LocationSettingsController+textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationSettingsController+textField.swift"; sourceTree = "<group>"; };
 		B9DF7324200B6BEC00907496 /* LocationSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationSettingsView.xib; sourceTree = "<group>"; };
-		B9F5D4EE2087340100AA54D8 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B9F9E69D2000270B00917C58 /* WeatherServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTests.swift; sourceTree = "<group>"; };
 		B9F9E69F20003C2200917C58 /* WeatherCodeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCodeConverter.swift; sourceTree = "<group>"; };
 		B9F9E6A32000BF8A00917C58 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -262,9 +260,7 @@
 		B99184652087EEAB002973DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B98175FF2011042C00B1834A /* Constants.swift */,
-				B98C330920872D8A00577B5A /* ColorTemplate.swift */,
-				B9F5D4EE2087340100AA54D8 /* Settings.swift */,
+				B98175FF2011042C00B1834A /* ConfigFile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				B9F9E6A32000BF8A00917C58 /* UserSettings.swift */,
+				B9918468208881FC002973DC /* SettingsDispatcher.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -859,13 +856,12 @@
 				B9DF731F200A7E2A00907496 /* LocationSettingsController+navbar.swift in Sources */,
 				B97F481C200190D8009FF140 /* WeatherViewController.swift in Sources */,
 				B9CAA08020079881001EB421 /* DetailSettings.swift in Sources */,
-				B98176002011042C00B1834A /* Constants.swift in Sources */,
+				B98176002011042C00B1834A /* ConfigFile.swift in Sources */,
 				B9DF731A200A5D7200907496 /* LocationSettingsController.swift in Sources */,
 				B9F9E6A42000BF8A00917C58 /* UserSettings.swift in Sources */,
 				B952E8901FFFD5C000E0CC98 /* WeatherService.swift in Sources */,
 				B9DF731D200A66FC00907496 /* LocationSettings+TableView.swift in Sources */,
 				B97F4820200190EB009FF140 /* UserSettingsViewController.swift in Sources */,
-				B98C330A20872D8A00577B5A /* ColorTemplate.swift in Sources */,
 				B97F481120018603009FF140 /* CustomTabBarController.swift in Sources */,
 				B9ADEBDF1FFEBA4200C50F11 /* CurrencyServiceHelper.swift in Sources */,
 				B9CC52C6200768CA00E3B447 /* CurrencyList.swift in Sources */,
@@ -876,7 +872,6 @@
 				B95FDBFC20097B8A008D7D67 /* TranslationViewController+keyboard.swift in Sources */,
 				B952E8921FFFD5EC00E0CC98 /* CurrentWeather.swift in Sources */,
 				B9DF7323200A98BC00907496 /* LocationSettingsController+textField.swift in Sources */,
-				B9F5D4EF2087340100AA54D8 /* Settings.swift in Sources */,
 				B97F4818200190BB009FF140 /* TranslationViewController.swift in Sources */,
 				B9D039BC1FFD738B00011D73 /* AppDelegate.swift in Sources */,
 				B95FDC05200A32E0008D7D67 /* LocationModel.swift in Sources */,
@@ -886,6 +881,7 @@
 				B97F481420018921009FF140 /* CurrencyViewController.swift in Sources */,
 				B9F9E6A020003C2200917C58 /* WeatherCodeConverter.swift in Sources */,
 				B9D039FB1FFD9EF900011D73 /* CurrencyRate .swift in Sources */,
+				B9918469208881FC002973DC /* SettingsDispatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

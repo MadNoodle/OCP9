@@ -87,7 +87,8 @@ class CurrencyViewController: UIViewController {
       currencyConverter.addDecimal()
       updateDisplay()
     } else {
-      showAlert(message: Constants.AlertMessages.incorrectExpression)
+      UserAlert.show(title: Constants.AlertMessages.warning, message: Constants.AlertMessages.incorrectExpression, controller: self)
+      
     }
   }
   
@@ -156,7 +157,8 @@ class CurrencyViewController: UIViewController {
                                         completion: {(result, error) in
         // display an alert connexions fails
         if error != nil {
-          self.showAlert(message: Constants.AlertMessages.connexionProblem )
+          UserAlert.show(title: Constants.AlertMessages.warning, message: Constants.AlertMessages.connexionProblem, controller: self)
+          
           return
         }
         self.rateValue = result.rate!
@@ -178,13 +180,4 @@ class CurrencyViewController: UIViewController {
     return convertedDateString
   }
 
-  ///  Show alert when user try to do an invalid operation such as 2
-  /// decimal points in the same number or connexion problem
-  ///
-  /// - Parameter message: String. Message to explain the error
-  func showAlert(message: String) {
-    let alertVC = UIAlertController(title: Constants.AlertMessages.warning, message: message, preferredStyle: .alert)
-    alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-    self.present(alertVC, animated: true, completion: nil)
-  }
 }

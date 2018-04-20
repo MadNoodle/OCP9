@@ -47,6 +47,7 @@
 		B9D039ED1FFD73A800011D73 /* CurrencyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D039EC1FFD73A800011D73 /* CurrencyServiceTests.swift */; };
 		B9D039F01FFD73DA00011D73 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D039EF1FFD73DA00011D73 /* CurrencyService.swift */; };
 		B9D039FB1FFD9EF900011D73 /* CurrencyRate .swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D039FA1FFD9EF900011D73 /* CurrencyRate .swift */; };
+		B9DE7B952089D5AA0008D81F /* UserAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DE7B942089D5AA0008D81F /* UserAlert.swift */; };
 		B9DF731A200A5D7200907496 /* LocationSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DF7318200A5D7200907496 /* LocationSettingsController.swift */; };
 		B9DF731D200A66FC00907496 /* LocationSettings+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DF731C200A66FC00907496 /* LocationSettings+TableView.swift */; };
 		B9DF731F200A7E2A00907496 /* LocationSettingsController+navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DF731E200A7E2A00907496 /* LocationSettingsController+navbar.swift */; };
@@ -130,6 +131,7 @@
 		B9D039EC1FFD73A800011D73 /* CurrencyServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceTests.swift; sourceTree = "<group>"; };
 		B9D039EF1FFD73DA00011D73 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		B9D039FA1FFD9EF900011D73 /* CurrencyRate .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CurrencyRate .swift"; sourceTree = "<group>"; };
+		B9DE7B942089D5AA0008D81F /* UserAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlert.swift; sourceTree = "<group>"; };
 		B9DF7318200A5D7200907496 /* LocationSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSettingsController.swift; sourceTree = "<group>"; };
 		B9DF731C200A66FC00907496 /* LocationSettings+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationSettings+TableView.swift"; sourceTree = "<group>"; };
 		B9DF731E200A7E2A00907496 /* LocationSettingsController+navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationSettingsController+navbar.swift"; sourceTree = "<group>"; };
@@ -197,7 +199,6 @@
 		B952E88D1FFFD5A300E0CC98 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B9ADEBE11FFEE2ED00C50F11 /* TranslationService.swift */,
 				B9ADEBE51FFEEC6800C50F11 /* TranslationObject.swift */,
 			);
 			path = Models;
@@ -305,7 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				B9F9E6A32000BF8A00917C58 /* UserSettings.swift */,
-				B9918468208881FC002973DC /* SettingsDispatcher.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -406,17 +406,35 @@
 			isa = PBXGroup;
 			children = (
 				B9D039FA1FFD9EF900011D73 /* CurrencyRate .swift */,
-				B9D039EF1FFD73DA00011D73 /* CurrencyService.swift */,
-				B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */,
 				B9CC52B52006CB6200E3B447 /* CurrencyConverter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B9DE7B962089D78A0008D81F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B9918468208881FC002973DC /* SettingsDispatcher.swift */,
+				B9DE7B942089D5AA0008D81F /* UserAlert.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B9DE7B972089D7930008D81F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B9D039EF1FFD73DA00011D73 /* CurrencyService.swift */,
+				B9ADEBDE1FFEBA4200C50F11 /* CurrencyServiceHelper.swift */,
+				B9ADEBE11FFEE2ED00C50F11 /* TranslationService.swift */,
+				B952E88F1FFFD5C000E0CC98 /* WeatherService.swift */,
+				B95FDC01200A2396008D7D67 /* LocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		B9DF7320200A7E7F00907496 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B95FDC01200A2396008D7D67 /* LocationService.swift */,
 				B95FDC04200A32E0008D7D67 /* LocationModel.swift */,
 			);
 			path = Model;
@@ -509,6 +527,8 @@
 		B9F443AF200EA878007F8605 /* MainTabBarContainerController */ = {
 			isa = PBXGroup;
 			children = (
+				B9DE7B972089D7930008D81F /* Services */,
+				B9DE7B962089D78A0008D81F /* Helpers */,
 				B99184652087EEAB002973DC /* Model */,
 				B99184672087EEBC002973DC /* Controller */,
 				B99184662087EEB6002973DC /* View */,
@@ -519,7 +539,6 @@
 		B9F9E6A120003C3B00917C58 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B952E88F1FFFD5C000E0CC98 /* WeatherService.swift */,
 				B952E8911FFFD5EC00E0CC98 /* CurrentWeather.swift */,
 				B9F9E69F20003C2200917C58 /* WeatherCodeConverter.swift */,
 			);
@@ -879,6 +898,7 @@
 				B9CC52B62006CB6200E3B447 /* CurrencyConverter.swift in Sources */,
 				B95FDBFE20097BC8008D7D67 /* TranslationViewController+TextField.swift in Sources */,
 				B97F481420018921009FF140 /* CurrencyViewController.swift in Sources */,
+				B9DE7B952089D5AA0008D81F /* UserAlert.swift in Sources */,
 				B9F9E6A020003C2200917C58 /* WeatherCodeConverter.swift in Sources */,
 				B9D039FB1FFD9EF900011D73 /* CurrencyRate .swift in Sources */,
 				B9918469208881FC002973DC /* SettingsDispatcher.swift in Sources */,

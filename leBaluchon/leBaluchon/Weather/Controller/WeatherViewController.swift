@@ -77,7 +77,7 @@ class WeatherViewController: UIViewController {
       WeatherService.fetchWeather(for: city, completion: { (weather, error) in
         // display an alert connexions fails
         if error != nil {
-          self.showAlert()
+          UserAlert.show(title: Constants.AlertMessages.warning, message: Constants.AlertMessages.connexionProblem, controller: self)
           return
         }
         
@@ -89,15 +89,5 @@ class WeatherViewController: UIViewController {
       }
       )
     }
-  }
-
-  ///    Show alert when user try to do an invalid operation such as 2
-  /// decimal points in the same number
-  func showAlert() {
-    let alertVC = UIAlertController(title: Constants.AlertMessages.warning,
-                                    message: Constants.AlertMessages.connexionProblem,
-                                    preferredStyle: .alert)
-    alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-    self.present(alertVC, animated: true, completion: nil)
   }
 }
